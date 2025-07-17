@@ -1,0 +1,10 @@
+{
+  "HELLO_WORLD": "hello world",
+  "NOT_FOUND_PAGE_TITLE": "Page not found",
+  "NOT_FOUND_PAGE_DESCRIPTION": "The page you are looking for was not found or an unexpected error occurred.",
+  "BACK_TO_HOME": "Back to Home",
+  "HOME_PAGE_TITLE": "Home Page",
+  "HOME_PAGE_CONTENT": "This is the home page of your application.",
+  "ERROR_PAGE_TITLE": "Error",
+  "ERROR_PAGE_DEFAULT_MESSAGE": "An unexpected error occurred. Please try again later."
+}
