@@ -1,10 +1,12 @@
 import { createApp } from 'vue';
-import { createPinia } from 'pinia';
-import { detectUserLanguage, i18n, loadLocaleMessages } from './config/localization';
-import { getRouter, setupRouter } from './config/router';
-import PrimeVue from 'primevue/config';
+
 import Aura from '@primeuix/themes/aura';
-import App from './app.vue';
+import { createPinia } from 'pinia';
+import PrimeVue from 'primevue/config';
+
+import App from '@/app.vue';
+import { detectUserLanguage, i18n, loadLocaleMessages } from '@/config/localization';
+import { getRouter, setupRouter } from '@/config/router';
 import '@/shared/styles/index.scss';
 
 // Загружаем локализацию

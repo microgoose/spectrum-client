@@ -1,7 +1,8 @@
-import { createRouter, createWebHistory, type Router, type RouteRecordRaw } from 'vue-router';
+import { type RouteRecordRaw, type Router, createRouter, createWebHistory } from 'vue-router';
+
 import { t } from '@/config/localization';
-import NotFoundPage from '@/pages/errors/not-found-page.vue';
 import ErrorPage from '@/pages/errors/error-page.vue';
+import NotFoundPage from '@/pages/errors/not-found-page.vue';
 
 // Перечисление маршрутов, используется для программного перехода на страницу
 export enum Routes {
