@@ -10,5 +10,5 @@
 </template>
 
 <script setup lang="ts">
-import Card from 'primevue/card'
+import Card from 'primevue/card';
 </script>

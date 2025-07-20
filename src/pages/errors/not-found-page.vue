@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import { Routes, pushPage } from '@/config/router'
-import Card from 'primevue/card'
-import Button from 'primevue/button'
+import { Routes, pushPage } from '@/config/router';
+import Card from 'primevue/card';
+import Button from 'primevue/button';
 </script>

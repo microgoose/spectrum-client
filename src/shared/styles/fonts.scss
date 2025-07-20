@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'Roboto Variable';
+  src: url('/fonts/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 100 900; /* диапазон веса */
+  font-stretch: 75% 100%; /* диапазон ширины */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto Variable';
+  src: url('/fonts/Roboto-Italic-VariableFont_wdth,wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-stretch: 75% 100%;
+  font-style: italic;
+}
+
+body {
+  font-family: 'Roboto Variable', sans-serif;
+  font-variation-settings:
+    'wght' 400,
+    'wdth' 100;
+}

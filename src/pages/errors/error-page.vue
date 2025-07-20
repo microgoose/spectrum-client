@@ -11,10 +11,10 @@
 </template>
 
 <script setup lang="ts">
-import { Routes, pushPage } from '@/config/router'
-import { defineProps } from 'vue'
-import Card from 'primevue/card'
-import Button from 'primevue/button'
+import { Routes, pushPage } from '@/config/router';
+import { defineProps } from 'vue';
+import Card from 'primevue/card';
+import Button from 'primevue/button';
 
-defineProps<{ message?: string }>()
+defineProps<{ message?: string }>();
 </script>
