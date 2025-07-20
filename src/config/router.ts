@@ -15,17 +15,17 @@ export const routes: Record<string, RouteRecordRaw> = {
   [Routes.HOME]: {
     path: '/',
     component: () => import('@/pages/home-page.vue'), //Асинхронная загрузка страницы, для уменьшения размера бандла
-    meta: { titleKey: 'HOME_PAGE_TITLE' },
+    meta: { titleKey: 'homePageTitle' },
   },
   [Routes.ERROR]: {
     path: '/error',
     component: ErrorPage,
-    meta: { titleKey: 'ERROR_PAGE_TITLE' },
+    meta: { titleKey: 'errorPageTitle' },
   },
   [Routes.NOT_FOUND]: {
     path: '/:pathMatch(.*)*',
     component: NotFoundPage, // Обязательная страница для отображения при ошибке, не загружать асинхронно
-    meta: { titleKey: 'NOT_FOUND_PAGE_TITLE' },
+    meta: { titleKey: 'notFoundPageTitle' },
   },
 };
 

@@ -1,12 +1,12 @@
 <template>
   <Card>
     <template #title>
-      {{ $t('NOT_FOUND_PAGE_TITLE') }}
+      {{ $t('notFoundPageTitle') }}
     </template>
 
     <template #content>
-      <p>{{ $t('NOT_FOUND_PAGE_DESCRIPTION') }}</p>
-      <Button @click="pushPage(Routes.HOME)" :label="$t('BACK_TO_HOME')" class="p-mt-3" />
+      <p>{{ $t('notFoundPageDescription') }}</p>
+      <Button @click="pushPage(Routes.HOME)" :label="$t('backToHome')" class="p-mt-3" />
     </template>
   </Card>
 </template>

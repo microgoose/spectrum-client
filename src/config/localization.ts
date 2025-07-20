@@ -35,7 +35,7 @@ export const i18n = createI18n({
 export const t = i18n.global.t;
 
 // Функция для динамической загрузки переводов
-export async function loadLocaleMessages(locale: string) {
+export async function changeLocale(locale: string) {
   const response = await fetch(`/locales/${locale}.json`);
   const messages = await response.json();
   i18n.global.setLocaleMessage(locale, messages);

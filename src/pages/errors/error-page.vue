@@ -1,11 +1,11 @@
 <template>
   <Card>
     <template #title>
-      {{ $t('ERROR_PAGE_TITLE') }}
+      {{ $t('errorPageTitle') }}
     </template>
     <template #content>
-      <p>{{ message || $t('ERROR_PAGE_DEFAULT_MESSAGE') }}</p>
-      <Button :label="$t('BACK_TO_HOME')" @click="pushPage(Routes.HOME)" class="p-mt-3" />
+      <p>{{ message || $t('errorPageDefaultMessage') }}</p>
+      <Button :label="$t('backToHome')" @click="pushPage(Routes.HOME)" class="p-mt-3" />
     </template>
   </Card>
 </template>

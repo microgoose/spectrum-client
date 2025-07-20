@@ -1,10 +1,10 @@
 <template>
   <Card>
     <template #title>
-      {{ $t('HELLO_WORLD') }}
+      {{ $t('helloWorld') }}
     </template>
     <template #content>
-      <p>{{ $t('HOME_PAGE_CONTENT') }}</p>
+      <p>{{ $t('homePageContent') }}</p>
     </template>
   </Card>
 </template>
