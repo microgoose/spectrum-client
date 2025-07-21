@@ -1,7 +1,8 @@
+@use 'reset';
 @use 'fonts';
+@use 'typography';
 
-body {
-  font:
-    normal 400 14px/18px 'Roboto Variable',
-    sans-serif;
+html {
+  font: var(--font-text);
+  color: var(--p-text-color);
 }

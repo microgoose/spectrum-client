@@ -7,6 +7,12 @@
   "homePageContent": "Это главная страница вашего приложения.",
   "errorPageTitle": "Ошибка",
   "errorPageDefaultMessage": "Произошла непредвиденная ошибка. Пожалуйста, попробуйте позже.",
+  "notificationsPageTitle": "Уведомления",
+  "contactsPageTitle": "Контакты",
+  "documentsPageTitle": "Документы",
+  "clearingAccountsPageTitle": "Клиринговые счета",
+  "reportsPageTitle": "Отчёты",
+  "profilePageTitle": "Профиль",
   "primevue": {
     "accept": "Да",
     "addRule": "Добавить правило",
@@ -198,5 +204,21 @@
       "zoomIn": "Увеличить",
       "zoomOut": "Уменьшить"
     }
+  },
+  "sidebar": {
+    "main": "Главное",
+    "notifications": "Уведомления",
+    "contacts": "Контакты",
+    "documents": "Документы",
+    "clearingAccounts": "Клиринговые счета",
+    "reports": "Отчёты",
+    "profile": "Профиль"
+  },
+  "app": {
+    "name": "АРМ \"Спектр\"",
+    "shortDescription": "Автоматизированное рабочее место \"Спектр\""
+  },
+  "company": {
+    "name": "Петербургская биржа"
   }
 }

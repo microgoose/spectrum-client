@@ -7,6 +7,12 @@
   "homePageContent": "This is the home page of your application.",
   "errorPageTitle": "Error",
   "errorPageDefaultMessage": "An unexpected error occurred. Please try again later.",
+  "notificationsPageTitle": "Notifications",
+  "contactsPageTitle": "Contacts",
+  "documentsPageTitle": "Documents",
+  "clearingAccountsPageTitle": "Clearing Accounts",
+  "reportsPageTitle": "Reports",
+  "profilePageTitle": "Profile",
   "primevue": {
     "accept": "Yes",
     "addRule": "Add Rule",
@@ -198,5 +204,21 @@
       "zoomIn": "Zoom In",
       "zoomOut": "Zoom Out"
     }
+  },
+  "sidebar": {
+    "main": "Main",
+    "notifications": "Notifications",
+    "contacts": "Contacts",
+    "documents": "Documents",
+    "clearingAccounts": "Clearing Accounts",
+    "reports": "Reports",
+    "profile": "Profile"
+  },
+  "app": {
+    "name": "Workstation \"Spectr\"",
+    "shortDescription": "Automated Workplace \"Spectr\""
+  },
+  "company": {
+    "name": "SPIMEX"
   }
 }

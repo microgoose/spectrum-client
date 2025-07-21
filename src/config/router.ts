@@ -1,33 +1,78 @@
-import { type RouteRecordRaw, type Router, createRouter, createWebHistory } from 'vue-router';
+import { type Router, createRouter, createWebHistory } from 'vue-router';
 
 import { t } from '@/config/localization';
-import ErrorPage from '@/pages/errors/error-page.vue';
-import NotFoundPage from '@/pages/errors/not-found-page.vue';
+import ErrorPage from '@/pages/errors/ErrorPage.vue';
+import NotFoundPage from '@/pages/errors/NotFoundPage.vue';
 
 // Перечисление маршрутов, используется для программного перехода на страницу
 export enum Routes {
-  HOME = 'HOME',
-  NOT_FOUND = 'NOT_FOUND',
-  ERROR = 'ERROR',
+  HOME = 'home ',
+  NOT_FOUND = 'not-found',
+  ERROR = 'error',
+  NOTIFICATIONS = 'notifications',
+  CONTACTS = 'contacts',
+  DOCUMENTS = 'documents',
+  CLEARING_ACCOUNTS = 'clearing-accounts',
+  REPORTS = 'reports',
+  PROFILE = 'profile',
 }
 
-export const routes: Record<string, RouteRecordRaw> = {
-  [Routes.HOME]: {
+export const routes = [
+  {
     path: '/',
-    component: () => import('@/pages/home-page.vue'), //Асинхронная загрузка страницы, для уменьшения размера бандла
+    name: Routes.HOME,
+    component: () => import('@/pages/HomePage.vue'), //Асинхронная загрузка страницы, для уменьшения размера бандла
     meta: { titleKey: 'homePageTitle' },
   },
-  [Routes.ERROR]: {
+  {
+    path: '/notifications',
+    name: Routes.NOTIFICATIONS,
+    component: () => import('@/pages/NotificationsPage.vue'),
+    meta: { titleKey: 'notificationsPageTitle' },
+  },
+  {
+    path: '/contacts',
+    name: Routes.CONTACTS,
+    component: () => import('@/pages/ContactsPage.vue'),
+    meta: { titleKey: 'contactsPageTitle' },
+  },
+  {
+    path: '/documents',
+    name: Routes.DOCUMENTS,
+    component: () => import('@/pages/DocumentsPage.vue'),
+    meta: { titleKey: 'documentsPageTitle' },
+  },
+  {
+    path: '/clearing-accounts',
+    name: Routes.CLEARING_ACCOUNTS,
+    component: () => import('@/pages/ClearingAccountsPage.vue'),
+    meta: { titleKey: 'clearingAccountsPageTitle' },
+  },
+  {
+    path: '/reports',
+    name: Routes.REPORTS,
+    component: () => import('@/pages/ReportsPage.vue'),
+    meta: { titleKey: 'reportsPageTitle' },
+  },
+  {
+    path: '/profile',
+    name: Routes.PROFILE,
+    component: () => import('@/pages/ProfilePage.vue'),
+    meta: { titleKey: 'profilePageTitle' },
+  },
+  {
     path: '/error',
+    name: Routes.ERROR,
     component: ErrorPage,
     meta: { titleKey: 'errorPageTitle' },
   },
-  [Routes.NOT_FOUND]: {
+  {
     path: '/:pathMatch(.*)*',
+    name: Routes.NOT_FOUND,
     component: NotFoundPage, // Обязательная страница для отображения при ошибке, не загружать асинхронно
     meta: { titleKey: 'notFoundPageTitle' },
   },
-};
+];
 
 let router: Router | undefined;
 
@@ -57,7 +102,11 @@ export const setupRouter = () => {
 
 export const pushPage = (route: Routes, params?: Record<string, string>) => {
   getRouter().push({
-    path: routes[route].path,
-    query: params,
+    name: route,
+    params,
   });
+};
+
+export const getRoutePath = (route: Routes, params?: Record<string, string>) => {
+  return getRouter().resolve({ name: route, params }).href;
 };

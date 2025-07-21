@@ -1,3 +1,7 @@
+// fonts.scss
+
+$default-family: 'Roboto Variable', sans-serif;
+
 @font-face {
   font-family: 'Roboto Variable';
   src: url('/fonts/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
@@ -12,11 +16,4 @@
   font-weight: 100 900;
   font-stretch: 75% 100%;
   font-style: italic;
-}
-
-body {
-  font-family: 'Roboto Variable', sans-serif;
-  font-variation-settings:
-    'wght' 400,
-    'wdth' 100;
 }

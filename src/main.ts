@@ -1,9 +1,10 @@
 import { createApp } from 'vue';
 
 import { createPinia } from 'pinia';
+import 'primeicons/primeicons.css';
 import PrimeVue from 'primevue/config';
 
-import App from '@/app.vue';
+import App from '@/App.vue';
 import { changeLocale, detectUserLanguage, i18n } from '@/config/localization';
 import { getPrimeVueConfig } from '@/config/primevue-config';
 import { getRouter, setupRouter } from '@/config/router';
