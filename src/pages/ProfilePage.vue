@@ -6,9 +6,7 @@
 
     <template #content>
       <div>
-        <InputText type="text" v-model="profileStore.profile.fullName" />
-        <InputText type="text" v-model="profileStore.profile.email" />
-        <InputText type="text" v-model="profileStore.profile.phone" />
+        <!-- TODO: add profile form -->
       </div>
     </template>
   </Card>
@@ -16,7 +14,6 @@
 
 <script setup lang="ts">
 import Card from 'primevue/card';
-import InputText from 'primevue/inputtext';
 
 import { useProfileStore } from '@/store/profile.store';
 

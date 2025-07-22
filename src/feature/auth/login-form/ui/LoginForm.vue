@@ -14,7 +14,7 @@
     v-slot="$form"
     :resolver="resolver"
     :initialValues="loginStore"
-    @submit="onFormSubmit"
+    @submit="login"
   >
     <div>
       <InputText
@@ -53,19 +53,11 @@ import Button from 'primevue/button';
 import InputText from 'primevue/inputtext';
 import Message from 'primevue/message';
 
-import { Routes } from '@/config/router';
-import { pushPage } from '@/service/route.service';
-import { useAuthStore } from '@/store/auth.store';
+import { login } from '@/service/login.service';
 import { useLoginStore } from '@/store/login.store';
 
 import { loginValidationScheme } from '../model/login-validation.scheme';
 
 const loginStore = useLoginStore();
 const resolver = ref(zodResolver(loginValidationScheme));
-
-const onFormSubmit = () => {
-  const auth = useAuthStore();
-  auth.login('test-token'); // TODO: remove this
-  pushPage(Routes.HOME);
-};
 </script>

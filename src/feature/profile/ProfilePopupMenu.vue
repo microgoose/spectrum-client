@@ -3,6 +3,7 @@
   --p-button-border-radius: none;
 
   min-width: 120px;
+  height: 100%;
   display: flex;
 }
 
@@ -36,8 +37,9 @@
   <div :class="$style.profileButton">
     <Button>
       <RouterLink :to="getRoutePath(Routes.PROFILE)" :class="$style.profileButtonLink">
-        <ProfileAvatar :avatar="profileStore.profile.avatar" />
-        <span>{{ profileStore.profile.fullName }}</span>
+        <ProfileAvatar :avatar="null" />
+        <!-- TODO: add avatar -->
+        <span>{{ profile.name }} {{ profile.surname }} {{ profile.patronymic }}</span>
       </RouterLink>
     </Button>
 
@@ -49,11 +51,11 @@
       <div :class="$style.profileMenuInfo">
         <span>
           <i class="pi pi-envelope" />
-          {{ profileStore.profile.email }}
+          {{ profile.email }}
         </span>
         <span>
           <i class="pi pi-phone" />
-          {{ profileStore.profile.phone }}
+          {{ profile.phone }}
         </span>
       </div>
     </template>
@@ -80,12 +82,15 @@ import { Dialogs } from '@/config/dialog';
 import { Routes } from '@/config/router';
 import ConfigLogout from '@/feature/auth/ConfigLogout.vue';
 import ProfileAvatar from '@/feature/profile/ProfileAvatar.vue';
+import type { User } from '@/feature/user/model/user.types';
 import { getRoutePath } from '@/service/route.service';
 import { useDialogStore } from '@/store/dialog.store';
 import { useProfilePopupStore } from '@/store/profile-popup.store';
-import { useProfileStore } from '@/store/profile.store';
 
-const profileStore = useProfileStore();
+defineProps<{
+  profile: User;
+}>();
+
 const menuItems = useProfilePopupStore().menuItems;
 const dialogStore = useDialogStore();
 

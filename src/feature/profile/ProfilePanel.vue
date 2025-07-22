@@ -4,6 +4,7 @@
   height: 40px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 16px;
 }
 
@@ -17,19 +18,33 @@
 <template>
   <div :class="$style.userPanel">
     <div :class="$style.organizationInfo">
-      <span>{{ profileStore.organization.name }}</span>
-      <span>ИНН: {{ profileStore.organization.inn }}</span>
-      <span>ОГРН: {{ profileStore.organization.ogrn }}</span>
+      <template v-if="profileStore.organization">
+        <span>{{ profileStore.organization.shortName }}</span>
+        <span>ИНН: {{ profileStore.organization.inn }}</span>
+        <span>ОГРН: {{ profileStore.organization.ogrn }}</span>
+      </template>
+
+      <template v-else>
+        <Skeleton width="100px" height="20px" />
+        <Skeleton width="100px" height="20px" />
+        <Skeleton width="100px" height="20px" />
+      </template>
     </div>
 
-    <ProfilePopupMenu />
+    <ProfilePopupMenu v-if="profileStore.profile" :profile="profileStore.profile" />
+    <Skeleton v-else width="120px" height="100%" />
   </div>
 </template>
 
 <script setup lang="ts">
+import Skeleton from 'primevue/skeleton';
+
+import { loadProfile } from '@/service/profile.service';
 import { useProfileStore } from '@/store/profile.store';
 
 import ProfilePopupMenu from './ProfilePopupMenu.vue';
 
 const profileStore = useProfileStore();
+
+if (!profileStore.isLoading) loadProfile();
 </script>

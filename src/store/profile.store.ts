@@ -1,32 +1,30 @@
 import { defineStore } from 'pinia';
 
-export interface UserProfile {
-  id: string;
-  fullName: string;
-  email: string;
-  phone: string;
-  avatar: string | null;
-}
+import type { Organization } from '@/feature/organization/model/organization.types';
+import type { User } from '@/feature/user/model/user.types';
 
 export interface ProfileState {
-  profile: UserProfile;
+  isLoading: boolean;
+  profile: User | null;
+  organization: Organization | null;
 }
 
 export const useProfileStore = defineStore('profile', {
-  // TODO: добавить логику получения данных из API
-  state: () => ({
-    profile: {
-      id: '1',
-      fullName: 'Иванов Иван Иванович',
-      email: 'ivanov@example.com',
-      phone: '+7 (999) 123-45-67',
-      avatar: null,
-    },
-    organization: {
-      id: '1',
-      name: 'Акционерное общество "Авиакомпания "Аэрофлот"',
-      inn: '7707083893',
-      ogrn: '1027700132000',
-    },
+  state: (): ProfileState => ({
+    isLoading: false,
+    profile: null,
+    organization: null,
   }),
+
+  actions: {
+    setIsLoading(isLoading: boolean) {
+      this.isLoading = isLoading;
+    },
+    setProfile(profile: User) {
+      this.profile = profile;
+    },
+    setOrganization(organization: Organization) {
+      this.organization = organization;
+    },
+  },
 });

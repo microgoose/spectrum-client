@@ -3,6 +3,7 @@ import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 import 'primeicons/primeicons.css';
 import PrimeVue from 'primevue/config';
+import ToastService from 'primevue/toastservice';
 
 import App from '@/App.vue';
 import { i18n } from '@/config/localization';
@@ -23,6 +24,7 @@ app.use(createPinia());
 app.use(i18n);
 app.use(getRouter());
 app.use(PrimeVue, getPrimeVueConfig());
+app.use(ToastService);
 
 // Добавляем глобальные свойства для доступа к i18n в компонентах
 app.config.globalProperties.$t = i18n.global.t.bind(i18n.global);

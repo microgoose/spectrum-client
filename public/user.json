@@ -1,0 +1,13 @@
+{
+    "1": {
+        "id": 1,
+        "login": "peter",
+        "name": "Петр",
+        "surname": "Петров",
+        "patronymic": "Петрович",
+        "email": "peter@example.com",
+        "phone": "+1234567890",
+        "inn": "1234567890",
+        "organizationId": 1
+    }
+}

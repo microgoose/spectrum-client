@@ -229,6 +229,9 @@
     },
     "action": {
       "logout": "Logout"
+    },
+    "error": {
+      "loadProfile": "Failed to load profile, refresh the page."
     }
   },
   "login": {

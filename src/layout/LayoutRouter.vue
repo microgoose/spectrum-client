@@ -1,4 +1,5 @@
 <template>
+  <Toast />
   <component v-if="route.name" :is="layout">
     <router-view />
   </component>
@@ -7,6 +8,7 @@
 <script setup lang="ts">
 import { computed, watch } from 'vue';
 
+import Toast from 'primevue/toast';
 import { useRoute } from 'vue-router';
 
 import { layouts } from '@/config/layouts';
