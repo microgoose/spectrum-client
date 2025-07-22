@@ -39,6 +39,7 @@
 </template>
 
 <script setup lang="ts">
-import { Routes, getRoutePath } from '@/config/router';
+import { Routes } from '@/config/router';
+import { getRoutePath } from '@/service/route.service';
 import Logo from '@/shared/assets/logo.svg';
 </script>

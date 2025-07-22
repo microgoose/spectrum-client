@@ -18,7 +18,7 @@
 }
 
 .profileMenuInfo {
-  padding: 0 12px;
+  padding: 14px 8px 14px 8px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -58,29 +58,39 @@
       </div>
     </template>
   </Menu>
+
+  <Dialog
+    :header="$t('profile.text.logoutTitle')"
+    modal
+    :visible="dialogStore.isOpen(Dialogs.LOGOUT)"
+    @update:visible="dialogStore.close(Dialogs.LOGOUT)"
+  >
+    <ConfigLogout />
+  </Dialog>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 
 import Button from 'primevue/button';
+import Dialog from 'primevue/dialog';
 import Menu from 'primevue/menu';
 
-import { Routes, getRoutePath } from '@/config/router';
-import { useProfileStore } from '@/core/profile-store';
-import ProfileAvatar from '@/features/profile/ui/ProfileAvatar.vue';
+import { Dialogs } from '@/config/dialog';
+import { Routes } from '@/config/router';
+import ConfigLogout from '@/feature/auth/ConfigLogout.vue';
+import ProfileAvatar from '@/feature/profile/ProfileAvatar.vue';
+import { getRoutePath } from '@/service/route.service';
+import { useDialogStore } from '@/store/dialog.store';
+import { useProfilePopupStore } from '@/store/profile-popup.store';
+import { useProfileStore } from '@/store/profile.store';
 
 const profileStore = useProfileStore();
+const menuItems = useProfilePopupStore().menuItems;
+const dialogStore = useDialogStore();
 
 const menuId = ref('overlay_menu');
 const menu = ref();
-
-const menuItems = ref([
-  {
-    label: 'Выйти',
-    icon: 'pi pi-sign-out', //todo
-  },
-]);
 
 const toggle = (event: Event) => {
   menu.value?.toggle(event);

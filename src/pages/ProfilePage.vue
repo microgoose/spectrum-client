@@ -18,7 +18,7 @@
 import Card from 'primevue/card';
 import InputText from 'primevue/inputtext';
 
-import { useProfileStore } from '@/core/profile-store';
+import { useProfileStore } from '@/store/profile.store';
 
 const profileStore = useProfileStore();
 </script>

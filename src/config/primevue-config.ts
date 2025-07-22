@@ -32,6 +32,14 @@ const SpimexPreset = definePreset(Aura, {
       },
     },
   },
+
+  components: {
+    card: {
+      body: {
+        gap: '16px',
+      },
+    },
+  },
 });
 
 export const getPrimeVueConfig = () => {

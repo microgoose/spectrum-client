@@ -3,8 +3,8 @@
 </template>
 
 <script setup lang="ts">
-import { useSidebarStore } from '@/core/sidebar-store';
 import Sidebar from '@/shared/components/sidebar/Sidebar.vue';
+import { useSidebarStore } from '@/store/sidebar-store';
 
 const sidebarStore = useSidebarStore();
 </script>

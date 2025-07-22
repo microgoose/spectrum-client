@@ -1,7 +1,8 @@
 import { defineStore } from 'pinia';
 
 import { t } from '@/config/localization';
-import { Routes, getRoutePath } from '@/config/router';
+import { Routes } from '@/config/router';
+import { getRoutePath } from '@/service/route.service';
 
 export interface SidebarItemType {
   label: string;

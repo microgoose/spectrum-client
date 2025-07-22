@@ -16,7 +16,8 @@ import { defineProps } from 'vue';
 import Button from 'primevue/button';
 import Card from 'primevue/card';
 
-import { Routes, pushPage } from '@/config/router';
+import { Routes } from '@/config/router';
+import { pushPage } from '@/service/route.service';
 
 defineProps<{ message?: string }>();
 </script>

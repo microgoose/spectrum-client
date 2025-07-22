@@ -5,9 +5,10 @@ import 'primeicons/primeicons.css';
 import PrimeVue from 'primevue/config';
 
 import App from '@/App.vue';
-import { changeLocale, detectUserLanguage, i18n } from '@/config/localization';
+import { i18n } from '@/config/localization';
 import { getPrimeVueConfig } from '@/config/primevue-config';
-import { getRouter, setupRouter } from '@/config/router';
+import { changeLocale, detectUserLanguage } from '@/service/localization.service';
+import { getRouter, setupRouter } from '@/service/route.service';
 import '@/shared/styles/index.scss';
 
 // Загружаем локализацию

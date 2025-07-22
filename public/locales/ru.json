@@ -13,6 +13,7 @@
   "clearingAccountsPageTitle": "Клиринговые счета",
   "reportsPageTitle": "Отчёты",
   "profilePageTitle": "Профиль",
+  "loginPageTitle": "Вход",
   "primevue": {
     "accept": "Да",
     "addRule": "Добавить правило",
@@ -220,5 +221,28 @@
   },
   "company": {
     "name": "Петербургская биржа"
+  },
+  "profile": {
+    "text": {
+      "logoutConfirm": "Вы уверены, что хотите выйти?",
+      "logoutTitle": "Выход"
+    },
+    "action": {
+      "logout": "Выйти"
+    }
+  },
+  "login": {
+    "action": {
+      "enter": "Войти"
+    },
+    "error": {
+      "usernameRequired": "Имя пользователя обязательно.",
+      "emailRequired": "Email обязательно.",
+      "emailInvalid": "Неверный email."
+    },
+    "placeholder": {
+      "username": "Имя пользователя",
+      "email": "Email"
+    }
   }
 }

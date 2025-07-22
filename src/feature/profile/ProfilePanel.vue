@@ -27,7 +27,7 @@
 </template>
 
 <script setup lang="ts">
-import { useProfileStore } from '@/core/profile-store';
+import { useProfileStore } from '@/store/profile.store';
 
 import ProfilePopupMenu from './ProfilePopupMenu.vue';
 

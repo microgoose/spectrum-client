@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { type SidebarItemType } from '@/core/sidebar-store';
+import { type SidebarItemType } from '@/store/sidebar-store';
 
 defineProps<{ item: SidebarItemType }>();
 </script>

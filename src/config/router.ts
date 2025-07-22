@@ -1,6 +1,4 @@
-import { type Router, createRouter, createWebHistory } from 'vue-router';
-
-import { t } from '@/config/localization';
+import AuthLayout from '@/layout/AuthLayout.vue';
 import ErrorPage from '@/pages/errors/ErrorPage.vue';
 import NotFoundPage from '@/pages/errors/NotFoundPage.vue';
 
@@ -15,15 +13,10 @@ export enum Routes {
   CLEARING_ACCOUNTS = 'clearing-accounts',
   REPORTS = 'reports',
   PROFILE = 'profile',
+  LOGIN = 'login',
 }
 
 export const routes = [
-  {
-    path: '/',
-    name: Routes.HOME,
-    component: () => import('@/pages/HomePage.vue'), //Асинхронная загрузка страницы, для уменьшения размера бандла
-    meta: { titleKey: 'homePageTitle' },
-  },
   {
     path: '/notifications',
     name: Routes.NOTIFICATIONS,
@@ -61,10 +54,22 @@ export const routes = [
     meta: { titleKey: 'profilePageTitle' },
   },
   {
+    path: '/login',
+    name: Routes.LOGIN,
+    component: () => import('@/pages/LoginPage.vue'),
+    meta: { titleKey: 'loginPageTitle', unauthorized: true, layout: 'auth' },
+  },
+  {
     path: '/error',
     name: Routes.ERROR,
     component: ErrorPage,
     meta: { titleKey: 'errorPageTitle' },
+  },
+  {
+    path: '/',
+    name: Routes.HOME,
+    component: () => import('@/pages/HomePage.vue'), //Асинхронная загрузка страницы, для уменьшения размера бандла
+    meta: { titleKey: 'homePageTitle' },
   },
   {
     path: '/:pathMatch(.*)*',
@@ -73,40 +78,3 @@ export const routes = [
     meta: { titleKey: 'notFoundPageTitle' },
   },
 ];
-
-let router: Router | undefined;
-
-export const getRouter = () => {
-  if (!router) {
-    throw new Error('Router not initialized');
-  }
-  return router;
-};
-
-export const setupRouter = () => {
-  router = createRouter({
-    history: createWebHistory(),
-    routes: Object.values(routes),
-  });
-
-  router.beforeEach((to, from, next) => {
-    to.meta.title = t(to.meta.titleKey as string);
-    next();
-  });
-
-  router.onError((error, to, from) => {
-    console.error('Router error:', error);
-    pushPage(Routes.ERROR, { message: error.message });
-  });
-};
-
-export const pushPage = (route: Routes, params?: Record<string, string>) => {
-  getRouter().push({
-    name: route,
-    params,
-  });
-};
-
-export const getRoutePath = (route: Routes, params?: Record<string, string>) => {
-  return getRouter().resolve({ name: route, params }).href;
-};

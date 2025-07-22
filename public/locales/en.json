@@ -13,6 +13,7 @@
   "clearingAccountsPageTitle": "Clearing Accounts",
   "reportsPageTitle": "Reports",
   "profilePageTitle": "Profile",
+  "loginPageTitle": "Login",
   "primevue": {
     "accept": "Yes",
     "addRule": "Add Rule",
@@ -220,5 +221,28 @@
   },
   "company": {
     "name": "SPIMEX"
+  },
+  "profile": {
+    "text": {
+      "logoutConfirm": "Are you sure you want to logout?",
+      "logoutTitle": "Logout"
+    },
+    "action": {
+      "logout": "Logout"
+    }
+  },
+  "login": {
+    "action": {
+      "enter": "Enter"
+    },
+    "error": {
+      "usernameRequired": "Username is required.",
+      "emailRequired": "Email is required.",
+      "emailInvalid": "Invalid email address."
+    },
+    "placeholder": {
+      "username": "Username",
+      "email": "Email"
+    }
   }
 }

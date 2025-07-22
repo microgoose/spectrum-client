@@ -24,9 +24,9 @@
 </template>
 
 <script setup lang="ts">
-import { type SidebarItemType } from '@/core/sidebar-store';
 import AppLogo from '@/shared/components/AppLogo.vue';
 import SidebarItem from '@/shared/components/sidebar/SidebarItem.vue';
+import { type SidebarItemType } from '@/store/sidebar-store';
 
 defineProps<{ items: SidebarItemType[] }>();
 </script>
