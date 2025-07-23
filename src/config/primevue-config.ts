@@ -1,6 +1,5 @@
 import { definePreset } from '@primeuix/themes';
 import Aura from '@primeuix/themes/aura';
-
 import { i18n } from './localization';
 
 const SpimexPreset = definePreset(Aura, {

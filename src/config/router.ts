@@ -1,9 +1,6 @@
 import NotFoundPage from '@/pages/NotFoundPage.vue';
 
 
-
-
-
 // Перечисление маршрутов, используется для программного перехода на страницу
 export enum Routes {
   HOME = 'home ',

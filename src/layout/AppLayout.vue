@@ -36,6 +36,5 @@
 <script setup lang="ts">
 import Sidebar from '@/feature/app-sidebar/AppSidebar.vue';
 import ProfilePanel from '@/feature/user/ui/ProfilePanel.vue';
-
 import AppPageContentLayout from './AppPageContentLayout.vue';
 </script>

@@ -29,14 +29,12 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-
 import Skeleton from 'primevue/skeleton';
-
 import { getNotifications } from '@/api/notification.api.ts';
 import type { NotificationType } from '@/api/types/notification.types.ts';
 import NotificationItem from '@/feature/notification/ui/NotificationItem.vue';
 
 const notifications = ref<NotificationType[]>([]);
 
-getNotifications().then(l => notifications.value = Object.values(l));
+getNotifications().then((l) => (notifications.value = Object.values(l)));
 </script>

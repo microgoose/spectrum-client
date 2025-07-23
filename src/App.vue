@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import Toast from 'primevue/toast';
-
-import { Dialogs } from '@/config/dialog.ts';
 import Dialog from 'primevue/dialog';
+import Toast from 'primevue/toast';
+import { Dialogs } from '@/config/dialog.ts';
 import ErrorCard from '@/feature/error/ui/ErrorCard.vue';
 import LayoutRouter from '@/layout/LayoutRouter.vue';
 import { useDialogStore } from '@/store/dialog.store.ts';

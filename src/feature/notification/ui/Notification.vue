@@ -26,7 +26,16 @@
 <template>
   <Card>
     <template #content>
-      <div class="notification-container">
+      <template v-if="isPending">
+        <div class="notification-container">
+          <Skeleton width="100px" height="1rem" />
+          <Skeleton width="200px" height="2rem" />
+          <Skeleton width="200px" height="1rem" />
+          <Skeleton width="200px" height="1rem" />
+        </div>
+      </template>
+
+      <div class="notification-container" v-else-if="notification">
         <div class="date">{{ notification.date }}</div>
         <h3 class="title">{{ notification.title }}</h3>
         <p class="description">{{ notification.description }}</p>
@@ -40,22 +49,23 @@
   </Card>
 </template>
 
-
 <script setup lang="ts">
-import { ref } from 'vue';
-
+import { useQuery } from '@tanstack/vue-query';
 import Button from 'primevue/button';
 import Card from 'primevue/card';
-
+import Skeleton from 'primevue/skeleton';
 import { getNotification } from '@/api/notification.api.ts';
 
 const props = defineProps<{ id: string }>();
 
-const notification = ref({});
+const { isPending, data: notification } = useQuery({
+  queryKey: ['notification-' + props.id],
+  queryFn: () => getNotification(props.id),
+  throwOnError: true,
+});
 
-getNotification(props.id).then((n) => (notification.value = n));
-
+//TODO
 function onAcknowledge() {
-  alert(notification.value.title);
+  alert(notification?.value?.title);
 }
 </script>

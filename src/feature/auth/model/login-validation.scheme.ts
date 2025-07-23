@@ -1,5 +1,4 @@
 import { z } from '@zod/mini';
-
 import { t } from '@/config/localization.ts';
 
 export const loginValidationScheme = z.object({

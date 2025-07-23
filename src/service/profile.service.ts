@@ -1,5 +1,4 @@
 import { useToast } from 'primevue/usetoast';
-
 import { getAuthUserOrganization } from '@/api/organization.api.ts';
 import { getAuthUser } from '@/api/user.api.ts';
 import { t } from '@/config/localization';

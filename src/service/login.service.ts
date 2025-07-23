@@ -1,6 +1,5 @@
 import { Routes } from '@/config/router';
 import { useAuthStore } from '@/store/auth.store';
-
 import { pushPage } from './route.service';
 
 export const login = async () => {

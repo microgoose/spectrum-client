@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia';
-
 import { t } from '@/config/localization';
 import { Routes } from '@/config/router';
 import { getRoutePath } from '@/service/route.service';

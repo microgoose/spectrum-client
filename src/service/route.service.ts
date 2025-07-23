@@ -5,12 +5,11 @@ import {
   createRouter,
   createWebHistory,
 } from 'vue-router';
-
 import { t } from '@/config/localization';
 import { Routes, routes } from '@/config/router';
+import { openError } from '@/service/error.service.ts';
 import { useAuthStore } from '@/store/auth.store';
 import { useSidebarStore } from '@/store/sidebar-store';
-import { openError } from '@/service/error.service.ts';
 
 let router: Router | undefined;
 
@@ -72,4 +71,4 @@ const beforeEach = (
 const onError = (err: Error) => {
   openError(err);
   pushPage(Routes.HOME);
-}
+};

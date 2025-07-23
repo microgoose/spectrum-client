@@ -1,5 +1,4 @@
 import { createI18n } from 'vue-i18n';
-
 import { detectUserLanguage } from '@/service/localization.service';
 
 export const SUPPORTED_LANGUAGES = ['en', 'ru'];

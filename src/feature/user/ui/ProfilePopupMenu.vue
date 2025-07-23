@@ -73,11 +73,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-
 import Button from 'primevue/button';
 import Dialog from 'primevue/dialog';
 import Menu from 'primevue/menu';
-
 import type { UserType } from '@/api/types/user.types.ts';
 import { Dialogs } from '@/config/dialog.ts';
 import { Routes } from '@/config/router.ts';

@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia';
-
 import type { OrganizationType } from '@/api/types/organization.types.ts';
 import type { UserType } from '@/api/types/user.types.ts';
 
