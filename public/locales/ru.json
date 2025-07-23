@@ -254,5 +254,10 @@
     "text": {
       "errorTitle": "Ошибка"
     }
+  },
+  "notification": {
+    "action": {
+      "understood": "Понятно"
+    }
   }
 }

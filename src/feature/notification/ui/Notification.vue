@@ -1,53 +1,61 @@
-<script setup lang="ts">
-import Button from 'primevue/button';
-import Card from 'primevue/card';
-
-// const notificationId = useRoute().params.id;
-//
-// const notification
-
-function onAcknowledge() {
-  alert('Уведомление подтверждено: ' + notification.value.title);
+<style scoped lang="css">
+.notification-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
-</script>
+
+.date {
+  font: var(--font-subtitle);
+  color: var(--p-text-muted-color);
+}
+
+.title {
+  font: var(--font-h2-bold);
+}
+
+.description {
+  font: var(--font-text);
+}
+
+.message {
+  font: var(--font-text);
+}
+</style>
 
 <template>
   <Card>
     <template #content>
-      <!--      <div class="date">{{ notification.date }}</div>-->
-      <!--      <h3 class="title">{{ notification.title }}</h3>-->
-      <!--      <p class="description">{{ notification.description }}</p>-->
-      <!--      <pre class="message">{{ notification.message }}</pre>-->
-      <!--      <Button label="Понятно" @click="onAcknowledge" />-->
+      <div class="notification-container">
+        <div class="date">{{ notification.date }}</div>
+        <h3 class="title">{{ notification.title }}</h3>
+        <p class="description">{{ notification.description }}</p>
+        <pre class="message">{{ notification.message }}</pre>
+      </div>
+    </template>
+
+    <template #footer>
+      <Button :label="$t('notification.action.understood')" @click="onAcknowledge" />
     </template>
   </Card>
 </template>
 
-<style scoped lang="css">
-.date {
-  font-size: 0.9rem;
-  color: var(--p-text-muted-color);
-  margin-bottom: 0.5rem;
-}
 
-.title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
+<script setup lang="ts">
+import { ref } from 'vue';
 
-.description {
-  margin-bottom: 1rem;
-  white-space: normal;
-}
+import Button from 'primevue/button';
+import Card from 'primevue/card';
 
-.message {
-  margin-bottom: 1rem;
-  white-space: pre-wrap;
-  font-family: inherit;
-}
+import { getNotification } from '@/api/notification.api.ts';
 
-button {
-  margin-top: 1rem;
+const props = defineProps<{ id: string }>();
+
+const notification = ref({});
+
+getNotification(props.id).then((n) => (notification.value = n));
+
+function onAcknowledge() {
+  alert(notification.value.title);
 }
-</style>
+</script>

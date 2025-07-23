@@ -254,5 +254,10 @@
     "text": {
       "errorTitle": "Error"
     }
+  },
+  "notification": {
+    "action": {
+      "understood": "Understood"
+    }
   }
 }

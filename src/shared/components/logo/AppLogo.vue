@@ -31,13 +31,13 @@
 </style>
 
 <template>
-  <router-link :class="$style.mainLogo" :to="getRoutePath(Routes.HOME)">
+  <RouterLink :class="$style.mainLogo" :to="getRoutePath(Routes.HOME)">
     <div :class="$style.logoContainer">
       <logo :class="$style.logoIcon" />
       <h2>{{ $t('company.name') }}</h2>
     </div>
     <span>{{ $t('app.shortDescription') }}</span>
-  </router-link>
+  </RouterLink>
 </template>
 
 <script setup lang="ts">

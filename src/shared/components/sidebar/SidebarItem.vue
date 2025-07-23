@@ -19,12 +19,12 @@
 </style>
 
 <template>
-  <router-link :to="item.to" :class="[$style.sidebarItem, item.isActive && $style.isActive]">
+  <RouterLink :to="item.to" :class="[$style.sidebarItem, item.isActive && $style.isActive]">
     <h2>
       <i :class="item.icon" />
       {{ item.label }}
     </h2>
-  </router-link>
+  </RouterLink>
 </template>
 
 <script setup lang="ts">

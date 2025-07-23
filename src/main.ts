@@ -9,14 +9,12 @@ import App from '@/App.vue';
 import { i18n } from '@/config/localization';
 import { getPrimeVueConfig } from '@/config/primevue-config';
 import { changeLocale, detectUserLanguage } from '@/service/localization.service';
-import { getRouter, setupRouter } from '@/service/route.service';
+import { getRouter } from '@/service/route.service';
 import '@/shared/styles/index.scss';
 import { openError } from '@/service/error.service.ts';
 
 // Загружаем локализацию
 await changeLocale(detectUserLanguage());
-// Создаем роутер
-setupRouter();
 
 // Создаем приложение
 const app = createApp(App);

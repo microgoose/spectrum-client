@@ -16,19 +16,22 @@ let router: Router | undefined;
 
 export const getRouter = () => {
   if (!router) {
-    throw new Error('Router not initialized');
+    router = setupRouter();
   }
+
   return router;
 };
 
-export const setupRouter = () => {
-  router = createRouter({
+const setupRouter = () => {
+  const router = createRouter({
     history: createWebHistory(),
     routes: Object.values(routes),
   });
 
   router.beforeEach(beforeEach);
   router.onError(onError);
+
+  return router;
 };
 
 export const pushPage = (route: Routes, params?: Record<string, string>) => {
