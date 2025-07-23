@@ -9,6 +9,7 @@ import {
 import { t } from '@/config/localization';
 import { Routes, routes } from '@/config/router';
 import { useAuthStore } from '@/store/auth.store';
+import { useSidebarStore } from '@/store/sidebar-store';
 
 let router: Router | undefined;
 
@@ -51,6 +52,11 @@ const beforeEach = (
   to.meta.title = t(to.meta.titleKey as string);
 
   const auth = useAuthStore();
+  const sidebar = useSidebarStore();
+
+  sidebar.items.forEach((item) => {
+    item.isActive = item.to === to.path;
+  });
 
   if (!to.meta.unauthorized && !auth.isAuthenticated) {
     next({ name: Routes.LOGIN });

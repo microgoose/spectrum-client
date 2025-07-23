@@ -19,7 +19,7 @@
 }
 
 .profileMenuInfo {
-  padding: 14px 8px 14px 8px;
+  padding: 8px 12px 0 12px;
   display: flex;
   flex-direction: column;
   gap: 8px;

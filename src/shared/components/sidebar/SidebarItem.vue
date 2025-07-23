@@ -3,6 +3,11 @@
   padding: 0.75rem 1rem;
   font: var(--font-h2);
 
+  &:hover,
+  &.isActive {
+    color: var(--p-primary-color);
+  }
+
   & i {
     margin-right: 4px;
   }
@@ -10,7 +15,7 @@
 </style>
 
 <template>
-  <router-link :to="item.to" :class="$style.sidebarItem">
+  <router-link :to="item.to" :class="[$style.sidebarItem, item.isActive && $style.isActive]">
     <h2>
       <i :class="item.icon" />
       {{ item.label }}

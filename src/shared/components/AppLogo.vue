@@ -6,8 +6,9 @@
   gap: 4px;
 }
 .mainLogo h2 {
+  margin-top: 4px;
   font: var(--font-h2-bold);
-  color: var(--p-blue-500);
+  color: var(--p-logo-text);
 }
 .mainLogo span {
   font: var(--font-subtitle);
@@ -25,6 +26,7 @@
 .logoIcon {
   width: 38px;
   height: 38px;
+  color: var(--p-logo-icon);
 }
 </style>
 

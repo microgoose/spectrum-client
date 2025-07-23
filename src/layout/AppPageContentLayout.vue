@@ -6,7 +6,7 @@
 }
 
 .pageContentLayoutHeader {
-  border-bottom: 1px solid var(--p-surface-border);
+  border-bottom: 1px solid var(--p-border);
 }
 
 .pageContentLayoutContent {

@@ -5,7 +5,7 @@
 }
 
 .appLayoutSidebar {
-  border-right: 1px solid var(--p-surface-border);
+  border-right: 1px solid var(--p-border);
 }
 
 .appLayoutContent {

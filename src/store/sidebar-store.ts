@@ -8,10 +8,15 @@ export interface SidebarItemType {
   label: string;
   to: string;
   icon: string;
+  isActive?: boolean;
+}
+
+export interface SidebarStoreType {
+  items: SidebarItemType[];
 }
 
 export const useSidebarStore = defineStore('sidebar', {
-  state: () => ({
+  state: (): SidebarStoreType => ({
     items: [
       { label: t('sidebar.main'), to: getRoutePath(Routes.HOME), icon: 'pi pi-home' },
       {
