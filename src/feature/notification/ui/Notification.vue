@@ -50,19 +50,13 @@
 </template>
 
 <script setup lang="ts">
-import { useQuery } from '@tanstack/vue-query';
 import Button from 'primevue/button';
 import Card from 'primevue/card';
 import Skeleton from 'primevue/skeleton';
-import { getNotification } from '@/api/notification.api.ts';
+import { getNotificationQuery } from '@/service/notification/notification.service.ts';
 
 const props = defineProps<{ id: string }>();
-
-const { isPending, data: notification } = useQuery({
-  queryKey: ['notification-' + props.id],
-  queryFn: () => getNotification(props.id),
-  throwOnError: true,
-});
+const { isPending, data: notification } = getNotificationQuery(props.id);
 
 //TODO
 function onAcknowledge() {

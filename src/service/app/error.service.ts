@@ -1,6 +1,6 @@
 import { Dialogs } from '@/config/dialog.ts';
-import { useDialogStore } from '@/store/dialog.store.ts';
-import { useErrorStore } from '@/store/error.store.ts';
+import { useDialogStore } from '@/store/app/dialog.store.ts';
+import { useErrorStore } from '@/store/app/error.store.ts';
 
 export const openError = (error: Error) => {
   const dialogStore = useDialogStore();

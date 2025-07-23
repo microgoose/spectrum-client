@@ -8,7 +8,7 @@
 import { computed, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { layouts } from '@/config/layouts';
-import { setPageTitle } from '@/service/route.service';
+import { setPageTitle } from '@/service/app/route.service.ts';
 
 const route = useRoute();
 

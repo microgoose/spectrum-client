@@ -7,9 +7,9 @@ import ToastService from 'primevue/toastservice';
 import App from '@/App.vue';
 import { i18n } from '@/config/localization';
 import { getPrimeVueConfig } from '@/config/primevue-config';
-import { openError } from '@/service/error.service.ts';
-import { changeLocale, detectUserLanguage } from '@/service/localization.service';
-import { getRouter } from '@/service/route.service';
+import { openError } from '@/service/app/error.service.ts';
+import { changeLocale, detectUserLanguage } from '@/service/app/localization.service.ts';
+import { getRouter } from '@/service/app/route.service.ts';
 import '@/shared/styles/index.scss';
 
 // Загружаем локализацию

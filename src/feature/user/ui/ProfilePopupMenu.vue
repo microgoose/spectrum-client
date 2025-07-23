@@ -81,9 +81,9 @@ import { Dialogs } from '@/config/dialog.ts';
 import { Routes } from '@/config/router.ts';
 import ConfigLogout from '@/feature/auth/ui/ConfigLogout.vue';
 import ProfileAvatar from '@/feature/user/ui/ProfileAvatar.vue';
-import { getRoutePath } from '@/service/route.service.ts';
-import { useDialogStore } from '@/store/dialog.store.ts';
-import { useProfilePopupStore } from '@/store/profile-popup.store.ts';
+import { getRoutePath } from '@/service/app/route.service.ts';
+import { useDialogStore } from '@/store/app/dialog.store.ts';
+import { useProfilePopupStore } from '@/store/profile/profile-popup.store.ts';
 
 defineProps<{
   profile: UserType;

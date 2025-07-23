@@ -52,8 +52,8 @@ import Button from 'primevue/button';
 import InputText from 'primevue/inputtext';
 import Message from 'primevue/message';
 import { loginValidationScheme } from '@/feature/auth/model/login-validation.scheme.ts';
-import { login } from '@/service/login.service.ts';
-import { useLoginStore } from '@/store/login.store.ts';
+import { login } from '@/service/auth/login.service.ts';
+import { useLoginStore } from '@/store/auth/login.store.ts';
 
 const loginStore = useLoginStore();
 const resolver = ref(zodResolver(loginValidationScheme));

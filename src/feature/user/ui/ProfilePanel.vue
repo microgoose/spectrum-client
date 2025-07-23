@@ -18,10 +18,10 @@
 <template>
   <div :class="$style.userPanel">
     <div :class="$style.organizationInfo">
-      <template v-if="profileStore.organization">
-        <span>{{ profileStore.organization.shortName }}</span>
-        <span>ИНН: {{ profileStore.organization.inn }}</span>
-        <span>ОГРН: {{ profileStore.organization.ogrn }}</span>
+      <template v-if="organization">
+        <span>{{ organization.shortName }}</span>
+        <span>ИНН: {{ organization.inn }}</span>
+        <span>ОГРН: {{ organization.ogrn }}</span>
       </template>
 
       <template v-else>
@@ -31,18 +31,17 @@
       </template>
     </div>
 
-    <ProfilePopupMenu v-if="profileStore.profile" :profile="profileStore.profile" />
+    <ProfilePopupMenu v-if="user" :profile="user" />
     <Skeleton v-else width="120px" height="100%" />
   </div>
 </template>
 
 <script setup lang="ts">
 import Skeleton from 'primevue/skeleton';
-import { loadProfile } from '@/service/profile.service.ts';
-import { useProfileStore } from '@/store/profile.store.ts';
+import { getAuthOrganizationQuery } from '@/service/organization/organization.service.ts';
+import { getAuthUserQuery } from '@/service/user/user.service.ts';
 import ProfilePopupMenu from './ProfilePopupMenu.vue';
 
-const profileStore = useProfileStore();
-
-if (!profileStore.isLoading) loadProfile();
+const { data: user } = getAuthUserQuery();
+const { data: organization } = getAuthOrganizationQuery();
 </script>

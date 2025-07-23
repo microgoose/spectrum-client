@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { type SidebarItemType } from '@/store/sidebar-store';
+import { type SidebarItemType } from '@/store/app/sidebar-store.ts';
 
 defineProps<{ item: SidebarItemType }>();
 </script>

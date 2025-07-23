@@ -39,7 +39,7 @@
 <script setup lang="ts">
 import { Panel } from 'primevue';
 import { Routes } from '@/config/router.ts';
-import { getRoutePath } from '@/service/route.service.ts';
+import { getRoutePath } from '@/service/app/route.service.ts';
 
 defineProps<{
   id: string;

@@ -18,5 +18,5 @@
 import Button from 'primevue/button';
 import Card from 'primevue/card';
 import { Routes } from '@/config/router.ts';
-import { pushPage } from '@/service/route.service.ts';
+import { pushPage } from '@/service/app/route.service.ts';
 </script>

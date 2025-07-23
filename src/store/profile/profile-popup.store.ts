@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import type { MenuItem } from 'primevue/menuitem';
-import { confirmLogout } from '@/service/logout.service';
+import { confirmLogout } from '@/service/auth/logout.service.ts';
 
 export const useProfilePopupStore = defineStore('profilePopup', () => {
   const menuItems: MenuItem[] = [

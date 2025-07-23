@@ -15,5 +15,5 @@
 
 <script setup lang="ts">
 import Button from 'primevue/button';
-import { logout } from '@/service/logout.service.ts';
+import { logout } from '@/service/auth/logout.service.ts';
 </script>

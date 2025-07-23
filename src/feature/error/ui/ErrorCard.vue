@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
 import Card from 'primevue/card';
-import { useErrorStore } from '@/store/error.store.ts';
+import { useErrorStore } from '@/store/app/error.store.ts';
 
 const errorStore = useErrorStore();
 </script>

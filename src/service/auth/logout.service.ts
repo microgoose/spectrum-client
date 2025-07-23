@@ -1,8 +1,8 @@
-import { Dialogs } from '@/config/dialog';
-import { Routes } from '@/config/router';
-import { useAuthStore } from '@/store/auth.store';
-import { useDialogStore } from '@/store/dialog.store';
-import { pushPage } from './route.service';
+import { Dialogs } from '@/config/dialog.ts';
+import { Routes } from '@/config/router.ts';
+import { useDialogStore } from '@/store/app/dialog.store.ts';
+import { useAuthStore } from '@/store/auth/auth.store.ts';
+import { pushPage } from '../app/route.service.ts';
 
 export const confirmLogout = () => {
   const dialogStore = useDialogStore();

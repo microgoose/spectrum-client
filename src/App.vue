@@ -4,7 +4,7 @@ import Toast from 'primevue/toast';
 import { Dialogs } from '@/config/dialog.ts';
 import ErrorCard from '@/feature/error/ui/ErrorCard.vue';
 import LayoutRouter from '@/layout/LayoutRouter.vue';
-import { useDialogStore } from '@/store/dialog.store.ts';
+import { useDialogStore } from '@/store/app/dialog.store.ts';
 
 const dialogStore = useDialogStore();
 </script>

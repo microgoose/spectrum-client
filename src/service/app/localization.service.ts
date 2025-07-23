@@ -1,5 +1,4 @@
-import { DEFAULT_LANG, SUPPORTED_LANGUAGES, i18n } from '@/config/localization';
-
+import { DEFAULT_LANG, SUPPORTED_LANGUAGES, i18n } from '@/config/localization.ts';
 
 // 1. Получаем язык из URL
 export function getLangFromUrl(): string | null {

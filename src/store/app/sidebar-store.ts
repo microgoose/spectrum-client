@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
-import { t } from '@/config/localization';
-import { Routes } from '@/config/router';
-import { getRoutePath } from '@/service/route.service';
+import { t } from '@/config/localization.ts';
+import { Routes } from '@/config/router.ts';
+import { getRoutePath } from '@/service/app/route.service.ts';
 
 export interface SidebarItemType {
   label: string;

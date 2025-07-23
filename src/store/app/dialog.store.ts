@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { Dialogs } from '@/config/dialog';
+import { Dialogs } from '@/config/dialog.ts';
 
 export const useDialogStore = defineStore('dialog', {
   state: () => ({

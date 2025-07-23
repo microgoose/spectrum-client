@@ -28,7 +28,7 @@
 <script setup lang="ts">
 import AppLogo from '@/shared/components/logo/AppLogo.vue';
 import SidebarItem from '@/shared/components/sidebar/SidebarItem.vue';
-import { type SidebarItemType } from '@/store/sidebar-store';
+import { type SidebarItemType } from '@/store/app/sidebar-store.ts';
 
 defineProps<{ items: SidebarItemType[] }>();
 </script>
