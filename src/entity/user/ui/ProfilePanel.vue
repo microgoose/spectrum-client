@@ -39,8 +39,8 @@
 <script setup lang="ts">
 import Skeleton from 'primevue/skeleton';
 
-import { loadProfile } from '@/service/profile.service';
-import { useProfileStore } from '@/store/profile.store';
+import { loadProfile } from '@/service/profile.service.ts';
+import { useProfileStore } from '@/store/profile.store.ts';
 
 import ProfilePopupMenu from './ProfilePopupMenu.vue';
 

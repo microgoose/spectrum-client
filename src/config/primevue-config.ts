@@ -1,6 +1,5 @@
 import { definePreset } from '@primeuix/themes';
 import Aura from '@primeuix/themes/aura';
-import { button } from '@primeuix/themes/aura/inputnumber';
 
 import { i18n } from './localization';
 

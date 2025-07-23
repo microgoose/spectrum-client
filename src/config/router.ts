@@ -1,4 +1,3 @@
-import AuthLayout from '@/layout/AuthLayout.vue';
 import ErrorPage from '@/pages/errors/ErrorPage.vue';
 import NotFoundPage from '@/pages/errors/NotFoundPage.vue';
 

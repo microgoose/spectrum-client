@@ -13,5 +13,5 @@
 <script setup lang="ts">
 import Card from 'primevue/card';
 
-import LoginForm from '@/feature/auth/login-form/ui/LoginForm.vue';
+import LoginForm from '@/feature/auth/ui/LoginForm.vue';
 </script>

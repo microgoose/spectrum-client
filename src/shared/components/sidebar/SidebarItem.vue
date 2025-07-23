@@ -8,6 +8,10 @@
     color: var(--p-primary-color);
   }
 
+  &.isActive {
+    border-left: 1px solid var(--p-primary-color);
+  }
+
   & i {
     margin-right: 4px;
   }

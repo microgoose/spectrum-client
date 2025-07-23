@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 
-import type { Organization } from '@/feature/organization/model/organization.types';
-import type { User } from '@/feature/user/model/user.types';
+import type { Organization } from '@/entity/organization/model/organization.types';
+import type { User } from '@/entity/user/model/user.types';
 
 export interface ProfileState {
   isLoading: boolean;

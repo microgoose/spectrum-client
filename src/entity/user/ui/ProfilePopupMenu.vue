@@ -78,14 +78,14 @@ import Button from 'primevue/button';
 import Dialog from 'primevue/dialog';
 import Menu from 'primevue/menu';
 
-import { Dialogs } from '@/config/dialog';
-import { Routes } from '@/config/router';
-import ConfigLogout from '@/feature/auth/ConfigLogout.vue';
-import ProfileAvatar from '@/feature/profile/ProfileAvatar.vue';
-import type { User } from '@/feature/user/model/user.types';
-import { getRoutePath } from '@/service/route.service';
-import { useDialogStore } from '@/store/dialog.store';
-import { useProfilePopupStore } from '@/store/profile-popup.store';
+import { Dialogs } from '@/config/dialog.ts';
+import { Routes } from '@/config/router.ts';
+import type { User } from '@/entity/user/model/user.types.ts';
+import ProfileAvatar from '@/entity/user/ui/ProfileAvatar.vue';
+import ConfigLogout from '@/feature/auth/ui/ConfigLogout.vue';
+import { getRoutePath } from '@/service/route.service.ts';
+import { useDialogStore } from '@/store/dialog.store.ts';
+import { useProfilePopupStore } from '@/store/profile-popup.store.ts';
 
 defineProps<{
   profile: User;
