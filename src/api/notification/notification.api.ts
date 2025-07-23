@@ -1,4 +1,4 @@
-import type { NotificationType } from '@/api/types/notification.types.ts';
+import type { NotificationType } from '@/api/notification/notification.types.ts';
 import { api } from '@/config/api.ts';
 
 export const getNotifications = async () => {

@@ -16,8 +16,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
-import Notification from '@/feature/notification/ui/Notification.vue';
 import PageTitle from '@/shared/components/PageTitle.vue';
+import Notification from '@/view/entity/notification/Notification.vue';
 
 const route = useRoute();
 

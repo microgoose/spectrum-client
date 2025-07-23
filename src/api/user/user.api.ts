@@ -1,4 +1,4 @@
-import type { UserType } from '@/api/types/user.types.ts';
+import type { UserType } from '@/api/user/user.types.ts';
 import { api } from '@/config/api.ts';
 
 export const getAuthUser = async () => {

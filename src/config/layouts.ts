@@ -1,7 +1,7 @@
-import AppLayout from '@/layout/AppLayout.vue';
-import AuthLayout from '@/layout/AuthLayout.vue';
+import AuthLayout from '@/view/layout/auth/AuthLayout.vue';
+import DefaultLayout from '@/view/layout/default/DefaultLayout.vue';
 
 export const layouts = {
-  default: AppLayout,
+  default: DefaultLayout,
   auth: AuthLayout,
 };

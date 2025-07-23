@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/vue-query';
-import { getNotification, getNotifications } from '@/api/notification.api.ts';
-import type { NotificationType } from '@/api/types/notification.types.ts';
+import { getNotification, getNotifications } from '@/api/notification/notification.api.ts';
+import type { NotificationType } from '@/api/notification/notification.types.ts';
 
 export const getNotificationQuery = (id: string) => {
   return useQuery<NotificationType>({

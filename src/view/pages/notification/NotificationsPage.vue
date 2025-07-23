@@ -4,6 +4,6 @@
 </template>
 
 <script setup lang="ts">
-import NotificationList from '@/feature/notification/ui/NotificationList.vue';
 import PageTitle from '@/shared/components/PageTitle.vue';
+import NotificationList from '@/view/entity/notification/NotificationList.vue';
 </script>

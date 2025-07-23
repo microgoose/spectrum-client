@@ -29,8 +29,8 @@
 
 <script setup lang="ts">
 import Skeleton from 'primevue/skeleton';
-import NotificationItem from '@/feature/notification/ui/NotificationItem.vue';
 import { getNotificationsQuery } from '@/service/notification/notification.service.ts';
+import NotificationItem from '@/view/entity/notification/NotificationItem.vue';
 
 const { isPending, data: notifications } = getNotificationsQuery();
 </script>

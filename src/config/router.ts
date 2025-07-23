@@ -1,4 +1,5 @@
-import NotFoundPage from '@/pages/NotFoundPage.vue';
+import NotFoundPage from '@/view/pages/error/NotFoundPage.vue';
+
 
 // Перечисление маршрутов, используется для программного перехода на страницу
 export enum Routes {
@@ -18,55 +19,55 @@ export const routes = [
   {
     path: '/notifications',
     name: Routes.NOTIFICATIONS,
-    component: () => import('@/pages/notification/NotificationsPage.vue'),
+    component: () => import('@/view/pages/notification/NotificationsPage.vue'),
     meta: { titleKey: 'notificationsPageTitle' },
   },
   {
     path: '/notification/:id',
     name: Routes.NOTIFICATION,
-    component: () => import('@/pages/notification/NotificationPage.vue'),
+    component: () => import('@/view/pages/notification/NotificationPage.vue'),
     meta: { titleKey: 'notificationPageTitle' },
   },
   {
     path: '/contacts',
     name: Routes.CONTACTS,
-    component: () => import('@/pages/ContactsPage.vue'),
+    component: () => import('@/view/pages/ContactsPage.vue'),
     meta: { titleKey: 'contactsPageTitle' },
   },
   {
     path: '/documents',
     name: Routes.DOCUMENTS,
-    component: () => import('@/pages/DocumentsPage.vue'),
+    component: () => import('@/view/pages/DocumentsPage.vue'),
     meta: { titleKey: 'documentsPageTitle' },
   },
   {
     path: '/clearing-accounts',
     name: Routes.CLEARING_ACCOUNTS,
-    component: () => import('@/pages/ClearingAccountsPage.vue'),
+    component: () => import('@/view/pages/ClearingAccountsPage.vue'),
     meta: { titleKey: 'clearingAccountsPageTitle' },
   },
   {
     path: '/reports',
     name: Routes.REPORTS,
-    component: () => import('@/pages/ReportsPage.vue'),
+    component: () => import('@/view/pages/ReportsPage.vue'),
     meta: { titleKey: 'reportsPageTitle' },
   },
   {
     path: '/profile',
     name: Routes.PROFILE,
-    component: () => import('@/pages/ProfilePage.vue'),
+    component: () => import('@/view/pages/ProfilePage.vue'),
     meta: { titleKey: 'profilePageTitle' },
   },
   {
     path: '/login',
     name: Routes.LOGIN,
-    component: () => import('@/pages/LoginPage.vue'),
+    component: () => import('@/view/pages/auth/LoginPage.vue'),
     meta: { titleKey: 'loginPageTitle', unauthorized: true, layout: 'auth' },
   },
   {
     path: '/',
     name: Routes.HOME,
-    component: () => import('@/pages/HomePage.vue'), //Асинхронная загрузка страницы, для уменьшения размера бандла
+    component: () => import('@/view/pages/HomePage.vue'), //Асинхронная загрузка страницы, для уменьшения размера бандла
     meta: { titleKey: 'homePageTitle' },
   },
   {

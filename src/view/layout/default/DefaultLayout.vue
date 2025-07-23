@@ -20,7 +20,7 @@
     </div>
 
     <div :class="$style.appLayoutContent">
-      <AppPageContentLayout>
+      <DefaultContentLayout>
         <template #header>
           <ProfilePanel />
         </template>
@@ -28,13 +28,13 @@
         <template #content>
           <slot />
         </template>
-      </AppPageContentLayout>
+      </DefaultContentLayout>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import Sidebar from '@/feature/app-sidebar/AppSidebar.vue';
-import ProfilePanel from '@/feature/user/ui/ProfilePanel.vue';
-import AppPageContentLayout from './AppPageContentLayout.vue';
+import ProfilePanel from '@/view/entity/user/ProfilePanel.vue';
+import Sidebar from '@/view/widget/app-sidebar/AppSidebar.vue';
+import DefaultContentLayout from './DefaultContentLayout.vue';
 </script>

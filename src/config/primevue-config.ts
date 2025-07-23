@@ -77,7 +77,7 @@ const SpimexPreset = definePreset(Aura, {
 export const getPrimeVueConfig = () => {
   const currentLocale = i18n.global.locale.value;
   //Мы не знаем заранее, какие поля будут в локализации, поэтому приводим к any
-  const locale = i18n.global.getLocaleMessage(currentLocale) as any;
+  const locale = i18n.global.getLocaleMessage(currentLocale) as Record<string, string>;
 
   if (!locale) throw new Error('Locale not found');
 

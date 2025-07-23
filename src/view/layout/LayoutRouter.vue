@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import { computed, watch } from 'vue';
 import { useRoute } from 'vue-router';
-import { layouts } from '@/config/layouts';
+import { layouts } from '@/config/layouts.ts';
 import { setPageTitle } from '@/service/app/route.service.ts';
 
 const route = useRoute();
