@@ -5,7 +5,7 @@ export interface OrganizationIdType {
   sdcoCode: string;
 }
 
-export interface OrganizationIpIdentity {
+export interface OrganizationIpIdentityType {
   idType: OrganizationIdType;
   idNumber: string;
   idFio: string;
@@ -15,28 +15,28 @@ export interface OrganizationIpIdentity {
   idRegAddress: string;
 }
 
-export interface OrganizationTaxation {
+export interface OrganizationTaxationType {
   id: number;
   description: string;
 }
 
-export interface OrganizationSendRekvContact {
+export interface OrganizationSendRekvContactType {
   phone: string;
   email: string;
 }
 
-export interface OrganizationContact {
+export interface OrganizationContactType {
   fio: string;
   title: string;
   phone: string;
   email: string;
 }
 
-export interface Organization {
+export interface OrganizationType {
   id: number;
   crmOrganizationId: number;
-  ipIdentity: OrganizationIpIdentity;
-  taxation: OrganizationTaxation;
+  ipIdentity: OrganizationIpIdentityType;
+  taxation: OrganizationTaxationType;
   shortName: string;
   fullName: string;
   inn: string;
@@ -47,6 +47,6 @@ export interface Organization {
   postAddress: string;
   address: string | null;
   factAddress: string;
-  sendRekvContact: OrganizationSendRekvContact;
-  organizationContacts: OrganizationContact[];
+  sendRekvContact: OrganizationSendRekvContactType;
+  organizationContacts: OrganizationContactType[];
 }

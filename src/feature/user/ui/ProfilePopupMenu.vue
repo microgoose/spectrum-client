@@ -78,17 +78,17 @@ import Button from 'primevue/button';
 import Dialog from 'primevue/dialog';
 import Menu from 'primevue/menu';
 
+import type { UserType } from '@/api/types/user.types.ts';
 import { Dialogs } from '@/config/dialog.ts';
 import { Routes } from '@/config/router.ts';
-import type { User } from '@/entity/user/model/user.types.ts';
-import ProfileAvatar from '@/entity/user/ui/ProfileAvatar.vue';
 import ConfigLogout from '@/feature/auth/ui/ConfigLogout.vue';
+import ProfileAvatar from '@/feature/user/ui/ProfileAvatar.vue';
 import { getRoutePath } from '@/service/route.service.ts';
 import { useDialogStore } from '@/store/dialog.store.ts';
 import { useProfilePopupStore } from '@/store/profile-popup.store.ts';
 
 defineProps<{
-  profile: User;
+  profile: UserType;
 }>();
 
 const menuItems = useProfilePopupStore().menuItems;

@@ -8,12 +8,14 @@
   "errorPageTitle": "Ошибка",
   "errorPageDefaultMessage": "Произошла непредвиденная ошибка. Пожалуйста, попробуйте позже.",
   "notificationsPageTitle": "Уведомления",
+  "notificationPageTitle": "Уведомление",
   "contactsPageTitle": "Контакты",
   "documentsPageTitle": "Документы",
   "clearingAccountsPageTitle": "Клиринговые счета",
   "reportsPageTitle": "Отчёты",
   "profilePageTitle": "Профиль",
   "loginPageTitle": "Вход",
+
   "primevue": {
     "accept": "Да",
     "addRule": "Добавить правило",
@@ -246,6 +248,11 @@
     "placeholder": {
       "username": "Имя пользователя",
       "email": "Email"
+    }
+  },
+  "error": {
+    "text": {
+      "errorTitle": "Ошибка"
     }
   }
 }

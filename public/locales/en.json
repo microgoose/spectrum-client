@@ -8,12 +8,14 @@
   "errorPageTitle": "Error",
   "errorPageDefaultMessage": "An unexpected error occurred. Please try again later.",
   "notificationsPageTitle": "Notifications",
+  "notificationPageTitle": "Notification",
   "contactsPageTitle": "Contacts",
   "documentsPageTitle": "Documents",
   "clearingAccountsPageTitle": "Clearing Accounts",
   "reportsPageTitle": "Reports",
   "profilePageTitle": "Profile",
   "loginPageTitle": "Login",
+
   "primevue": {
     "accept": "Yes",
     "addRule": "Add Rule",
@@ -246,6 +248,11 @@
     "placeholder": {
       "username": "Username",
       "email": "Email"
+    }
+  },
+  "error": {
+    "text": {
+      "errorTitle": "Error"
     }
   }
 }

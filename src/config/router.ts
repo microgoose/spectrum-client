@@ -1,12 +1,15 @@
-import ErrorPage from '@/pages/errors/ErrorPage.vue';
-import NotFoundPage from '@/pages/errors/NotFoundPage.vue';
+import NotFoundPage from '@/pages/NotFoundPage.vue';
+
+
+
+
 
 // Перечисление маршрутов, используется для программного перехода на страницу
 export enum Routes {
   HOME = 'home ',
   NOT_FOUND = 'not-found',
-  ERROR = 'error',
   NOTIFICATIONS = 'notifications',
+  NOTIFICATION = 'notification',
   CONTACTS = 'contacts',
   DOCUMENTS = 'documents',
   CLEARING_ACCOUNTS = 'clearing-accounts',
@@ -19,8 +22,14 @@ export const routes = [
   {
     path: '/notifications',
     name: Routes.NOTIFICATIONS,
-    component: () => import('@/pages/NotificationsPage.vue'),
+    component: () => import('@/pages/notification/NotificationsPage.vue'),
     meta: { titleKey: 'notificationsPageTitle' },
+  },
+  {
+    path: '/notification/:id',
+    name: Routes.NOTIFICATION,
+    component: () => import('@/pages/notification/NotificationPage.vue'),
+    meta: { titleKey: 'notificationPageTitle' },
   },
   {
     path: '/contacts',
@@ -57,12 +66,6 @@ export const routes = [
     name: Routes.LOGIN,
     component: () => import('@/pages/LoginPage.vue'),
     meta: { titleKey: 'loginPageTitle', unauthorized: true, layout: 'auth' },
-  },
-  {
-    path: '/error',
-    name: Routes.ERROR,
-    component: ErrorPage,
-    meta: { titleKey: 'errorPageTitle' },
   },
   {
     path: '/',

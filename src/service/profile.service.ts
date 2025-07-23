@@ -1,8 +1,8 @@
 import { useToast } from 'primevue/usetoast';
 
+import { getAuthUserOrganization } from '@/api/organization.api.ts';
+import { getAuthUser } from '@/api/user.api.ts';
 import { t } from '@/config/localization';
-import { getAuthUserOrganization } from '@/entity/organization/api/organization.api';
-import { getAuthUser } from '@/entity/user/api/user.api.ts';
 import { useProfileStore } from '@/store/profile.store';
 
 export const loadProfile = async () => {

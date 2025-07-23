@@ -11,6 +11,7 @@ import { getPrimeVueConfig } from '@/config/primevue-config';
 import { changeLocale, detectUserLanguage } from '@/service/localization.service';
 import { getRouter, setupRouter } from '@/service/route.service';
 import '@/shared/styles/index.scss';
+import { openError } from '@/service/error.service.ts';
 
 // Загружаем локализацию
 await changeLocale(detectUserLanguage());
@@ -29,5 +30,9 @@ app.use(ToastService);
 // Добавляем глобальные свойства для доступа к i18n в компонентах
 app.config.globalProperties.$t = i18n.global.t.bind(i18n.global);
 app.config.globalProperties.$n = i18n.global.n.bind(i18n.global);
+
+app.config.errorHandler = (err) => {
+  openError(err as Error);
+}
 
 app.mount('#app');

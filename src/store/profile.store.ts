@@ -1,12 +1,12 @@
 import { defineStore } from 'pinia';
 
-import type { Organization } from '@/entity/organization/model/organization.types';
-import type { User } from '@/entity/user/model/user.types';
+import type { OrganizationType } from '@/api/types/organization.types.ts';
+import type { UserType } from '@/api/types/user.types.ts';
 
 export interface ProfileState {
   isLoading: boolean;
-  profile: User | null;
-  organization: Organization | null;
+  profile: UserType | null;
+  organization: OrganizationType | null;
 }
 
 export const useProfileStore = defineStore('profile', {
@@ -20,10 +20,10 @@ export const useProfileStore = defineStore('profile', {
     setIsLoading(isLoading: boolean) {
       this.isLoading = isLoading;
     },
-    setProfile(profile: User) {
+    setProfile(profile: UserType) {
       this.profile = profile;
     },
-    setOrganization(organization: Organization) {
+    setOrganization(organization: OrganizationType) {
       this.organization = organization;
     },
   },

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NotificationItem from '@/entity/notification/ui/NotificationItem.vue';
+import NotificationItem from '@/feature/notification/ui/NotificationItem.vue';
 </script>
 
 <template>

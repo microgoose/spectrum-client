@@ -6,6 +6,9 @@
 
     <template #content>
       <p>{{ $t('notFoundPageDescription') }}</p>
+    </template>
+
+    <template #footer>
       <Button @click="pushPage(Routes.HOME)" :label="$t('backToHome')" class="p-mt-3" />
     </template>
   </Card>
@@ -15,6 +18,6 @@
 import Button from 'primevue/button';
 import Card from 'primevue/card';
 
-import { Routes } from '@/config/router';
-import { pushPage } from '@/service/route.service';
+import { Routes } from '@/config/router.ts';
+import { pushPage } from '@/service/route.service.ts';
 </script>
