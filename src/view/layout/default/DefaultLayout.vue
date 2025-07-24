@@ -26,5 +26,5 @@
 </template>
 
 <script setup lang="ts">
-import Sidebar from '@/view/widget/app-sidebar/AppSidebar.vue';
+import Sidebar from '@/view/widget/app/AppSidebar.vue';
 </script>

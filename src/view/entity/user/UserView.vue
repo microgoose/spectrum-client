@@ -5,7 +5,7 @@
     <FieldView :label="$t('userView.fields.surname')" :value="user.surname" />
     <FieldView :label="$t('userView.fields.patronymic')" :value="user.patronymic" />
 
-    <Divider/>
+    <Divider />
 
     <FieldView :label="$t('userView.fields.email')" :value="user.email" />
     <FieldView :label="$t('userView.fields.phone')" :value="user.phone" />

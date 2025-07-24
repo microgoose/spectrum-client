@@ -60,38 +60,21 @@
       </div>
     </template>
   </Menu>
-
-  <Dialog
-    :header="$t('profile.text.logoutTitle')"
-    modal
-    :visible="dialogStore.isOpen(Dialogs.LOGOUT)"
-    @update:visible="dialogStore.close(Dialogs.LOGOUT)"
-  >
-    <ConfirmLogout />
-  </Dialog>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 import Button from 'primevue/button';
-import Dialog from 'primevue/dialog';
 import Menu from 'primevue/menu';
 import type { UserType } from '@/api/user/user.types.ts';
-import { Dialogs } from '@/config/dialog.ts';
 import { Routes } from '@/config/router.ts';
 import { getRoutePath } from '@/service/app/route.service.ts';
-import { useDialogStore } from '@/store/app/dialog.store.ts';
 import { useProfilePopupStore } from '@/store/profile/profile-popup.store.ts';
 import UserAvatar from '@/view/entity/user/UserAvatar.vue';
-import ConfirmLogout from '@/view/feature/auth/ConfirmLogout.vue';
 
-defineProps<{
-  profile: UserType;
-}>();
+defineProps<{ profile: UserType }>();
 
 const menuItems = useProfilePopupStore().menuItems;
-const dialogStore = useDialogStore();
-
 const menuId = ref('overlay_menu');
 const menu = ref();
 

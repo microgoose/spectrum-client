@@ -9,17 +9,12 @@
 </style>
 
 <template>
-  <Card>
-    <template #content>
-      <div class="message-container">
-        <p>{{ errorStore.error?.message || $t('errorPageDefaultMessage') }}</p>
-      </div>
-    </template>
-  </Card>
+  <div class="message-container">
+    <p>{{ errorStore.error?.message || $t('errorPageDefaultMessage') }}</p>
+  </div>
 </template>
 
 <script setup lang="ts">
-import Card from 'primevue/card';
 import { useErrorStore } from '@/store/app/error.store.ts';
 
 const errorStore = useErrorStore();

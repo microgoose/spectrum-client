@@ -9,8 +9,8 @@
 
 <template>
   <div class="field-group">
-    <slot/>
+    <slot />
   </div>
 </template>
 
-<script setup lang="ts"/>
+<script setup lang="ts" />

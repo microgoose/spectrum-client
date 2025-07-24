@@ -78,13 +78,12 @@
 import { reactive, ref } from 'vue';
 import { Form, type FormSubmitEvent } from '@primevue/forms';
 import { zodResolver } from '@primevue/forms/resolvers/zod';
-import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
-import Message from 'primevue/message';
-import { userValidationSchema } from '@/model/user/user-validation.schema.ts';
-import type { UserType } from '@/api/user/user.types.ts';
-
 import IftaLabel from 'primevue/iftalabel';
+import InputText from 'primevue/inputtext';
+import Message from 'primevue/message';
+import type { UserType } from '@/api/user/user.types.ts';
+import { userValidationSchema } from '@/model/user/user-validation.schema.ts';
 import FormGridView from '@/shared/components/form/FormGridView.vue';
 
 const props = defineProps<{ user: UserType }>();

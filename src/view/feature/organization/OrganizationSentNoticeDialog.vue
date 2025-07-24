@@ -30,7 +30,8 @@
         {{ $t('applicationSent.message.link') }}
       </RouterLink>
     </p>
-    <Button @click="$emit('confirm')" size="large">
+
+    <Button @click="dialog.close(true)" size="large">
       {{ $t('applicationSent.ok') }}
     </Button>
   </div>
@@ -40,6 +41,7 @@
 import Button from 'primevue/button';
 import { Routes } from '@/config/router.ts';
 import { getRoutePath } from '@/service/app/route.service.ts';
+import { useDialogStore } from '@/store/app/dialog.store.ts';
 
-defineEmits(['confirm']);
+const dialog = useDialogStore();
 </script>

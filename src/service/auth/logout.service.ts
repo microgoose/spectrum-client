@@ -1,19 +1,16 @@
-import { Dialogs } from '@/config/dialog.ts';
+import { dialogs } from '@/config/dialog.ts';
 import { Routes } from '@/config/router.ts';
 import { useDialogStore } from '@/store/app/dialog.store.ts';
 import { useAuthStore } from '@/store/auth/auth.store.ts';
 import { pushPage } from '../app/route.service.ts';
 
-export const confirmLogout = () => {
+export const logout = async () => {
   const dialogStore = useDialogStore();
-  dialogStore.open(Dialogs.LOGOUT);
-};
+  const result = await dialogStore.open(dialogs.CONFIRM_LOGOUT);
 
-export const logout = () => {
-  const dialogStore = useDialogStore();
-  const auth = useAuthStore();
-  auth.logout();
-
-  dialogStore.close(Dialogs.LOGOUT);
-  pushPage(Routes.LOGIN);
+  if (result) {
+    const auth = useAuthStore();
+    auth.logout();
+    pushPage(Routes.LOGIN);
+  }
 };

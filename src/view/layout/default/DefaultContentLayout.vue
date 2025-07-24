@@ -35,23 +35,15 @@
 
 <template>
   <div :class="$style.layout">
-    <header
-      v-if="$slots.header"
-      :class="[$style.header, centerHeader && $style.center]"
-    >
+    <header v-if="$slots.header" :class="[$style.header, centerHeader && $style.center]">
       <slot name="header" />
     </header>
 
-    <main
-      :class="[$style.content, centerContent && $style.center]"
-    >
+    <main :class="[$style.content, centerContent && $style.center]">
       <slot name="content" />
     </main>
 
-    <footer
-      v-if="$slots.footer"
-      :class="[$style.footer, centerFooter && $style.center]"
-    >
+    <footer v-if="$slots.footer" :class="[$style.footer, centerFooter && $style.center]">
       <slot name="footer" />
     </footer>
   </div>
@@ -64,4 +56,3 @@ defineProps<{
   centerFooter?: boolean;
 }>();
 </script>
-

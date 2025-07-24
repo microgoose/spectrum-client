@@ -10,11 +10,13 @@
 <template>
   <div :class="$style.container">
     <h2>{{ $t('profile.text.logoutConfirm') }}</h2>
-    <Button :label="$t('profile.action.logout')" @click="logout" />
+    <Button :label="$t('profile.action.logout')" @click="dialog.close(true)" />
   </div>
 </template>
 
 <script setup lang="ts">
 import Button from 'primevue/button';
-import { logout } from '@/service/auth/logout.service.ts';
+import { useDialogStore } from '@/store/app/dialog.store.ts';
+
+const dialog = useDialogStore();
 </script>

@@ -8,7 +8,7 @@
 
 <template>
   <div class="form-grid">
-    <slot/>
+    <slot />
   </div>
 </template>
 
