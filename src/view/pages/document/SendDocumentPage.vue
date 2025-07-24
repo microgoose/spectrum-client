@@ -1,10 +1,10 @@
 <template>
   <Card>
     <template #title>
-      {{ $t('reportsPageTitle') }}
+      {{ $t('sendDocumentPageTitle') }}
     </template>
     <template #content>
-      <p>Здесь будут отчёты.</p>
+      <p>Здесь будет отправка документов.</p>
     </template>
   </Card>
 </template>

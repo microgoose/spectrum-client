@@ -1,21 +1,38 @@
 import NotFoundPage from '@/view/pages/error/NotFoundPage.vue';
 
-
 // Перечисление маршрутов, используется для программного перехода на страницу
 export enum Routes {
   HOME = 'home ',
-  NOT_FOUND = 'not-found',
+  LOGIN = 'login',
   NOTIFICATIONS = 'notifications',
   NOTIFICATION = 'notification',
-  CONTACTS = 'contacts',
   DOCUMENTS = 'documents',
-  CLEARING_ACCOUNTS = 'clearing-accounts',
-  REPORTS = 'reports',
+  APPLICATIONS = 'applications',
+  ORGANIZATION = 'organization',
+  SEND_DOCUMENT = 'send-document',
   PROFILE = 'profile',
-  LOGIN = 'login',
+  NOT_FOUND = 'not-found',
 }
 
 export const routes = [
+  {
+    path: '/applications',
+    name: Routes.APPLICATIONS,
+    component: () => import('@/view/pages/application/ApplicationsPage.vue'),
+    meta: { titleKey: 'applicationsPageTitle' },
+  },
+  {
+    path: '/organization',
+    name: Routes.ORGANIZATION,
+    component: () => import('@/view/pages/organization/OrganizationPage.vue'),
+    meta: { titleKey: 'applicationsPageTitle' },
+  },
+  {
+    path: '/send-document',
+    name: Routes.SEND_DOCUMENT,
+    component: () => import('@/view/pages/document/SendDocumentPage.vue'),
+    meta: { titleKey: 'applicationsPageTitle' },
+  },
   {
     path: '/notifications',
     name: Routes.NOTIFICATIONS,
@@ -29,33 +46,15 @@ export const routes = [
     meta: { titleKey: 'notificationPageTitle' },
   },
   {
-    path: '/contacts',
-    name: Routes.CONTACTS,
-    component: () => import('@/view/pages/ContactsPage.vue'),
-    meta: { titleKey: 'contactsPageTitle' },
-  },
-  {
     path: '/documents',
     name: Routes.DOCUMENTS,
-    component: () => import('@/view/pages/DocumentsPage.vue'),
+    component: () => import('@/view/pages/document/DocumentsPage.vue'),
     meta: { titleKey: 'documentsPageTitle' },
-  },
-  {
-    path: '/clearing-accounts',
-    name: Routes.CLEARING_ACCOUNTS,
-    component: () => import('@/view/pages/ClearingAccountsPage.vue'),
-    meta: { titleKey: 'clearingAccountsPageTitle' },
-  },
-  {
-    path: '/reports',
-    name: Routes.REPORTS,
-    component: () => import('@/view/pages/ReportsPage.vue'),
-    meta: { titleKey: 'reportsPageTitle' },
   },
   {
     path: '/profile',
     name: Routes.PROFILE,
-    component: () => import('@/view/pages/ProfilePage.vue'),
+    component: () => import('@/view/pages/user/ProfilePage.vue'),
     meta: { titleKey: 'profilePageTitle' },
   },
   {

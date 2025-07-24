@@ -15,6 +15,9 @@
   "reportsPageTitle": "Reports",
   "profilePageTitle": "Profile",
   "loginPageTitle": "Login",
+  "sendDocumentPageTitle": "Send Document",
+  "applicationsPageTitle": "Applications",
+  "organizationPageTitle": "Organization",
 
   "primevue": {
     "accept": "Yes",
@@ -211,10 +214,10 @@
   "sidebar": {
     "main": "Main",
     "notifications": "Notifications",
-    "contacts": "Contacts",
     "documents": "Documents",
-    "clearingAccounts": "Clearing Accounts",
-    "reports": "Reports",
+    "applications": "Applications",
+    "organization": "Organization",
+    "sendDocument": "Send Document",
     "profile": "Profile"
   },
   "app": {
@@ -242,12 +245,11 @@
     },
     "error": {
       "usernameRequired": "Username is required.",
-      "emailRequired": "Email is required.",
-      "emailInvalid": "Invalid email address."
+      "passwordRequired": "Password is required."
     },
     "placeholder": {
       "username": "Username",
-      "email": "Email"
+      "password": "Password"
     }
   },
   "error": {
@@ -259,5 +261,29 @@
     "action": {
       "understood": "Understood"
     }
+  },
+  "documentTable": {
+    "columns": {
+      "type": "Document Type",
+      "status": "Status",
+      "date": "Document Date",
+      "endDate": "Expiration Date"
+    }
+  },
+  "applicationsTable": {
+    "columns": {
+      "type": "Application Type",
+      "status": "Status",
+      "comment": "Processing Comment",
+      "date": "Application Submission Date",
+      "sender": "Sender",
+      "actions": ""
+    }
+  },
+  "cancelApplication": {
+    "dialogTitle": "Cancel application",
+    "title": "Dear colleagues!",
+    "message": "Are you sure you want to cancel the submitted application?",
+    "confirmButton": "Yes"
   }
 }

@@ -15,6 +15,9 @@
   "reportsPageTitle": "Отчёты",
   "profilePageTitle": "Профиль",
   "loginPageTitle": "Вход",
+  "sendDocumentPageTitle": "Отправить документ",
+  "applicationsPageTitle": "Заявления",
+  "organizationPageTitle": "Организация",
 
   "primevue": {
     "accept": "Да",
@@ -211,11 +214,11 @@
   "sidebar": {
     "main": "Главное",
     "notifications": "Уведомления",
-    "contacts": "Контакты",
     "documents": "Документы",
-    "clearingAccounts": "Клиринговые счета",
-    "reports": "Отчёты",
-    "profile": "Профиль"
+    "applications": "Заявления",
+    "organization": "Организация",
+    "sendDocument": "Отправить документ",
+    "profile": "Пользователь"
   },
   "app": {
     "name": "АРМ \"Спектр\"",
@@ -242,12 +245,11 @@
     },
     "error": {
       "usernameRequired": "Имя пользователя обязательно.",
-      "emailRequired": "Email обязательно.",
-      "emailInvalid": "Неверный email."
+      "passwordRequired": "Пароль обязателен."
     },
     "placeholder": {
       "username": "Имя пользователя",
-      "email": "Email"
+      "password": "Пароль"
     }
   },
   "error": {
@@ -259,5 +261,29 @@
     "action": {
       "understood": "Понятно"
     }
+  },
+  "documentTable": {
+    "columns": {
+      "type": "Тип документа",
+      "status": "Статус",
+      "date": "Дата документа",
+      "endDate": "Дата окончания"
+    }
+  },
+  "applicationsTable": {
+    "columns": {
+      "type": "Тип заявления",
+      "status": "Статус",
+      "comment": "Комментарий обработки",
+      "date": "Дата направления заявления",
+      "sender": "Отправитель",
+      "actions": ""
+    }
+  },
+  "cancelApplication": {
+    "dialogTitle": "Отмена заявления",
+    "title": "Уважаемые коллеги!",
+    "message": "Вы уверены, что хотите отменить отправленное заявление?",
+    "confirmButton": "Да"
   }
 }

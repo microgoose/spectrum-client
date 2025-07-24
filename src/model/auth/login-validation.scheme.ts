@@ -6,5 +6,7 @@ export const loginValidationScheme = z.object({
     .string(t('login.error.usernameRequired'))
     .check(z.minLength(1, { message: t('login.error.usernameRequired') })),
 
-  email: z.string().check(z.email({ message: t('login.error.emailInvalid') })),
+  password: z
+    .string(t('login.error.passwordRequired'))
+    .check(z.minLength(1, { message: t('login.error.passwordRequired') })),
 });

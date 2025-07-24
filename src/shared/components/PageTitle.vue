@@ -2,7 +2,7 @@
 
 <template>
   <h2 :class="$style.title">
-    {{ $t('notificationsPageTitle') }}
+    <slot />
   </h2>
 </template>
 

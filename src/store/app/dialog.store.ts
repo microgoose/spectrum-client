@@ -14,7 +14,11 @@ export const useDialogStore = defineStore('dialog', {
       this.visibleDialogs.delete(name);
     },
     toggle(name: Dialogs) {
-      this.visibleDialogs.has(name) ? this.close(name) : this.open(name);
+      if (this.visibleDialogs.has(name)) {
+        this.close(name);
+      } else {
+        this.open(name);
+      }
     },
     isOpen(name: Dialogs): boolean {
       return this.visibleDialogs.has(name);

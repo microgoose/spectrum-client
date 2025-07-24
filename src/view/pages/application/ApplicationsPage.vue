@@ -1,11 +1,11 @@
 <template>
   <PageTitle>
-    {{ $t('notificationsPageTitle') }}
+    {{ $t('applicationsPageTitle') }}
   </PageTitle>
-  <NotificationList />
+  <ApplicationsWidget />
 </template>
 
 <script setup lang="ts">
 import PageTitle from '@/shared/components/PageTitle.vue';
-import NotificationList from '@/view/entity/notification/NotificationList.vue';
+import ApplicationsWidget from '@/view/widget/application/ApplicationsWidget.vue';
 </script>

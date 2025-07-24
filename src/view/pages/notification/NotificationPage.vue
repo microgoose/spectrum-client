@@ -8,7 +8,10 @@
 
 <template>
   <div class="notification-page">
-    <PageTitle :title="$t('notificationsPageTitle')" />
+    <PageTitle>
+      {{ $t('notificationPageTitle') }}
+    </PageTitle>
+
     <Notification :id="notificationId" />
   </div>
 </template>
