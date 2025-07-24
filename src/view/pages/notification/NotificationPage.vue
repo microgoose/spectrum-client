@@ -7,20 +7,30 @@
 </style>
 
 <template>
-  <div class="notification-page">
-    <PageTitle>
-      {{ $t('notificationPageTitle') }}
-    </PageTitle>
+  <DefaultContentLayout>
+    <template #header>
+      <ProfilePanel />
+    </template>
 
-    <Notification :id="notificationId" />
-  </div>
+    <template #content>
+      <div class="notification-page">
+        <BlockTitle>
+          {{ $t('notificationPageTitle') }}
+        </BlockTitle>
+
+        <Notification :id="notificationId" />
+      </div>
+    </template>
+  </DefaultContentLayout>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
-import PageTitle from '@/shared/components/PageTitle.vue';
+import BlockTitle from '@/shared/components/BlockTitle.vue';
 import Notification from '@/view/entity/notification/Notification.vue';
+import ProfilePanel from '@/view/entity/user/ProfilePanel.vue';
+import DefaultContentLayout from '@/view/layout/default/DefaultContentLayout.vue';
 
 const route = useRoute();
 

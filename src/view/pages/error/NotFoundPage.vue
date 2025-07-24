@@ -1,22 +1,29 @@
+<style scoped lang="css">
+.error-message {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+</style>
+
 <template>
-  <Card>
-    <template #title>
-      {{ $t('notFoundPageTitle') }}
-    </template>
-
+  <DefaultContentLayout>
     <template #content>
-      <p>{{ $t('notFoundPageDescription') }}</p>
+      <div class="error-message">
+        <p>{{ $t('notFoundPageDescription') }}</p>
+        <Button @click="pushPage(Routes.HOME)" :label="$t('backToHome')" />
+      </div>
     </template>
-
-    <template #footer>
-      <Button @click="pushPage(Routes.HOME)" :label="$t('backToHome')" class="p-mt-3" />
-    </template>
-  </Card>
+  </DefaultContentLayout>
 </template>
 
 <script setup lang="ts">
 import Button from 'primevue/button';
-import Card from 'primevue/card';
 import { Routes } from '@/config/router.ts';
 import { pushPage } from '@/service/app/route.service.ts';
+import DefaultContentLayout from '@/view/layout/default/DefaultContentLayout.vue';
 </script>

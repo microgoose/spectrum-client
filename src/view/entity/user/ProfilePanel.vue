@@ -40,7 +40,7 @@
 import Skeleton from 'primevue/skeleton';
 import { getAuthOrganizationQuery } from '@/service/organization/organization.service.ts';
 import { getAuthUserQuery } from '@/service/user/user.service.ts';
-import ProfilePopupMenu from './ProfilePopupMenu.vue';
+import ProfilePopupMenu from '../../feature/user/ProfilePopupMenu.vue';
 
 const { data: user } = getAuthUserQuery();
 const { data: organization } = getAuthOrganizationQuery();

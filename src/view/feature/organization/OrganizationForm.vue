@@ -1,14 +1,12 @@
 <style scoped>
-.form-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
 .field {
   display: flex;
   flex-direction: column;
   flex: 1 1 300px;
+
+  & input {
+    width: 100%;
+  }
 }
 
 .full-width {
@@ -25,193 +23,151 @@
 
 <template>
   <Form :resolver="resolver" :initialValues="values" @submit="onSubmit" v-slot="$form">
-    <div class="form-grid">
+    <FormGridView>
       <!-- Название -->
-      <div class="field full-width">
-        <InputText name="fullName" :placeholder="$t('organization.fields.fullName')" />
+      <IftaLabel class="field full-width">
+        <InputText id="fullName" name="fullName" />
+        <label for="fullName">{{ $t('organization.fields.fullName') }}</label>
         <Message v-if="$form.fullName?.invalid" severity="error" size="small" variant="simple">
           {{ $form.fullName.error?.message }}
         </Message>
-      </div>
+      </IftaLabel>
 
       <!-- ИНН / ОГРН -->
-      <div class="field">
-        <InputText name="inn" :placeholder="$t('organization.fields.inn')" />
+      <IftaLabel class="field">
+        <InputText id="inn" name="inn" />
+        <label for="inn">{{ $t('organization.fields.inn') }}</label>
         <Message v-if="$form.inn?.invalid" severity="error" size="small" variant="simple">
           {{ $form.inn.error?.message }}
         </Message>
-      </div>
+      </IftaLabel>
 
-      <div class="field">
-        <InputText name="ogrn" :placeholder="$t('organization.fields.ogrn')" />
+      <IftaLabel class="field">
+        <InputText id="ogrn" name="ogrn" />
+        <label for="ogrn">{{ $t('organization.fields.ogrn') }}</label>
         <Message v-if="$form.ogrn?.invalid" severity="error" size="small" variant="simple">
           {{ $form.ogrn.error?.message }}
         </Message>
-      </div>
+      </IftaLabel>
 
       <!-- Система налогообложения -->
-      <div class="field full-width">
-        <InputText name="taxation.description" :placeholder="$t('organization.fields.taxation')" />
-        <Message
-          v-if="$form['taxation.description']?.invalid"
-          severity="error"
-          size="small"
-          variant="simple"
-        >
+      <IftaLabel class="field full-width">
+        <InputText id="taxation.description" name="taxation.description" />
+        <label for="taxation.description">{{ $t('organization.fields.taxation') }}</label>
+        <Message v-if="$form['taxation.description']?.invalid" severity="error" size="small" variant="simple">
           {{ $form['taxation.description'].error?.message }}
         </Message>
-      </div>
+      </IftaLabel>
+
+      <Divider/>
 
       <!-- Документ -->
-      <div class="field full-width">
-        <InputText name="ipIdentity.idType.name" :placeholder="$t('organization.fields.idType')" />
-        <Message
-          v-if="$form['ipIdentity.idType.name']?.invalid"
-          severity="error"
-          size="small"
-          variant="simple"
-        >
+      <IftaLabel class="field full-width">
+        <InputText id="idType" name="ipIdentity.idType.name" />
+        <label for="idType">{{ $t('organization.fields.idType') }}</label>
+        <Message v-if="$form['ipIdentity.idType.name']?.invalid" severity="error" size="small" variant="simple">
           {{ $form['ipIdentity.idType.name'].error?.message }}
         </Message>
-      </div>
+      </IftaLabel>
 
-      <div class="field">
-        <InputText name="ipIdentity.idNumber" :placeholder="$t('organization.fields.idNumber')" />
-        <Message
-          v-if="$form['ipIdentity.idNumber']?.invalid"
-          severity="error"
-          size="small"
-          variant="simple"
-        >
+      <IftaLabel class="field">
+        <InputText id="idNumber" name="ipIdentity.idNumber" />
+        <label for="idNumber">{{ $t('organization.fields.idNumber') }}</label>
+        <Message v-if="$form['ipIdentity.idNumber']?.invalid" severity="error" size="small" variant="simple">
           {{ $form['ipIdentity.idNumber'].error?.message }}
         </Message>
-      </div>
+      </IftaLabel>
 
-      <div class="field">
-        <DatePicker
-          name="ipIdentity.idIssueDate"
-          dateFormat="yy-mm-dd"
-          :placeholder="$t('organization.fields.idIssueDate')"
-        />
-        <Message
-          v-if="$form['ipIdentity.idIssueDate']?.invalid"
-          severity="error"
-          size="small"
-          variant="simple"
-        >
+      <IftaLabel class="field">
+        <DatePicker input-id="idIssueDate" name="ipIdentity.idIssueDate" dateFormat="yy-mm-dd" />
+        <label for="idIssueDate">{{ $t('organization.fields.idIssueDate') }}</label>
+        <Message v-if="$form['ipIdentity.idIssueDate']?.invalid" severity="error" size="small" variant="simple">
           {{ $form['ipIdentity.idIssueDate'].error?.message }}
         </Message>
-      </div>
+      </IftaLabel>
 
-      <div class="field full-width">
-        <InputText name="ipIdentity.idIssuer" :placeholder="$t('organization.fields.idIssuer')" />
-        <Message
-          v-if="$form['ipIdentity.idIssuer']?.invalid"
-          severity="error"
-          size="small"
-          variant="simple"
-        >
+      <IftaLabel class="field full-width">
+        <InputText id="idIssuer" name="ipIdentity.idIssuer" />
+        <label for="idIssuer">{{ $t('organization.fields.idIssuer') }}</label>
+        <Message v-if="$form['ipIdentity.idIssuer']?.invalid" severity="error" size="small" variant="simple">
           {{ $form['ipIdentity.idIssuer'].error?.message }}
         </Message>
-      </div>
+      </IftaLabel>
 
-      <div class="field full-width">
-        <InputText
-          name="ipIdentity.idRegAddress"
-          :placeholder="$t('organization.fields.idRegAddress')"
-        />
-        <Message
-          v-if="$form['ipIdentity.idRegAddress']?.invalid"
-          severity="error"
-          size="small"
-          variant="simple"
-        >
+      <IftaLabel class="field full-width">
+        <InputText id="idRegAddress" name="ipIdentity.idRegAddress" />
+        <label for="idRegAddress">{{ $t('organization.fields.idRegAddress') }}</label>
+        <Message v-if="$form['ipIdentity.idRegAddress']?.invalid" severity="error" size="small" variant="simple">
           {{ $form['ipIdentity.idRegAddress'].error?.message }}
         </Message>
-      </div>
+      </IftaLabel>
 
-      <div class="field">
-        <DatePicker
-          name="ipIdentity.idBirthdate"
-          dateFormat="yy-mm-dd"
-          :placeholder="$t('organization.fields.idBirthdate')"
-        />
-        <Message
-          v-if="$form['ipIdentity.idBirthdate']?.invalid"
-          severity="error"
-          size="small"
-          variant="simple"
-        >
+      <IftaLabel class="field">
+        <DatePicker input-id="idBirthdate" name="ipIdentity.idBirthdate" dateFormat="yy-mm-dd" />
+        <label for="idBirthdate">{{ $t('organization.fields.idBirthdate') }}</label>
+        <Message v-if="$form['ipIdentity.idBirthdate']?.invalid" severity="error" size="small" variant="simple">
           {{ $form['ipIdentity.idBirthdate'].error?.message }}
         </Message>
-      </div>
+      </IftaLabel>
+
+      <Divider/>
 
       <!-- Адреса -->
-      <div class="field full-width">
-        <InputText name="postAddress" :placeholder="$t('organization.fields.postAddress')" />
+      <IftaLabel class="field full-width">
+        <InputText id="postAddress" name="postAddress" />
+        <label for="postAddress">{{ $t('organization.fields.postAddress') }}</label>
         <Message v-if="$form.postAddress?.invalid" severity="error" size="small" variant="simple">
           {{ $form.postAddress.error?.message }}
         </Message>
-      </div>
+      </IftaLabel>
 
-      <div class="field full-width">
-        <InputText name="factAddress" :placeholder="$t('organization.fields.factAddress')" />
+      <IftaLabel class="field full-width">
+        <InputText id="factAddress" name="factAddress" />
+        <label for="factAddress">{{ $t('organization.fields.factAddress') }}</label>
         <Message v-if="$form.factAddress?.invalid" severity="error" size="small" variant="simple">
           {{ $form.factAddress.error?.message }}
         </Message>
-      </div>
+      </IftaLabel>
 
       <!-- Контакты -->
-      <div class="field">
-        <InputText name="phone" :placeholder="$t('organization.fields.phone')" />
+      <IftaLabel class="field">
+        <InputText id="phone" name="phone" />
+        <label for="phone">{{ $t('organization.fields.phone') }}</label>
         <Message v-if="$form.phone?.invalid" severity="error" size="small" variant="simple">
           {{ $form.phone.error?.message }}
         </Message>
-      </div>
+      </IftaLabel>
 
-      <div class="field">
-        <InputText name="email" :placeholder="$t('organization.fields.email')" />
+      <IftaLabel class="field">
+        <InputText id="email" name="email" />
+        <label for="email">{{ $t('organization.fields.email') }}</label>
         <Message v-if="$form.email?.invalid" severity="error" size="small" variant="simple">
           {{ $form.email.error?.message }}
         </Message>
-      </div>
+      </IftaLabel>
 
       <!-- Контакты по реквизитам -->
-      <div class="field full-width">
-        <InputText
-          name="sendRekvContact.phone"
-          :placeholder="$t('organization.fields.rekvPhone')"
-        />
-        <Message
-          v-if="$form['sendRekvContact.phone']?.invalid"
-          severity="error"
-          size="small"
-          variant="simple"
-        >
+      <IftaLabel class="field full-width">
+        <InputText id="rekvPhone" name="sendRekvContact.phone" />
+        <label for="rekvPhone">{{ $t('organization.fields.rekvPhone') }}</label>
+        <Message v-if="$form['sendRekvContact.phone']?.invalid" severity="error" size="small" variant="simple">
           {{ $form['sendRekvContact.phone'].error?.message }}
         </Message>
-      </div>
+      </IftaLabel>
 
-      <div class="field full-width">
-        <InputText
-          name="sendRekvContact.email"
-          :placeholder="$t('organization.fields.rekvEmail')"
-        />
-        <Message
-          v-if="$form['sendRekvContact.email']?.invalid"
-          severity="error"
-          size="small"
-          variant="simple"
-        >
+      <IftaLabel class="field full-width">
+        <InputText id="rekvEmail" name="sendRekvContact.email" />
+        <label for="rekvEmail">{{ $t('organization.fields.rekvEmail') }}</label>
+        <Message v-if="$form['sendRekvContact.email']?.invalid" severity="error" size="small" variant="simple">
           {{ $form['sendRekvContact.email'].error?.message }}
         </Message>
-      </div>
+      </IftaLabel>
 
       <!-- Кнопка -->
       <div class="button-actions">
         <Button :label="$t('organization.actions.send')" type="submit" size="large" />
       </div>
-    </div>
+    </FormGridView>
   </Form>
 
   <Dialog
@@ -228,19 +184,21 @@
 import { reactive, ref } from 'vue';
 import { Form, type FormSubmitEvent } from '@primevue/forms';
 import { zodResolver } from '@primevue/forms/resolvers/zod';
+import Divider from 'primevue/divider';
 import Button from 'primevue/button';
 import DatePicker from 'primevue/datepicker';
 import Dialog from 'primevue/dialog';
 import InputText from 'primevue/inputtext';
 import Message from 'primevue/message';
-import type { OrganizationType } from '@/api/organization/organization.types.ts';
 import { Dialogs } from '@/config/dialog.ts';
+import type { OrganizationType } from '@/api/organization/organization.types.ts';
 import { organizationValidationSchema } from '@/model/organization/organization-validation.scheme.ts';
 import { useDialogStore } from '@/store/app/dialog.store.ts';
 import OrganizationSentNotice from '@/view/feature/organization/OrganizationSentNotice.vue';
+import IftaLabel from 'primevue/iftalabel';
+import FormGridView from '@/shared/components/form/FormGridView.vue';
 
 const emits = defineEmits(['submit']);
-
 const props = defineProps<{ organization: OrganizationType }>();
 const resolver = ref(zodResolver(organizationValidationSchema));
 const values = reactive<OrganizationType>({ ...props.organization });
@@ -248,9 +206,7 @@ const dialog = useDialogStore();
 
 const onSubmit = ({ valid }: FormSubmitEvent) => {
   if (valid) {
-    //TODO
     dialog.open(Dialogs.ORGANIZATION_SENT_NOTICE);
-    console.log('Valid organization:', values);
   }
 };
 

@@ -1,156 +1,49 @@
-<style scoped lang="scss">
-.form-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.field {
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 300px;
-}
-
-.full-width {
-  flex: 1 1 100%;
-}
-
-.field-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.organization-view label {
-  font: var(--font-text-bold);
-  margin-bottom: 4px;
-}
-</style>
-
 <template>
-  <Card>
-    <template #content>
-      <div class="organization-view form-grid">
-        <div class="field full-width">
-          <label>{{ $t('organization.fields.fullName') }}</label>
-          <span>{{ organization.fullName }}</span>
-        </div>
+    <FormGridView>
+      <FieldView :label="$t('organization.fields.fullName')" :value="organization.fullName" fullWidth />
+      <FieldView :label="$t('organization.fields.inn')" :value="organization.inn" />
+      <FieldView :label="$t('organization.fields.ogrn')" :value="organization.ogrn" />
+      <FieldView :label="$t('organization.fields.taxation')" :value="organization.taxation?.description" fullWidth />
 
-        <div class="field">
-          <label>{{ $t('organization.fields.inn') }}</label>
-          <span>{{ organization.inn }}</span>
-        </div>
+      <Divider />
 
-        <div class="field">
-          <label>{{ $t('organization.fields.ogrn') }}</label>
-          <span>{{ organization.ogrn }}</span>
-        </div>
+      <FieldView :label="$t('organization.fields.idType')" :value="organization.ipIdentity?.idType?.name" fullWidth />
+      <FieldView :label="$t('organization.fields.idNumber')" :value="organization.ipIdentity?.idNumber" />
+      <FieldView :label="$t('organization.fields.idIssueDate')" :value="organization.ipIdentity?.idIssueDate" />
+      <FieldView :label="$t('organization.fields.idIssuer')" :value="organization.ipIdentity?.idIssuer" fullWidth />
+      <FieldView :label="$t('organization.fields.idRegAddress')" :value="organization.ipIdentity?.idRegAddress" fullWidth />
+      <FieldView :label="$t('organization.fields.idBirthdate')" :value="organization.ipIdentity?.idBirthdate" />
 
-        <div class="field full-width">
-          <label>{{ $t('organization.fields.taxation') }}</label>
-          <span>{{ organization.taxation?.description }}</span>
-        </div>
+      <Divider />
 
-        <Divider />
+      <FieldView :label="$t('organization.fields.postAddress')" :value="organization.postAddress" fullWidth />
+      <FieldView :label="$t('organization.fields.factAddress')" :value="organization.factAddress" fullWidth />
+      <FieldView :label="$t('organization.fields.phone')" :value="organization.phone" />
+      <FieldView :label="$t('organization.fields.email')" :value="organization.email" />
 
-        <div class="field full-width">
-          <label>{{ $t('organization.fields.idType') }}</label>
-          <span>{{ organization.ipIdentity?.idType?.name }}</span>
-        </div>
+      <Divider />
 
-        <div class="field">
-          <label>{{ $t('organization.fields.idNumber') }}</label>
-          <span>{{ organization.ipIdentity?.idNumber }}</span>
-        </div>
+      <FieldView :label="$t('organization.fields.rekvPhone')" :value="organization.sendRekvContact?.phone" />
+      <FieldView :label="$t('organization.fields.rekvEmail')" :value="organization.sendRekvContact?.email" />
 
-        <div class="field">
-          <label>{{ $t('organization.fields.idIssueDate') }}</label>
-          <span>{{ organization.ipIdentity?.idIssueDate }}</span>
-        </div>
+      <Divider />
 
-        <div class="field full-width">
-          <label>{{ $t('organization.fields.idIssuer') }}</label>
-          <span>{{ organization.ipIdentity?.idIssuer }}</span>
-        </div>
-
-        <div class="field full-width">
-          <label>{{ $t('organization.fields.idRegAddress') }}</label>
-          <span>{{ organization.ipIdentity?.idRegAddress }}</span>
-        </div>
-
-        <div class="field">
-          <label>{{ $t('organization.fields.idBirthdate') }}</label>
-          <span>{{ organization.ipIdentity?.idBirthdate }}</span>
-        </div>
-
-        <Divider />
-
-        <div class="field full-width">
-          <label>{{ $t('organization.fields.postAddress') }}</label>
-          <span>{{ organization.postAddress }}</span>
-        </div>
-
-        <div class="field full-width">
-          <label>{{ $t('organization.fields.factAddress') }}</label>
-          <span>{{ organization.factAddress }}</span>
-        </div>
-
-        <div class="field">
-          <label>{{ $t('organization.fields.phone') }}</label>
-          <span>{{ organization.phone }}</span>
-        </div>
-
-        <div class="field">
-          <label>{{ $t('organization.fields.email') }}</label>
-          <span>{{ organization.email }}</span>
-        </div>
-
-        <Divider />
-
-        <div class="field">
-          <label>{{ $t('organization.fields.rekvPhone') }}</label>
-          <span>{{ organization.sendRekvContact?.phone }}</span>
-        </div>
-
-        <div class="field">
-          <label>{{ $t('organization.fields.rekvEmail') }}</label>
-          <span>{{ organization.sendRekvContact?.email }}</span>
-        </div>
-
-        <Divider />
-
-        <div
-          v-for="(contact, index) in organization.organizationContacts"
-          :key="index"
-          class="field-group"
-        >
-          <div class="field">
-            <label>{{ $t('organization.fields.contact.fio') }}</label>
-            <span>{{ contact.fio }}</span>
-          </div>
-          <div class="field">
-            <label>{{ $t('organization.fields.contact.title') }}</label>
-            <span>{{ contact.title }}</span>
-          </div>
-          <div class="field">
-            <label>{{ $t('organization.fields.contact.phone') }}</label>
-            <span>{{ contact.phone }}</span>
-          </div>
-          <div class="field">
-            <label>{{ $t('organization.fields.contact.email') }}</label>
-            <span>{{ contact.email }}</span>
-          </div>
-        </div>
-      </div>
-    </template>
-  </Card>
+      <FieldGroupView v-for="(contact, i) in organization.organizationContacts" :key="i">
+        <FieldView :label="$t('organization.fields.contact.fio')" :value="contact.fio" />
+        <FieldView :label="$t('organization.fields.contact.title')" :value="contact.title" />
+        <FieldView :label="$t('organization.fields.contact.phone')" :value="contact.phone" />
+        <FieldView :label="$t('organization.fields.contact.email')" :value="contact.email" />
+      </FieldGroupView>
+    </FormGridView>
 </template>
 
 <script setup lang="ts">
 import Card from 'primevue/card';
 import Divider from 'primevue/divider';
+import FieldView from '@/shared/components/form/FieldView.vue';
 import type { OrganizationType } from '@/api/organization/organization.types.ts';
+import FieldGroupView from '@/shared/components/form/FieldGroupView.vue';
+import FormGridView from '@/shared/components/form/FormGridView.vue';
 
 defineProps<{ organization: OrganizationType }>();
 </script>

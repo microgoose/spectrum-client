@@ -37,7 +37,7 @@
   <div :class="$style.profileButton">
     <Button>
       <RouterLink :to="getRoutePath(Routes.PROFILE)" :class="$style.profileButtonLink">
-        <ProfileAvatar :avatar="null" />
+        <UserAvatar :avatar="null" />
         <!-- TODO: add avatar -->
         <span>{{ profile.name }} {{ profile.surname }} {{ profile.patronymic }}</span>
       </RouterLink>
@@ -67,7 +67,7 @@
     :visible="dialogStore.isOpen(Dialogs.LOGOUT)"
     @update:visible="dialogStore.close(Dialogs.LOGOUT)"
   >
-    <ConfigLogout />
+    <ConfirmLogout />
   </Dialog>
 </template>
 
@@ -82,8 +82,8 @@ import { Routes } from '@/config/router.ts';
 import { getRoutePath } from '@/service/app/route.service.ts';
 import { useDialogStore } from '@/store/app/dialog.store.ts';
 import { useProfilePopupStore } from '@/store/profile/profile-popup.store.ts';
-import ProfileAvatar from '@/view/entity/user/ProfileAvatar.vue';
-import ConfigLogout from '@/view/feature/auth/ConfigLogout.vue';
+import UserAvatar from '@/view/entity/user/UserAvatar.vue';
+import ConfirmLogout from '@/view/feature/auth/ConfirmLogout.vue';
 
 defineProps<{
   profile: UserType;

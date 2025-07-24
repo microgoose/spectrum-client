@@ -1,11 +1,21 @@
 <template>
-  <PageTitle>
-    {{ $t('documentsPageTitle') }}
-  </PageTitle>
-  <ProfileDocuments />
+  <DefaultContentLayout>
+    <template #header>
+      <ProfilePanel />
+    </template>
+
+    <template #content>
+      <BlockTitle>
+        {{ $t('documentsPageTitle') }}
+      </BlockTitle>
+      <ProfileDocuments />
+    </template>
+  </DefaultContentLayout>
 </template>
 
 <script setup lang="ts">
-import PageTitle from '@/shared/components/PageTitle.vue';
+import BlockTitle from '@/shared/components/BlockTitle.vue';
+import ProfilePanel from '@/view/entity/user/ProfilePanel.vue';
+import DefaultContentLayout from '@/view/layout/default/DefaultContentLayout.vue';
 import ProfileDocuments from '@/view/widget/document/ProfileDocuments.vue';
 </script>

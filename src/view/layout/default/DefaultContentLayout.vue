@@ -1,32 +1,67 @@
 <style module lang="scss">
-.pageContentLayout {
+.layout {
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
 }
 
-.pageContentLayoutHeader {
+.header {
   border-bottom: 1px solid var(--p-border);
+  flex-shrink: 0;
 }
 
-.pageContentLayoutContent {
-  padding: 16px;
+.content {
+  flex: 1 1 auto;
+  padding: 1rem;
+  overflow: auto;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1rem;
+  min-height: 0;
+}
+
+.footer {
+  padding: 1rem;
+  flex-shrink: 0;
+  border-top: 1px solid var(--p-border);
+}
+
+.center {
+  display: flex;
+  align-items: center;
 }
 </style>
 
 <template>
-  <div :class="$style.pageContentLayout">
-    <div :class="$style.pageContentLayoutHeader">
+  <div :class="$style.layout">
+    <header
+      v-if="$slots.header"
+      :class="[$style.header, centerHeader && $style.center]"
+    >
       <slot name="header" />
-    </div>
-    <div :class="$style.pageContentLayoutContent">
+    </header>
+
+    <main
+      :class="[$style.content, centerContent && $style.center]"
+    >
       <slot name="content" />
-    </div>
-    <slot name="footer" />
+    </main>
+
+    <footer
+      v-if="$slots.footer"
+      :class="[$style.footer, centerFooter && $style.center]"
+    >
+      <slot name="footer" />
+    </footer>
   </div>
 </template>
 
-<script setup lang="ts" />
+<script setup lang="ts">
+defineProps<{
+  centerHeader?: boolean;
+  centerContent?: boolean;
+  centerFooter?: boolean;
+}>();
+</script>
+
