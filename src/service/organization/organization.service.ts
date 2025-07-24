@@ -4,7 +4,7 @@ import type { OrganizationType } from '@/api/organization/organization.types.ts'
 
 export const getAuthOrganizationQuery = () => {
   return useQuery<OrganizationType>({
-    queryKey: ['auth-organization'],
+    queryKey: ['user-organization'],
     queryFn: getAuthUserOrganization,
     throwOnError: true,
   });

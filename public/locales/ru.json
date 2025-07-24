@@ -18,7 +18,6 @@
   "sendDocumentPageTitle": "Отправить документ",
   "applicationsPageTitle": "Заявления",
   "organizationPageTitle": "Организация",
-
   "primevue": {
     "accept": "Да",
     "addRule": "Добавить правило",
@@ -233,7 +232,7 @@
       "logoutTitle": "Выход"
     },
     "action": {
-      "logout": "Выйти" 
+      "logout": "Выйти"
     },
     "error": {
       "loadProfile": "Не удалось загрузить профиль, обновите страницу."
@@ -285,5 +284,79 @@
     "title": "Уважаемые коллеги!",
     "message": "Вы уверены, что хотите отменить отправленное заявление?",
     "confirmButton": "Да"
+  },
+  "organization": {
+    "title": "Организация",
+    "fields": {
+      "fullName": "Наименование организации",
+      "inn": "ИНН",
+      "ogrn": "ОГРН",
+      "taxation": "Система налогообложения",
+      "idType": "Документ, удостоверяющий личность",
+      "idNumber": "Серия и номер документа",
+      "idIssueDate": "Дата выдачи",
+      "idIssuer": "Кем выдан",
+      "idRegAddress": "Адрес по прописке",
+      "idBirthdate": "Дата рождения",
+      "postAddress": "Почтовый адрес",
+      "factAddress": "Фактический адрес",
+      "phone": "Телефон",
+      "email": "Эл. почта",
+      "rekvPhone": "Телефон по реквизитам",
+      "rekvEmail": "Эл. почта по реквизитам",
+      "contact": {
+        "fio": "ФИО",
+        "title": "Должность",
+        "phone": "Телефон",
+        "email": "Эл. почта"
+      }
+    },
+    "error": {
+      "fullNameRequired": "Укажите наименование организации",
+      "innRequired": "Укажите ИНН",
+      "innInvalidLength": "ИНН должен содержать 12 цифр",
+      "ogrnRequired": "Укажите ОГРН",
+      "ogrnInvalidLength": "ОГРН должен содержать 13 цифр",
+      "taxationRequired": "Укажите систему налогообложения",
+      "idTypeRequired": "Укажите тип документа",
+      "idNumberRequired": "Укажите серию и номер документа",
+      "idNumberInvalid": "Неверный формат серии и номера документа",
+      "idIssuerRequired": "Укажите, кем выдан документ",
+      "idIssueDateRequired": "Укажите дату выдачи документа",
+      "birthdateRequired": "Укажите дату рождения",
+      "dateFormat": "Дата должна быть в формате ГГГГ-ММ-ДД",
+      "regAddressRequired": "Укажите адрес по прописке",
+      "postAddressRequired": "Укажите почтовый адрес",
+      "factAddressRequired": "Укажите фактический адрес",
+      "phoneRequired": "Укажите номер телефона",
+      "phoneInvalid": "Телефон должен содержать не менее 10 символов",
+      "emailRequired": "Укажите адрес электронной почты",
+      "emailInvalid": "Неверный формат электронной почты",
+      "rekvPhoneRequired": "Укажите телефон по реквизитам",
+      "rekvPhoneInvalid": "Неверный телефон по реквизитам",
+      "rekvEmailRequired": "Укажите эл. почту по реквизитам",
+      "contactFioRequired": "Укажите ФИО контактного лица",
+      "contactTitleRequired": "Укажите должность контактного лица",
+      "contactPhoneRequired": "Укажите телефон контактного лица",
+      "contactEmailRequired": "Укажите эл. почту контактного лица"
+    },
+    "actions": {
+      "send": "Отправить",
+      "cancel": "Отмена",
+      "edit": "Редактировать"
+    }
+  },
+  "cancelCreation": {
+    "title": "Уважаемые коллеги!",
+    "message": "Вы уверены, что хотите отменить создание заявления?",
+    "confirmButton": "Да"
+  },
+  "applicationSent": {
+    "title": "Уважаемые коллеги!",
+    "message": {
+      "pre": "Заявление направлено на Биржу, статус его обработки доступен в разделе",
+      "link": "Заявления"
+    },
+    "ok": "Ок"
   }
 }

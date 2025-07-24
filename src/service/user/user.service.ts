@@ -4,7 +4,7 @@ import type { UserType } from '@/api/user/user.types.ts';
 
 export const getAuthUserQuery = () => {
   return useQuery<UserType>({
-    queryKey: ['auth-user'],
+    queryKey: ['user-user'],
     queryFn: getAuthUser,
     throwOnError: true,
   });

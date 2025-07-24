@@ -45,13 +45,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from 'vue';
+import { reactive, ref } from 'vue';
 import { Form, type FormSubmitEvent } from '@primevue/forms';
 import { zodResolver } from '@primevue/forms/resolvers/zod';
 import Button from 'primevue/button';
 import InputText from 'primevue/inputtext';
 import Message from 'primevue/message';
-import { loginValidationScheme } from '@/model/auth/login-validation.scheme.ts';
+import { loginValidationScheme } from '@/model/user/login-validation.scheme.ts';
 import { login } from '@/service/auth/login.service.ts';
 
 interface LoginFormValues {
@@ -69,5 +69,5 @@ const onSubmit = ({ valid }: FormSubmitEvent) => {
   if (valid) {
     login();
   }
-}
+};
 </script>
