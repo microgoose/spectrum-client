@@ -2,7 +2,7 @@
 .notification-container {
   display: flex;
   flex-direction: column;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
 .date {

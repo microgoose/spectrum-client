@@ -1,5 +1,6 @@
 <style module lang="css">
 .appLayout {
+  position: relative;
   display: flex;
   min-height: 100vh;
 }

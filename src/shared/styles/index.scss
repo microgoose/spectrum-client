@@ -1,9 +1,9 @@
 @use 'reset';
 @use 'fonts';
 @use 'typography';
-@use 'shortcuts/form-shortcuts';
+@use 'shortcuts/flex';
 
 html {
-  font: var(--font-text);
+  font-family: 'Roboto Variable', sans-serif;
   color: var(--p-text-color);
 }

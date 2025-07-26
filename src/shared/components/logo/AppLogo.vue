@@ -3,10 +3,10 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: .25rem;
+  gap: 0.25rem;
 }
 .mainLogo h2 {
-  margin-top: .25rem;
+  margin-top: 0.25rem;
   font: var(--font-h2-bold);
   color: var(--p-logo-text);
 }
@@ -20,7 +20,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
 .logoIcon {

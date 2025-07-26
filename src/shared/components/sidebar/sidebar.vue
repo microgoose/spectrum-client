@@ -1,5 +1,7 @@
 <style module lang="css">
 .appSidebar {
+  position: sticky;
+  top: 0;
   padding: 1rem 0;
   width: 250px;
   display: flex;

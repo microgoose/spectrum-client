@@ -61,7 +61,5 @@ const onEditClose = async () => {
   if (result) {
     isEditMode.value = false;
   }
-
-  dialog.close(dialogs.ORGANIZATION_CANCEL_CREATION_CONFIRMATION);
 };
 </script>

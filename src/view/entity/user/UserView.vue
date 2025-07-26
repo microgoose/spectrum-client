@@ -1,23 +1,44 @@
 <template>
-  <FormGridView>
-    <FieldView :label="$t('userView.fields.login')" :value="user.login" />
-    <FieldView :label="$t('userView.fields.name')" :value="user.name" />
-    <FieldView :label="$t('userView.fields.surname')" :value="user.surname" />
-    <FieldView :label="$t('userView.fields.patronymic')" :value="user.patronymic" />
+  <div class="flex flex-wrap gap-3">
+    <!-- Основная информация -->
+    <div class="flex flex-column gap-1 flex-basics-w6-g3 w-6">
+      <span class="text-400 subtext">{{ $t('userView.fields.login') }}</span>
+      <span class="text">{{ user.login || '-' }}</span>
+    </div>
+    <div class="flex flex-column gap-1 flex-basics-w6-g3 w-6">
+      <span class="text-400 subtext">{{ $t('userView.fields.name') }}</span>
+      <span class="text">{{ user.name || '-' }}</span>
+    </div>
+    <div class="flex flex-column gap-1 flex-basics-w6-g3 w-6">
+      <span class="text-400 subtext">{{ $t('userView.fields.surname') }}</span>
+      <span class="text">{{ user.surname || '-' }}</span>
+    </div>
+    <div class="flex flex-column gap-1 flex-basics-w6-g3 w-6">
+      <span class="text-400 subtext">{{ $t('userView.fields.patronymic') }}</span>
+      <span class="text">{{ user.patronymic || '-' }}</span>
+    </div>
 
     <Divider />
 
-    <FieldView :label="$t('userView.fields.email')" :value="user.email" />
-    <FieldView :label="$t('userView.fields.phone')" :value="user.phone" />
-    <FieldView :label="$t('userView.fields.inn')" :value="user.inn" />
-  </FormGridView>
+    <!-- Контактная информация -->
+    <div class="flex flex-column gap-1 flex-basics-w6-g3 w-6">
+      <span class="text-400 subtext">{{ $t('userView.fields.email') }}</span>
+      <span class="text">{{ user.email || '-' }}</span>
+    </div>
+    <div class="flex flex-column gap-1 flex-basics-w6-g3 w-6">
+      <span class="text-400 subtext">{{ $t('userView.fields.phone') }}</span>
+      <span class="text">{{ user.phone || '-' }}</span>
+    </div>
+    <div class="flex flex-column gap-1 flex-basics-w6-g3 w-6">
+      <span class="text-400 subtext">{{ $t('userView.fields.inn') }}</span>
+      <span class="text">{{ user.inn || '-' }}</span>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
 import Divider from 'primevue/divider';
 import type { UserType } from '@/api/user/user.types.ts';
-import FieldView from '@/shared/components/form/FieldView.vue';
-import FormGridView from '@/shared/components/form/FormGridView.vue';
 
 defineProps<{ user: UserType }>();
 </script>

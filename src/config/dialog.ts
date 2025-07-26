@@ -1,9 +1,9 @@
 import type { Component } from 'vue';
+import ErrorView from '@/view/entity/error/ErrorView.vue';
 import CancelApplicationDialog from '@/view/feature/application/CancelApplicationDialog.vue';
 import ConfirmLogoutDialog from '@/view/feature/auth/ConfirmLogoutDialog.vue';
-import ErrorDialog from '@/view/feature/error/ErrorDialog.vue';
-import OrganizationCancelConfirmDialog from '@/view/feature/organization/OrganizationCancelConfirmDialog.vue';
-import OrganizationSentNoticeDialog from '@/view/feature/organization/OrganizationSentNoticeDialog.vue';
+import OrganizationFormCancelDialog from '@/view/feature/organization/OrganizationFormCancelDialog.vue';
+import OrganizationFormSentDialog from '@/view/feature/organization/OrganizationFormSentDialog.vue';
 
 export interface DialogRoute {
   name: string;
@@ -19,7 +19,7 @@ export const dialogs: DialogRoutes = {
   ERROR_MESSAGE: {
     name: 'error-message',
     titleKey: 'error.text.errorTitle',
-    component: ErrorDialog,
+    component: ErrorView,
   },
   CONFIRM_LOGOUT: {
     name: 'confirm-logout',
@@ -34,11 +34,11 @@ export const dialogs: DialogRoutes = {
   ORGANIZATION_CANCEL_CREATION_CONFIRMATION: {
     name: 'organization-cancel-creation-confirmation',
     titleKey: 'cancelCreation.cancelCreationTitle',
-    component: OrganizationCancelConfirmDialog,
+    component: OrganizationFormCancelDialog,
   },
   ORGANIZATION_SENT_NOTICE: {
     name: 'organization-send-notice',
     titleKey: 'applicationSent.title',
-    component: OrganizationSentNoticeDialog,
+    component: OrganizationFormSentDialog,
   },
 };

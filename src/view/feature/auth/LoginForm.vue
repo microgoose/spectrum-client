@@ -1,73 +1,66 @@
-<style module lang="scss">
-.loginContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 1rem;
-}
-</style>
-
 <template>
-  <Form
-    :class="$style.loginContainer"
-    v-slot="$form"
-    :resolver="resolver"
-    :initialValues="values"
-    @submit="onSubmit"
-  >
-    <div>
+  <form class="flex align-items-center flex-column gap-4 pb-3" @submit.prevent="onSubmit">
+    <IftaLabel class="flex flex-column gap-2 w-20rem">
       <InputText
+        id="username"
         name="username"
         type="text"
-        :placeholder="$t('login.placeholder.username')"
-        size="large"
+        :invalid="!!errors.username"
+        v-model="username"
       />
-      <Message v-if="$form.username?.invalid" severity="error" size="small" variant="simple">
-        {{ $form.username.error?.message }}
+      <label for="username">{{ $t('login.placeholder.username') }}</label>
+      <Message v-if="errors.username" severity="error" size="small" variant="simple">
+        {{ errors.username }}
       </Message>
-    </div>
+    </IftaLabel>
 
-    <div>
+    <IftaLabel class="flex flex-column gap-2 w-20rem">
       <InputText
+        id="password"
         name="password"
         type="password"
-        :placeholder="$t('login.placeholder.password')"
-        size="large"
+        :invalid="!!errors.password"
+        v-model="password"
       />
-      <Message v-if="$form.password?.invalid" severity="error" size="small" variant="simple">
-        {{ $form.password.error?.message }}
+      <label for="password">{{ $t('login.placeholder.password') }}</label>
+      <Message v-if="errors.password" severity="error" size="small" variant="simple">
+        {{ errors.password }}
       </Message>
-    </div>
+    </IftaLabel>
 
-    <Button :label="$t('login.action.enter')" type="submit" severity="secondary" size="large" />
-  </Form>
+    <Button
+      :disabled="!meta.valid"
+      :label="$t('login.action.enter')"
+      class="w-full"
+      type="submit"
+      severity="secondary"
+      size="large"
+    />
+  </form>
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from 'vue';
-import { Form, type FormSubmitEvent } from '@primevue/forms';
-import { zodResolver } from '@primevue/forms/resolvers/zod';
+import { toTypedSchema } from '@vee-validate/zod';
 import Button from 'primevue/button';
+import IftaLabel from 'primevue/iftalabel';
 import InputText from 'primevue/inputtext';
 import Message from 'primevue/message';
-import { loginValidationScheme } from '@/model/user/login-validation.scheme.ts';
+import { useForm } from 'vee-validate';
+import { loginValidationScheme } from '@/model/user/login-validation-scheme.ts';
 import { login } from '@/service/auth/login.service.ts';
 
-interface LoginFormValues {
-  login: string | null;
-  password: string | null;
-}
-
-const resolver = ref(zodResolver(loginValidationScheme));
-const values = reactive<LoginFormValues>({
-  login: null,
-  password: null,
+const { meta, errors, defineField, handleSubmit } = useForm({
+  validationSchema: toTypedSchema(loginValidationScheme),
 });
 
-const onSubmit = ({ valid }: FormSubmitEvent) => {
-  if (valid) {
+const [username] = defineField('username');
+const [password] = defineField('password');
+
+const onSubmit = handleSubmit((data) => {
+  if (meta.value.valid) {
     login();
   }
-};
+
+  console.log('✅ Submitted data:', data);
+});
 </script>

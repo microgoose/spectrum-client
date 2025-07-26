@@ -3,38 +3,50 @@
 $default-family: 'Roboto Variable', sans-serif;
 
 :root {
-  --font-h1:            normal 400 16px/19px #{$default-family};
-  --font-h1-bold:       normal 600 16px/19px #{$default-family};
+  --font-h1:           normal  400   1rem       / 1.2rem     #{$default-family};
+  --font-h1-bold:      normal  600   1rem       / 1.2rem     #{$default-family};
 
-  --font-h2:            normal 400 16px/19px #{$default-family};
-  --font-h2-bold:       normal 600 16px/20px #{$default-family};
+  --font-h2:           normal  400   1rem       / 1.1rem     #{$default-family};
+  --font-h2-bold:      normal  600   1rem       / 1.1rem     #{$default-family};
 
-  --font-h4:            normal 400 14px/17px #{$default-family};
-  --font-h4-bold:       normal 600 14px/17px #{$default-family};
+  --font-text:         normal  400   .875rem    / 1rem       #{$default-family};
+  --font-text-bold:    normal  600   .875rem    / 1rem       #{$default-family};
 
---font-text:            normal 400 14px/18px #{$default-family};
-  --font-text-bold:     normal 600 14px/19px #{$default-family};
+  --font-subtext:      normal  400   .875rem    / 1rem       #{$default-family};
+  --font-subtext-bold: normal  600   .875rem    / 1rem       #{$default-family};
 
-  --font-subtext:       normal 400 14px/16px #{$default-family};
-  --font-subtext-bold:  normal 600 14px/16px #{$default-family};
-
-  --font-subtitle:      normal 400 12px/14px #{$default-family};
+  --font-subtitle:     normal  400   .75rem     / 1rem       #{$default-family};
 }
 
 // Typography utility classes
-.h1           { font: var(--font-h1); }
-.h1-bold      { font: var(--font-h1-bold); }
+.h1 {
+  font: var(--font-h1);
+}
+.h1-bold {
+  font: var(--font-h1-bold);
+}
 
-.h2           { font: var(--font-h2); }
-.h2-bold      { font: var(--font-h2-bold); }
+.h2 {
+  font: var(--font-h2);
+}
+.h2-bold {
+  font: var(--font-h2-bold);
+}
 
-.h4           { font: var(--font-h4); }
-.h4-bold      { font: var(--font-h4-bold); }
+.text {
+  font: var(--font-text);
+}
+.text-bold {
+  font: var(--font-text-bold);
+}
 
-.text         { font: var(--font-text); }
-.text-bold    { font: var(--font-text-bold); }
+.subtext {
+  font: var(--font-subtext);
+}
+.subtext-bold {
+  font: var(--font-subtext-bold);
+}
 
-.c      { font: var(--font-subtext); }
-.subtext-bold { font: var(--font-subtext-bold); }
-
-.subtitle     { font: var(--font-subtitle); }
+.subtitle {
+  font: var(--font-subtitle);
+}

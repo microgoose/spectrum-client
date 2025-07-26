@@ -1,91 +1,112 @@
 <template>
-  <FormGridView>
-    <FieldView
-      :label="$t('organization.fields.fullName')"
-      :value="organization.fullName"
-      fullWidth
-    />
-    <FieldView :label="$t('organization.fields.inn')" :value="organization.inn" />
-    <FieldView :label="$t('organization.fields.ogrn')" :value="organization.ogrn" />
-    <FieldView
-      :label="$t('organization.fields.taxation')"
-      :value="organization.taxation?.description"
-      fullWidth
-    />
+  <div class="flex flex-wrap gap-3">
+    <!-- Основные поля -->
+    <div class="flex flex-column gap-1 w-full">
+      <span class="text-400 subtext">{{ $t('organization.fields.fullName') }}</span>
+      <span class="text">{{ organization.fullName || '-' }}</span>
+    </div>
+    <div class="flex flex-column gap-1 w-5">
+      <span class="text-400 subtext">{{ $t('organization.fields.inn') }}</span>
+      <span class="text">{{ organization.inn || '-' }}</span>
+    </div>
+    <div class="flex flex-column gap-1 w-5">
+      <span class="text-400 subtext">{{ $t('organization.fields.ogrn') }}</span>
+      <span class="text">{{ organization.ogrn || '-' }}</span>
+    </div>
+    <div class="flex flex-column gap-1 w-full">
+      <span class="text-400 subtext">{{ $t('organization.fields.taxation') }}</span>
+      <span class="text">{{ organization.taxation?.description || '-' }}</span>
+    </div>
 
     <Divider />
 
-    <FieldView
-      :label="$t('organization.fields.idType')"
-      :value="organization.ipIdentity?.idType?.name"
-      fullWidth
-    />
-    <FieldView
-      :label="$t('organization.fields.idNumber')"
-      :value="organization.ipIdentity?.idNumber"
-    />
-    <FieldView
-      :label="$t('organization.fields.idIssueDate')"
-      :value="organization.ipIdentity?.idIssueDate"
-    />
-    <FieldView
-      :label="$t('organization.fields.idIssuer')"
-      :value="organization.ipIdentity?.idIssuer"
-      fullWidth
-    />
-    <FieldView
-      :label="$t('organization.fields.idRegAddress')"
-      :value="organization.ipIdentity?.idRegAddress"
-      fullWidth
-    />
-    <FieldView
-      :label="$t('organization.fields.idBirthdate')"
-      :value="organization.ipIdentity?.idBirthdate"
-    />
+    <!-- Документы -->
+    <div class="flex flex-column gap-1 w-full">
+      <span class="text-400 subtext">{{ $t('organization.fields.idType') }}</span>
+      <span class="text">{{ organization.ipIdentity?.idType?.name || '-' }}</span>
+    </div>
+    <div class="flex flex-column gap-1 w-5">
+      <span class="text-400 subtext">{{ $t('organization.fields.idNumber') }}</span>
+      <span class="text">{{ organization.ipIdentity?.idNumber || '-' }}</span>
+    </div>
+    <div class="flex flex-column gap-1 w-5">
+      <span class="text-400 subtext">{{ $t('organization.fields.idIssueDate') }}</span>
+      <span class="text">{{ organization.ipIdentity?.idIssueDate || '-' }}</span>
+    </div>
+    <div class="flex flex-column gap-1 w-full">
+      <span class="text-400 subtext">{{ $t('organization.fields.idIssuer') }}</span>
+      <span class="text">{{ organization.ipIdentity?.idIssuer || '-' }}</span>
+    </div>
+    <div class="flex flex-column gap-1 w-full">
+      <span class="text-400 subtext">{{ $t('organization.fields.idRegAddress') }}</span>
+      <span class="text">{{ organization.ipIdentity?.idRegAddress || '-' }}</span>
+    </div>
+    <div class="flex flex-column gap-1 w-full">
+      <span class="text-400 subtext">{{ $t('organization.fields.idBirthdate') }}</span>
+      <span class="text">{{ organization.ipIdentity?.idBirthdate || '-' }}</span>
+    </div>
 
     <Divider />
 
-    <FieldView
-      :label="$t('organization.fields.postAddress')"
-      :value="organization.postAddress"
-      fullWidth
-    />
-    <FieldView
-      :label="$t('organization.fields.factAddress')"
-      :value="organization.factAddress"
-      fullWidth
-    />
-    <FieldView :label="$t('organization.fields.phone')" :value="organization.phone" />
-    <FieldView :label="$t('organization.fields.email')" :value="organization.email" />
+    <!-- Адреса -->
+    <div class="flex flex-column gap-1 w-full">
+      <span class="text-400 subtext">{{ $t('organization.fields.postAddress') }}</span>
+      <span class="text">{{ organization.postAddress || '-' }}</span>
+    </div>
+    <div class="flex flex-column gap-1 w-full">
+      <span class="text-400 subtext">{{ $t('organization.fields.factAddress') }}</span>
+      <span class="text">{{ organization.factAddress || '-' }}</span>
+    </div>
+
+    <!-- Контакты -->
+    <div class="flex flex-column gap-1 w-5">
+      <span class="text-400 subtext">{{ $t('organization.fields.phone') }}</span>
+      <span class="text">{{ organization.phone || '-' }}</span>
+    </div>
+    <div class="flex flex-column gap-1 w-5">
+      <span class="text-400 subtext">{{ $t('organization.fields.email') }}</span>
+      <span class="text">{{ organization.email || '-' }}</span>
+    </div>
 
     <Divider />
 
-    <FieldView
-      :label="$t('organization.fields.rekvPhone')"
-      :value="organization.sendRekvContact?.phone"
-    />
-    <FieldView
-      :label="$t('organization.fields.rekvEmail')"
-      :value="organization.sendRekvContact?.email"
-    />
+    <!-- Контакты по реквизитам -->
+    <div class="flex flex-column gap-1 w-5">
+      <span class="text-400 subtext">{{ $t('organization.fields.rekvPhone') }}</span>
+      <span class="text">{{ organization.sendRekvContact?.phone || '-' }}</span>
+    </div>
+    <div class="flex flex-column gap-1 w-5">
+      <span class="text-400 subtext">{{ $t('organization.fields.rekvEmail') }}</span>
+      <span class="text">{{ organization.sendRekvContact?.email || '-' }}</span>
+    </div>
 
     <Divider />
 
-    <FieldGroupView v-for="(contact, i) in organization.organizationContacts" :key="i">
-      <FieldView :label="$t('organization.fields.contact.fio')" :value="contact.fio" />
-      <FieldView :label="$t('organization.fields.contact.title')" :value="contact.title" />
-      <FieldView :label="$t('organization.fields.contact.phone')" :value="contact.phone" />
-      <FieldView :label="$t('organization.fields.contact.email')" :value="contact.email" />
-    </FieldGroupView>
-  </FormGridView>
+    <!-- Список контактов -->
+    <template v-for="(contact, i) in organization.organizationContacts" :key="i">
+      <div class="flex flex-column gap-1 w-5">
+        <span class="text-400 subtext">{{ $t('organization.fields.contact.fio') }}</span>
+        <span class="text">{{ contact.fio || '-' }}</span>
+      </div>
+      <div class="flex flex-column gap-1 w-5">
+        <span class="text-400 subtext">{{ $t('organization.fields.contact.title') }}</span>
+        <span class="text">{{ contact.title || '-' }}</span>
+      </div>
+      <div class="flex flex-column gap-1 w-5">
+        <span class="text-400 subtext">{{ $t('organization.fields.contact.phone') }}</span>
+        <span class="text">{{ contact.phone || '-' }}</span>
+      </div>
+      <div class="flex flex-column gap-1 w-5">
+        <span class="text-400 subtext">{{ $t('organization.fields.contact.email') }}</span>
+        <span class="text">{{ contact.email || '-' }}</span>
+      </div>
+    </template>
+  </div>
 </template>
 
 <script setup lang="ts">
 import Divider from 'primevue/divider';
 import type { OrganizationType } from '@/api/organization/organization.types.ts';
-import FieldGroupView from '@/shared/components/form/FieldGroupView.vue';
-import FieldView from '@/shared/components/form/FieldView.vue';
-import FormGridView from '@/shared/components/form/FormGridView.vue';
 
 defineProps<{ organization: OrganizationType }>();
 </script>

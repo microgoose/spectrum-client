@@ -28,7 +28,7 @@
 
     <Card v-if="user" style="width: 100%">
       <template #content>
-        <UserForm v-if="isEditMode" :user="user" />
+        <ProfileForm v-if="isEditMode" :user="user" />
         <UserView v-else :user="user" />
       </template>
     </Card>
@@ -45,7 +45,7 @@ import { getAuthUserQuery } from '@/service/user/user.service.ts';
 import BlockTitle from '@/shared/components/BlockTitle.vue';
 import { useDialogStore } from '@/store/app/dialog.store.ts';
 import UserView from '@/view/entity/user/UserView.vue';
-import UserForm from '@/view/feature/user/UserForm.vue';
+import ProfileForm from '@/view/feature/user/ProfileForm.vue';
 
 const { data: user } = getAuthUserQuery();
 const dialog = useDialogStore();

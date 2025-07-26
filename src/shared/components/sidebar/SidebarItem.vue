@@ -1,7 +1,7 @@
 <style module lang="css">
 .sidebarItem {
   padding: 0.75rem 1rem;
-  font: var(--font-h2);
+  font: var(--font-h2-bold);
 
   &:hover,
   &.isActive {
@@ -13,7 +13,7 @@
   }
 
   & i {
-    margin-right: .25rem;
+    margin-right: 0.25rem;
   }
 }
 </style>
