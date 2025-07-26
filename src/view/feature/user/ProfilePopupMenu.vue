@@ -10,24 +10,24 @@
 .profileButtonLink {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: .25rem;
 }
 
 .menu {
-  padding: 8px;
+  padding: .5rem;
   min-width: 300px;
 }
 
 .profileMenuInfo {
-  padding: 8px 12px 0 12px;
+  padding: .5rem 12px 0 12px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: .5rem;
 
   & > span {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: .5rem;
     color: var(--p-text-muted-color);
   }
 }

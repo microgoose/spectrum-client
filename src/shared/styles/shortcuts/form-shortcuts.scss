@@ -1,0 +1,27 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 300px;
+  gap: .25rem;
+
+  //TODO customize in primevue-config
+  &.p-iftalabel {
+    display: flex;
+  }
+
+  & input {
+    width: 100%;
+  }
+}
+
+.field-w-full {
+  flex: 1 1 100%;
+}
+
+.form-actions {
+  display: flex;
+  width: 100%;
+  justify-content: end;
+  align-items: center;
+  gap: 1rem;
+}

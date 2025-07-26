@@ -1,17 +1,17 @@
 <style module lang="scss">
 .userPanel {
-  padding-left: 16px;
+  padding-left: 1rem;
   height: 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  gap: 1rem;
 }
 
 .organizationInfo {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 1rem;
 }
 </style>
 

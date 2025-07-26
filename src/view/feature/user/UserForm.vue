@@ -1,22 +1,3 @@
-<style scoped>
-.field {
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 300px;
-
-  & input {
-    width: 100%;
-  }
-}
-
-.button-actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: end;
-  width: 100%;
-}
-</style>
-
 <template>
   <Form :initialValues="values" :resolver="resolver" @submit="onSubmit" v-slot="$form">
     <FormGridView>
@@ -67,7 +48,7 @@
         <label for="inn">{{ $t('userForm.fields.inn') }}</label>
       </IftaLabel>
 
-      <div class="button-actions">
+      <div class="form-actions">
         <Button :label="$t('userForm.actions.save')" type="submit" size="large" />
       </div>
     </FormGridView>

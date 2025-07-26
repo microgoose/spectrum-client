@@ -1,31 +1,8 @@
-<style scoped>
-.field {
-  display: flex;
-  flex-direction: column;
-  flex: 1 1 300px;
-
-  & input {
-    width: 100%;
-  }
-}
-
-.full-width {
-  flex: 1 1 100%;
-}
-
-.button-actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: end;
-  width: 100%;
-}
-</style>
-
 <template>
   <Form :resolver="resolver" :initialValues="values" @submit="onSubmit" v-slot="$form">
     <FormGridView>
       <!-- Название -->
-      <IftaLabel class="field full-width">
+      <IftaLabel class="field field-w-full">
         <InputText id="fullName" name="fullName" />
         <label for="fullName">{{ $t('organization.fields.fullName') }}</label>
         <Message v-if="$form.fullName?.invalid" severity="error" size="small" variant="simple">
@@ -51,7 +28,7 @@
       </IftaLabel>
 
       <!-- Система налогообложения -->
-      <IftaLabel class="field full-width">
+      <IftaLabel class="field field-w-full">
         <InputText id="taxation.description" name="taxation.description" />
         <label for="taxation.description">{{ $t('organization.fields.taxation') }}</label>
         <Message
@@ -67,7 +44,7 @@
       <Divider />
 
       <!-- Документ -->
-      <IftaLabel class="field full-width">
+      <IftaLabel class="field field-w-full">
         <InputText id="idType" name="ipIdentity.idType.name" />
         <label for="idType">{{ $t('organization.fields.idType') }}</label>
         <Message
@@ -106,7 +83,7 @@
         </Message>
       </IftaLabel>
 
-      <IftaLabel class="field full-width">
+      <IftaLabel class="field field-w-full">
         <InputText id="idIssuer" name="ipIdentity.idIssuer" />
         <label for="idIssuer">{{ $t('organization.fields.idIssuer') }}</label>
         <Message
@@ -119,7 +96,7 @@
         </Message>
       </IftaLabel>
 
-      <IftaLabel class="field full-width">
+      <IftaLabel class="field field-w-full">
         <InputText id="idRegAddress" name="ipIdentity.idRegAddress" />
         <label for="idRegAddress">{{ $t('organization.fields.idRegAddress') }}</label>
         <Message
@@ -148,7 +125,7 @@
       <Divider />
 
       <!-- Адреса -->
-      <IftaLabel class="field full-width">
+      <IftaLabel class="field field-w-full">
         <InputText id="postAddress" name="postAddress" />
         <label for="postAddress">{{ $t('organization.fields.postAddress') }}</label>
         <Message v-if="$form.postAddress?.invalid" severity="error" size="small" variant="simple">
@@ -156,7 +133,7 @@
         </Message>
       </IftaLabel>
 
-      <IftaLabel class="field full-width">
+      <IftaLabel class="field field-w-full">
         <InputText id="factAddress" name="factAddress" />
         <label for="factAddress">{{ $t('organization.fields.factAddress') }}</label>
         <Message v-if="$form.factAddress?.invalid" severity="error" size="small" variant="simple">
@@ -182,7 +159,7 @@
       </IftaLabel>
 
       <!-- Контакты по реквизитам -->
-      <IftaLabel class="field full-width">
+      <IftaLabel class="field field-w-full">
         <InputText id="rekvPhone" name="sendRekvContact.phone" />
         <label for="rekvPhone">{{ $t('organization.fields.rekvPhone') }}</label>
         <Message
@@ -195,7 +172,7 @@
         </Message>
       </IftaLabel>
 
-      <IftaLabel class="field full-width">
+      <IftaLabel class="field field-w-full">
         <InputText id="rekvEmail" name="sendRekvContact.email" />
         <label for="rekvEmail">{{ $t('organization.fields.rekvEmail') }}</label>
         <Message
@@ -209,7 +186,7 @@
       </IftaLabel>
 
       <!-- Кнопка -->
-      <div class="button-actions">
+      <div class="form-actions">
         <Button :label="$t('organization.actions.send')" type="submit" size="large" />
       </div>
     </FormGridView>

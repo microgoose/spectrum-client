@@ -1,6 +1,7 @@
 @use 'reset';
 @use 'fonts';
 @use 'typography';
+@use 'shortcuts/form-shortcuts';
 
 html {
   font: var(--font-text);

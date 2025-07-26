@@ -13,7 +13,7 @@
   }
 
   & i {
-    margin-right: 4px;
+    margin-right: .25rem;
   }
 }
 </style>

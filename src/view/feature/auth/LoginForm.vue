@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 16px;
+  gap: 1rem;
 }
 </style>
 

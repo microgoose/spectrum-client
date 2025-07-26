@@ -1,15 +1,15 @@
 <style module lang="css">
 .appSidebar {
-  padding: 20px 0;
+  padding: 1rem 0;
   width: 250px;
   display: flex;
   flex-direction: column;
   justify-content: start;
-  gap: 20px;
+  gap: 2rem;
 }
 
 .panelMenu {
-  padding: 0 20px;
+  padding: 0 1rem;
   width: 100%;
   display: flex;
   flex-direction: column;
