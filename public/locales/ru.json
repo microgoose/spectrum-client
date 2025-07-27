@@ -15,7 +15,7 @@
   "reportsPageTitle": "Отчёты",
   "profilePageTitle": "Профиль",
   "loginPageTitle": "Вход",
-  "sendDocumentPageTitle": "Отправить документ",
+  "sendDocumentPageTitle": "Отправить документ на Биржу",
   "applicationsPageTitle": "Заявления",
   "organizationPageTitle": "Организация",
   "primevue": {
@@ -408,6 +408,28 @@
       "surnameRequired": "Фамилия обязательна",
       "emailRequired": "Электронная почта обязательна",
       "emailInvalid": "Неверный формат электронной почты"
+    }
+  },
+  "sendDocument": {
+    "text": {
+      "500symbols": "500 символов"
+    },
+    "actions": {
+      "enterDocumentText": "Введите текст (не более 500 символов)",
+      "attachFiles": "Прикрепить файлы"
+    }
+  },
+  "sendDocumentSuccessDialog": {
+    "title": "Отправка документа",
+    "text": {
+      "title": "Уважаемые коллеги!",
+      "message": {
+        "pre": "Информация направлена на биржу, статус обработки доступен в разделе",
+        "link": "Заявления"
+      }
+    },
+    "actions": {
+      "ok": "Ok"
     }
   }
 }

@@ -2,6 +2,7 @@ import type { Component } from 'vue';
 import ErrorView from '@/view/entity/error/ErrorView.vue';
 import CancelApplicationDialog from '@/view/feature/application/CancelApplicationDialog.vue';
 import ConfirmLogoutDialog from '@/view/feature/auth/ConfirmLogoutDialog.vue';
+import SendDocumentSuccessDialog from '@/view/feature/document/SendDocumentSuccessDialog.vue';
 import OrganizationFormCancelDialog from '@/view/feature/organization/OrganizationFormCancelDialog.vue';
 import OrganizationFormSentDialog from '@/view/feature/organization/OrganizationFormSentDialog.vue';
 
@@ -40,5 +41,10 @@ export const dialogs: DialogRoutes = {
     name: 'organization-send-notice',
     titleKey: 'applicationSent.title',
     component: OrganizationFormSentDialog,
+  },
+  SEND_DOCUMENT_SUCCESS: {
+    name: 'send-document-success',
+    titleKey: 'sendDocumentSuccessDialog.title',
+    component: SendDocumentSuccessDialog,
   },
 };

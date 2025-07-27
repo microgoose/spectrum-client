@@ -26,7 +26,7 @@
       />
     </BlockTitle>
 
-    <Card v-if="user" style="width: 100%">
+    <Card v-if="user" class="w-full">
       <template #content>
         <ProfileForm v-if="isEditMode" :user="user" />
         <UserView v-else :user="user" />

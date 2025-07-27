@@ -1,6 +1,5 @@
 import NotFoundPage from '@/view/pages/error/NotFoundPage.vue';
 
-
 // Перечисление маршрутов, используется для программного перехода на страницу
 export enum Routes {
   HOME = 'home ',
@@ -26,13 +25,13 @@ export const routes = [
     path: '/organization',
     name: Routes.ORGANIZATION,
     component: () => import('@/view/pages/organization/OrganizationPage.vue'),
-    meta: { titleKey: 'applicationsPageTitle' },
+    meta: { titleKey: 'organizationPageTitle' },
   },
   {
     path: '/send-document',
     name: Routes.SEND_DOCUMENT,
     component: () => import('@/view/pages/document/SendDocumentPage.vue'),
-    meta: { titleKey: 'applicationsPageTitle' },
+    meta: { titleKey: 'sendDocumentPageTitle' },
   },
   {
     path: '/notifications',

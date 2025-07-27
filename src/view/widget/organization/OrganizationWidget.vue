@@ -21,7 +21,7 @@
       />
     </BlockTitle>
 
-    <Card v-if="organization" style="width: 100%">
+    <Card v-if="organization" class="w-full">
       <template #content>
         <OrganizationForm
           :organization="organization"

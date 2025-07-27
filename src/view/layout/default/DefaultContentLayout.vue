@@ -31,6 +31,10 @@
   display: flex;
   align-items: center;
 }
+
+.noPadding {
+  padding: 0;
+}
 </style>
 
 <template>
@@ -39,11 +43,24 @@
       <slot name="header" />
     </header>
 
-    <main :class="[$style.content, centerContent && $style.center]">
+    <main
+      :class="[
+        $style.content,
+        centerContent && $style.center,
+        noContentPadding && $style.noPadding
+      ]"
+    >
       <slot name="content" />
     </main>
 
-    <footer v-if="$slots.footer" :class="[$style.footer, centerFooter && $style.center]">
+    <footer
+      v-if="$slots.footer"
+      :class="[
+        $style.footer,
+        centerFooter && $style.center,
+        noFooterPadding && $style.noPadding
+      ]"
+    >
       <slot name="footer" />
     </footer>
   </div>
@@ -54,5 +71,7 @@ defineProps<{
   centerHeader?: boolean;
   centerContent?: boolean;
   centerFooter?: boolean;
+  noContentPadding?: boolean;
+  noFooterPadding?: boolean;
 }>();
 </script>
