@@ -1,0 +1,12 @@
+[
+  {
+    "userId": 4,
+    "login": "elsa",
+    "roles": ["ROLE_USER"]
+  },
+  {
+    "userId": 8,
+    "login": "admin4",
+    "roles": ["ROLE_ADMIN"]
+  }
+]

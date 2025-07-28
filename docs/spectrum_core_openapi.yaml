@@ -1,0 +1,430 @@
+openapi: 3.0.0
+info:
+  title: Spectrum Core Service API
+  version: 1.0.0
+  description: REST API для взаимодействия с системой Spectrum Core. Авторизация не описана.
+servers:
+  - url: https://example.com/spectrum-core
+paths:
+
+  /info:
+    get:
+      summary: Проверка текущего пользователя
+      tags: [Информация]
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  login:
+                    type: string
+                    example: admin
+
+  /version:
+    get:
+      summary: Получение версии сервиса
+      tags: [Информация]
+      responses:
+        '200':
+          description: Информация о версии сервиса
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name: { type: string }
+                  version: { type: string }
+                  time: { type: string, format: date-time }
+                  artifact: { type: string }
+                  group: { type: string }
+                  javaVersion: { type: string }
+                  userName: { type: string }
+
+  /version/db:
+    get:
+      summary: Получение версии БД
+      tags: [Информация]
+      responses:
+        '200':
+          description: Информация о версии базы данных
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  installedRank: { type: integer }
+                  version: { type: string }
+                  description: { type: string }
+                  type: { type: string }
+                  script: { type: string }
+                  installedBy: { type: string }
+                  installedDate: { type: string, format: date-time }
+                  executionTime: { type: integer }
+                  success: { type: boolean }
+
+  /api-map:
+    get:
+      summary: Получение карты доступных API
+      tags: [Информация]
+      responses:
+        '200':
+          description: Карта API
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  version: { type: string }
+                  login: { type: string, nullable: true }
+                  roles:
+                    type: array
+                    items: { type: string }
+                  apiMap:
+                    type: object
+                    additionalProperties:
+                      type: string
+
+  /user:
+    get:
+      summary: Получение информации о текущем пользователе
+      tags: [Пользователи]
+      responses:
+        '200':
+          description: Информация о пользователе
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id: { type: integer }
+                  login: { type: string }
+                  organizationId: { type: integer }
+                  name: { type: string }
+                  patronymic: { type: string }
+                  surname: { type: string }
+                  email: { type: string }
+                  inn: { type: string, nullable: true }
+                  phone: { type: string }
+
+  /organization:
+    get:
+      summary: Организация текущего пользователя
+      tags: [Организации]
+      responses:
+        '200':
+          description: Информация об организации
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organization'
+
+  /organization/{organization_id}:
+    get:
+      summary: Организация по ID
+      tags: [Организации]
+      parameters:
+        - name: organization_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Информация об организации
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organization'
+
+  /identity_type:
+    get:
+      summary: Список типов удостоверений
+      tags: [Удостоверения]
+      responses:
+        '200':
+          description: Типы удостоверений
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/IdentityType'
+
+  /identity_type/{identity_type_id}:
+    get:
+      summary: Тип удостоверения по ID
+      tags: [Удостоверения]
+      parameters:
+        - name: identity_type_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Тип удостоверения
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IdentityType'
+
+  /userroles/allroles:
+    get:
+      summary: Все доступные роли
+      tags: [Роли]
+      responses:
+        '200':
+          description: Роли
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Role'
+
+  /userroles:
+    get:
+      summary: Роли пользователей текущей организации
+      tags: [Роли]
+      responses:
+        '200':
+          description: Роли пользователей
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserRolesInfo'
+
+    put:
+      summary: Изменение ролей пользователя
+      tags: [Роли]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRoleUpdateRequest'
+      responses:
+        '200':
+          description: Успешное обновление
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+
+  /userroles/{user_id}:
+    get:
+      summary: Роли пользователя по ID
+      tags: [Роли]
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Роли пользователя
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRolesInfo'
+
+  /claim/anketa/data:
+    post:
+      summary: Генерация XML заявления
+      tags: [ Заявления ]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                claim:
+                  type: object
+                  properties:
+                    type: { type: string }
+                    ogrn: { type: string }
+                    data:
+                      type: object
+                      description: "Анкетные данные"
+      responses:
+        '200':
+          description: XML-заявление в виде строки
+          content:
+            text/plain:
+              schema:
+                type: string
+
+  /claim/anketa:
+    post:
+      summary: Сохранение заявления
+      tags: [ Заявления ]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                document: { type: string, description: "base64 XML" }
+                signature: { type: string, description: "base64 подпись" }
+      responses:
+        '200':
+          description: Успешное сохранение
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+
+  /claim/anketa/{claim_id}:
+    patch:
+      summary: Обновление заявления по ID
+      tags: [ Заявления ]
+      parameters:
+        - name: claim_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                document: { type: string, description: "base64 XML" }
+                signature: { type: string, description: "base64 подпись" }
+      responses:
+        '200':
+          description: Успешное обновление
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GenericResponse'
+
+  /claim:
+    get:
+      summary: Получение списка заявлений
+      tags: [Заявления]
+      responses:
+        '200':
+          description: Список заявлений
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClaimSummary'
+
+  /claim/{claim_id}:
+    get:
+      summary: Получение конкретного заявления по ID
+      tags: [Заявления]
+      parameters:
+        - name: claim_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Заявление
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FullClaim'
+
+
+components:
+  schemas:
+    IdentityType:
+      type: object
+      properties:
+        id: { type: integer }
+        name: { type: string }
+
+    Role:
+      type: object
+      properties:
+        id: { type: integer }
+        name: { type: string }
+
+    UserRolesInfo:
+      type: object
+      properties:
+        userId: { type: integer }
+        login: { type: string }
+        roles:
+          type: array
+          items: { type: string }
+
+    UserRoleUpdateRequest:
+      type: object
+      properties:
+        userId: { type: integer }
+        roles:
+          type: array
+          items: { type: string }
+
+    GenericResponse:
+      type: object
+      properties:
+        status: { type: integer }
+        message: { type: string }
+        timestamp: { type: string, format: date-time }
+
+    ClaimSummary:
+      type: object
+      properties:
+        id: { type: integer }
+        claimType:
+          type: object
+          properties:
+            name: { type: string }
+            description: { type: string }
+        user:
+          type: object
+          properties:
+            id: { type: integer }
+            fio: { type: string }
+        status: { type: string }
+        date: { type: string, format: date-time }
+
+    FullClaim:
+      type: object
+      properties:
+        type: { type: string }
+        ogrn: { type: string }
+        author: { type: string }
+        date: { type: string, format: date-time }
+        data:
+          type: object
+          description: "Анкетные данные в свободной структуре"
+
+    Organization:
+      type: object
+      properties:
+        id: { type: integer }
+        crmOrganizationId: { type: integer }
+        shortName: { type: string }
+        fullName: { type: string }
+        inn: { type: string }
+        ogrn: { type: string }
+        kpp: { type: string, nullable: true }
+        phone: { type: string }
+        email: { type: string }
+        postAddress: { type: string }
+        factAddress: { type: string }
+        address: { type: string, nullable: true }
+        taxation:
+          type: object
+          properties:
+            id: { type: integer }
+            description: { type: string }

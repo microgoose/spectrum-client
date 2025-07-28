@@ -37,10 +37,10 @@ defineProps<{
 }>();
 
 const emit = defineEmits<{
-  (e: 'remove', item: ApplicationItem): void;
+  (e: 'remove', item: ApplicationType): void;
 }>();
 
-const remove = (item: ApplicationItem) => {
+const remove = (item: ApplicationType) => {
   emit('remove', item);
 };
 </script>

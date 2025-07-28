@@ -11,9 +11,7 @@
         <template v-if="cert.selectedCert"> ({{ cert.selectedCert.label }}) </template>
 
         <button v-else @click="selectCertificate">
-          (<u>
-            {{ $t('signCheckbox.actions.selectCertificate') }} </u
-          >)
+          (<u> {{ $t('signCheckbox.actions.selectCertificate') }} </u>)
         </button>
       </span>
     </div>

@@ -1,11 +1,11 @@
 export interface UserType {
   id: number;
   login: string;
-  name: string;
-  surname: string;
-  patronymic: string;
-  email: string;
-  phone: string;
-  inn: string;
   organizationId: number;
+  name: string;
+  patronymic: string;
+  surname: string;
+  email: string;
+  inn: string | null;
+  phone: string;
 }

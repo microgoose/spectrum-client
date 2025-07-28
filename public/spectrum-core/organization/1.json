@@ -1,0 +1,20 @@
+{
+  "id": 1,
+  "crmOrganizationId": 5,
+  "taxation": {
+    "id": 0,
+    "description": "Общая система налогообложения"
+  },
+  "shortName": "ООО \"БК РЕГИОН\"",
+  "fullName": "Общество с ограниченной ответственностью \"Брокерская компания \"РЕГИОН\"",
+  "inn": "7708207809",
+  "ogrn": "1027708015576",
+  "kpp": "775001001",
+  "phone": "(495) 777-29-64",
+  "email": "region_ic@regnm.ru",
+  "postAddress": "119049, г. Москва, ул. Шаболовка, д.10, корпус 2",
+  "address": null,
+  "factAddress": null,
+  "sendRekvContact": null,
+  "organizationContacts": []
+}

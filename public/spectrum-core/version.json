@@ -1,0 +1,9 @@
+{
+  "name": "Spectrum Core service",
+  "version": "1.0.0",
+  "time": "2025-05-05T13:09:27.736Z",
+  "artifact": "spectrum-core",
+  "group": "com.spimex.spectrum",
+  "javaVersion": "17",
+  "userName": "gitlab-runner"
+}
