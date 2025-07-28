@@ -19,6 +19,20 @@ const SpimexPreset = definePreset(Aura, {
           900: '{blue.900}',
           950: '{blue.950}',
         },
+        surface: {
+          0: '{zinc.50}',
+          50: '{zinc.50}',
+          100: '{zinc.100}',
+          200: '{zinc.200}',
+          300: '{zinc.300}',
+          400: '{zinc.400}',
+          500: '{zinc.500}',
+          600: '{zinc.600}',
+          700: '{zinc.700}',
+          800: '{zinc.800}',
+          900: '{zinc.900}',
+          950: '{zinc.950}'
+        },
 
         border: '{stone.200}',
       },
@@ -49,9 +63,19 @@ const SpimexPreset = definePreset(Aura, {
 
   components: {
     card: {
-      body: {
-        gap: '1rem',
-      },
+      colorScheme: {
+        light: {
+          shadow: '0 1px 3px 0 rgba(0,0,0,0.4),0 1px 2px -1px rgba(0,0,0,0.4)',
+          body: {
+            gap: '1rem',
+          },
+        },
+        dark: {
+          body: {
+            gap: '1rem',
+          },
+        }
+      }
     },
 
     logo: {
