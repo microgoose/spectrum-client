@@ -70,5 +70,4 @@ const beforeEach = (
 
 const onError = (err: Error) => {
   openError(err);
-  pushPage(Routes.HOME);
 };

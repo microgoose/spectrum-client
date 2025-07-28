@@ -1,5 +1,5 @@
 <template>
-  <form class="flex flex-column gap-4" @submit.prevent="onSubmit">
+  <form class="flex flex-column gap-3" @submit.prevent>
     <!-- Основное -->
     <fieldset class="flex flex-wrap gap-3">
       <legend class="h2-bold pb-3">{{ $t('organization.fieldset.main') }}</legend>
@@ -418,19 +418,19 @@
       />
     </fieldset>
 
-    <!-- Отправка -->
-    <div class="form-actions">
+    <div class="flex gap-3 w-full">
       <Button
-        :disabled="!meta.valid"
-        :label="$t('organization.actions.send')"
+        :label="$t('sendDocumentWidget.actions.send')"
         type="submit"
-        size="large"
+        :disabled="!meta.valid"
       />
+      <SignCheckbox v-model="isSigningEnabled" />
     </div>
   </form>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import { toTypedSchema } from '@vee-validate/zod';
 import Button from 'primevue/button';
 import DatePicker from 'primevue/datepicker';
@@ -441,30 +441,23 @@ import Message from 'primevue/message';
 import RadioButton from 'primevue/radiobutton';
 import { useForm } from 'vee-validate';
 import type { OrganizationType } from '@/api/organization/organization.types.ts';
-import { dialogs } from '@/config/dialog.ts';
 import { organizationValidationSchema } from '@/model/organization/organization-validation-scheme.ts';
-import { useDialogStore } from '@/store/app/dialog.store.ts';
+import SignCheckbox from '@/view/feature/sign/SignCheckbox.vue';
 
 const props = defineProps<{ organization: OrganizationType }>();
-const { meta, values, errors, setFieldValue, handleSubmit } = useForm({
+const isSigningEnabled = ref(false);
+const { meta, values, errors, setFieldValue } = useForm({
   validationSchema: toTypedSchema(organizationValidationSchema),
   initialValues: {
     ...props.organization,
   },
 });
 
-const dialog = useDialogStore();
-
 //TODO get from backend
 const taxationOptions = [
   { id: 1, label: 'Общая' },
   { id: 2, label: 'Упрощённая' },
 ];
-
-const onSubmit = handleSubmit((data) => {
-  console.log('✅ Submitted data:', data);
-  dialog.open(dialogs.ORGANIZATION_SENT_NOTICE);
-});
 
 const addContact = () => {
   let organizationContacts;

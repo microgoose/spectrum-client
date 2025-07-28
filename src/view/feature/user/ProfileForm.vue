@@ -1,5 +1,5 @@
 <template>
-  <form class="flex flex-wrap gap-3" @submit.prevent="onSubmit">
+  <form class="flex flex-column gap-3" @submit.prevent>
     <fieldset class="flex flex-wrap gap-3 w-full">
       <legend class="h2-bold pb-3">{{ $t('userForm.fieldset.main') }}</legend>
 
@@ -101,18 +101,19 @@
       </IftaLabel>
     </fieldset>
 
-    <div class="form-actions">
+    <div class="flex gap-3 w-full">
       <Button
-        :disabled="!meta.valid"
-        :label="$t('userForm.actions.save')"
+        :label="$t('sendDocumentWidget.actions.send')"
         type="submit"
-        size="large"
+        :disabled="!meta.valid"
       />
+      <SignCheckbox v-model="isSigningEnabled" />
     </div>
   </form>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import { toTypedSchema } from '@vee-validate/zod';
 import Button from 'primevue/button';
 import Divider from 'primevue/divider';
@@ -122,16 +123,14 @@ import Message from 'primevue/message';
 import { useForm } from 'vee-validate';
 import type { UserType } from '@/api/user/user.types.ts';
 import { profileValidationSchema } from '@/model/user/profile-validation-schema.ts';
+import SignCheckbox from '@/view/feature/sign/SignCheckbox.vue';
 
 const props = defineProps<{ user: UserType }>();
-const { meta, values, errors, setFieldValue, handleSubmit } = useForm({
+const isSigningEnabled = ref(false);
+const { meta, values, errors, setFieldValue } = useForm({
   validationSchema: toTypedSchema(profileValidationSchema),
   initialValues: {
     ...props.user,
   },
-});
-
-const onSubmit = handleSubmit((data) => {
-  console.log('✅ Submitted data:', data);
 });
 </script>

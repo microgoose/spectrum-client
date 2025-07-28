@@ -23,12 +23,8 @@
 
     <Card v-if="organization" class="w-full">
       <template #content>
-        <OrganizationForm
-          :organization="organization"
-          v-if="isEditMode"
-          @submit="isEditMode = false"
-        />
-        <OrganizationView :organization="organization" v-else />
+        <OrganizationForm v-if="isEditMode" :organization="organization" @submit="onSubmit" />
+        <OrganizationView v-else :organization="organization" />
       </template>
     </Card>
     <Skeleton v-else width="100%" height="600px" />
@@ -61,5 +57,10 @@ const onEditClose = async () => {
   if (result) {
     isEditMode.value = false;
   }
+};
+
+const onSubmit = () => {
+  isEditMode.value = false;
+  dialog.open(dialogs.ORGANIZATION_SENT_NOTICE);
 };
 </script>

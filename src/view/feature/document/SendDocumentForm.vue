@@ -1,5 +1,5 @@
 <template>
-  <form class="flex flex-column gap-4">
+  <form class="flex flex-column gap-4" @submit.prevent>
     <div>
       <Textarea
         v-model="comment"
@@ -20,7 +20,7 @@
         <table class="w-full border-collapse">
           <tbody>
             <tr v-for="(f, index) in files" :key="index">
-              <td class="w-4">{{ f.name }}</td>
+              <td class="w-full">{{ f.name }}</td>
               <td>
                 <Button
                   icon="pi pi-times"
@@ -46,6 +46,11 @@
         class="file-button w-max"
       />
     </div>
+
+    <div class="flex align-items-center gap-2">
+      <Button :label="$t('sendDocumentWidget.actions.send')" @click="handleSubmit" />
+      <SignCheckbox v-model="isSigningEnabled" />
+    </div>
   </form>
 </template>
 
@@ -54,9 +59,18 @@ import { ref } from 'vue';
 import Button from 'primevue/button';
 import FileUpload, { type FileUploadSelectEvent } from 'primevue/fileupload';
 import Textarea from 'primevue/textarea';
+import { dialogs } from '@/config/dialog.ts';
+import { useDialogStore } from '@/store/app/dialog.store.ts';
+import SignCheckbox from '@/view/feature/sign/SignCheckbox.vue';
 
+const dialog = useDialogStore();
 const comment = ref('');
 const files = ref<File[]>([]);
+const isSigningEnabled = ref(false);
+
+function handleSubmit() {
+  dialog.open(dialogs.SEND_DOCUMENT_SUCCESS);
+}
 
 function onFileSelect(event: FileUploadSelectEvent) {
   if (event.files?.length) {

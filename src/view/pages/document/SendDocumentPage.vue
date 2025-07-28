@@ -1,5 +1,5 @@
 <template>
-  <DefaultContentLayout centerContent noContentPadding>
+  <DefaultContentLayout centerContent>
     <template #header>
       <ProfilePanel />
     </template>

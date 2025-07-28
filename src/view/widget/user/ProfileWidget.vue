@@ -43,11 +43,9 @@ import Card from 'primevue/card';
 import Skeleton from 'primevue/skeleton';
 import { getAuthUserQuery } from '@/service/user/user.service.ts';
 import BlockTitle from '@/shared/components/BlockTitle.vue';
-import { useDialogStore } from '@/store/app/dialog.store.ts';
 import UserView from '@/view/entity/user/UserView.vue';
 import ProfileForm from '@/view/feature/user/ProfileForm.vue';
 
 const { data: user } = getAuthUserQuery();
-const dialog = useDialogStore();
 const isEditMode = ref(false);
 </script>

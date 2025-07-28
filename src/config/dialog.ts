@@ -5,6 +5,7 @@ import ConfirmLogoutDialog from '@/view/feature/auth/ConfirmLogoutDialog.vue';
 import SendDocumentSuccessDialog from '@/view/feature/document/SendDocumentSuccessDialog.vue';
 import OrganizationFormCancelDialog from '@/view/feature/organization/OrganizationFormCancelDialog.vue';
 import OrganizationFormSentDialog from '@/view/feature/organization/OrganizationFormSentDialog.vue';
+import SelectSignCertificate from '@/view/feature/sign/SelectSignCertificate.vue';
 
 export interface DialogRoute {
   name: string;
@@ -46,5 +47,10 @@ export const dialogs: DialogRoutes = {
     name: 'send-document-success',
     titleKey: 'sendDocumentSuccessDialog.title',
     component: SendDocumentSuccessDialog,
+  },
+  SELECT_SIGN_CERTIFICATE: {
+    name: 'send-document-success',
+    titleKey: 'selectSignCertificateDialog.title',
+    component: SelectSignCertificate,
   },
 };

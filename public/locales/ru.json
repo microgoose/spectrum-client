@@ -431,5 +431,41 @@
     "actions": {
       "ok": "Ok"
     }
+  },
+  "selectSignCertificateDialog": {
+    "title": "Выберите сертификат",
+    "actions": {
+      "selectCertificate": "Выберите сертификат",
+      "confirm": "Подвердить"
+    },
+    "error": {
+      "notFoundActiveCert": "Не найденно активных сертификатов",
+      "unkownError": "Неизвестная ошибка при загрузке сертификатов"
+    }
+  },
+  "sendDocumentWidget": {
+    "actions": {
+      "send": "Отправить",
+      "choseCert": "Выбрать сертификат"
+    }
+  },
+  "profileMenu": {
+    "actions": {
+      "logout": "Выйти",
+      "choseCert": "Выбрать сертификат"
+    }
+  },
+  "signCheckbox": {
+    "text": {
+      "withSign": "Подписывать электронной подписью"
+    },
+    "actions": {
+      "selectCertificate": "выберите сертификат"
+    }
+  },
+  "certificateService": {
+    "text": {
+      "selectedCert": "{name} (действует до {validTo})"
+    }
   }
 }

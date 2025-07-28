@@ -20,7 +20,7 @@ const SpimexPreset = definePreset(Aura, {
           950: '{blue.950}',
         },
         surface: {
-          0: '{zinc.50}',
+          0: '#fff',
           50: '{zinc.50}',
           100: '{zinc.100}',
           200: '{zinc.200}',
@@ -31,7 +31,7 @@ const SpimexPreset = definePreset(Aura, {
           700: '{zinc.700}',
           800: '{zinc.800}',
           900: '{zinc.900}',
-          950: '{zinc.950}'
+          950: '{zinc.950}',
         },
 
         border: '{stone.200}',
@@ -65,7 +65,7 @@ const SpimexPreset = definePreset(Aura, {
     card: {
       colorScheme: {
         light: {
-          shadow: '0 1px 3px 0 rgba(0,0,0,0.4),0 1px 2px -1px rgba(0,0,0,0.4)',
+          shadow: '0 1px 3px 0 rgba(0,0,0,0.4),0 1px 0px -1px rgba(0,0,0,0.4)', //TODO это корреткно и работает, ts глючит
           body: {
             gap: '1rem',
           },
@@ -74,8 +74,14 @@ const SpimexPreset = definePreset(Aura, {
           body: {
             gap: '1rem',
           },
-        }
-      }
+        },
+      },
+    },
+
+    divider: {
+      horizontal: {
+        margin: 'none',
+      },
     },
 
     logo: {
