@@ -104,8 +104,8 @@
     <div class="flex gap-3 w-full">
       <Button
         :label="$t('sendDocumentWidget.actions.send')"
-        type="submit"
         :disabled="!meta.valid"
+        @click="$emit('submit')"
       />
       <SignCheckbox v-model="isSigningEnabled" />
     </div>
@@ -125,6 +125,7 @@ import type { UserType } from '@/api/user/user.types.ts';
 import { profileValidationSchema } from '@/model/user/profile-validation-schema.ts';
 import SignCheckbox from '@/view/feature/sign/SignCheckbox.vue';
 
+defineEmits(['submit']);
 const props = defineProps<{ user: UserType }>();
 const isSigningEnabled = ref(false);
 const { meta, values, errors, setFieldValue } = useForm({

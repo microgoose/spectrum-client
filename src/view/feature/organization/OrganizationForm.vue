@@ -1,47 +1,32 @@
 <template>
-  <form class="flex flex-column gap-3" @submit.prevent>
+  <div class="flex flex-column gap-3">
     <!-- Основное -->
     <fieldset class="flex flex-wrap gap-3">
       <legend class="h2-bold pb-3">{{ $t('organization.fieldset.main') }}</legend>
 
       <!-- Название -->
       <IftaLabel class="flex flex-column gap-2 w-full">
-        <InputText
-          id="fullName"
-          :invalid="!!errors.fullName"
-          :model-value="values.fullName"
-          @update:model-value="(value) => setFieldValue('fullName', value)"
-        />
+        <InputText id="fullName" :invalid="!!fullNameError" v-model="fullNameValue" />
         <label for="fullName">{{ $t('organization.fields.fullName') }}</label>
-        <Message v-if="errors.fullName" severity="error" size="small" variant="simple">
-          {{ errors.fullName }}
+        <Message v-if="fullNameError" severity="error" size="small" variant="simple">
+          {{ fullNameError }}
         </Message>
       </IftaLabel>
 
       <!-- ИНН / ОГРН -->
       <IftaLabel class="flex flex-column gap-2 flex-basics-w6-g3 w-6">
-        <InputText
-          id="inn"
-          :invalid="!!errors.inn"
-          :model-value="values.inn"
-          @update:model-value="(value) => setFieldValue('inn', value)"
-        />
+        <InputText id="inn" :invalid="!!innError" v-model="innValue" />
         <label for="inn">{{ $t('organization.fields.inn') }}</label>
-        <Message v-if="errors.inn" severity="error" size="small" variant="simple">
-          {{ errors.inn }}
+        <Message v-if="innError" severity="error" size="small" variant="simple">
+          {{ innError }}
         </Message>
       </IftaLabel>
 
       <IftaLabel class="flex flex-column gap-2 flex-basics-w6-g3 w-6">
-        <InputText
-          id="ogrn"
-          :invalid="!!errors.ogrn"
-          :model-value="values.ogrn"
-          @update:model-value="(value) => setFieldValue('ogrn', value)"
-        />
+        <InputText id="ogrn" :invalid="!!ogrnError" v-model="ogrnValue" />
         <label for="ogrn">{{ $t('organization.fields.ogrn') }}</label>
-        <Message v-if="errors.ogrn" severity="error" size="small" variant="simple">
-          {{ errors.ogrn }}
+        <Message v-if="ogrnError" severity="error" size="small" variant="simple">
+          {{ ogrnError }}
         </Message>
       </IftaLabel>
 
@@ -53,17 +38,16 @@
             <RadioButton
               name="taxation"
               :input-id="`taxation-${option.id}`"
-              :invalid="!!errors['taxation.id']"
+              :invalid="!!taxationIdError"
               :value="option.id"
-              :model-value="values.taxation?.id"
-              @update:model-value="(value) => setFieldValue('taxation.id', value)"
+              v-model="taxationIdValue"
             />
             <label :for="`taxation-${option.id}`">{{ option.label }}</label>
           </template>
         </div>
 
-        <Message v-if="errors['taxation.id']" severity="error" size="small" variant="simple">
-          {{ errors['taxation.id'] }}
+        <Message v-if="taxationIdError" severity="error" size="small" variant="simple">
+          {{ taxationIdError }}
         </Message>
       </div>
     </fieldset>
@@ -75,112 +59,60 @@
       <legend class="h2-bold pb-3">{{ $t('organization.fieldset.document') }}</legend>
 
       <IftaLabel class="flex flex-column gap-2 w-full">
-        <InputText
-          id="idType"
-          :invalid="!!errors['ipIdentity.idType.name']"
-          :model-value="values.ipIdentity?.idType?.name"
-          @update:model-value="(value) => setFieldValue('ipIdentity.idType.name', value)"
-        />
+        <InputText id="idType" :invalid="!!idTypeNameError" v-model="idTypeNameValue" />
         <label for="idType">{{ $t('organization.fields.idType') }}</label>
-        <Message
-          v-if="errors['ipIdentity.idType.name']"
-          severity="error"
-          size="small"
-          variant="simple"
-        >
-          {{ errors['ipIdentity.idType.name'] }}
+        <Message v-if="idTypeNameError" severity="error" size="small" variant="simple">
+          {{ idTypeNameError }}
         </Message>
       </IftaLabel>
 
       <IftaLabel class="flex flex-column gap-2 flex-basics-w6-g3 w-6">
-        <InputText
-          id="idNumber"
-          :invalid="!!errors['ipIdentity.idNumber']"
-          :model-value="values.ipIdentity?.idNumber"
-          @update:model-value="(value) => setFieldValue('ipIdentity.idNumber', value)"
-        />
+        <InputText id="idNumber" :invalid="!!idNumberError" v-model="idNumberValue" />
         <label for="idNumber">{{ $t('organization.fields.idNumber') }}</label>
-        <Message
-          v-if="errors['ipIdentity.idNumber']"
-          severity="error"
-          size="small"
-          variant="simple"
-        >
-          {{ errors['ipIdentity.idNumber'] }}
+        <Message v-if="idNumberError" severity="error" size="small" variant="simple">
+          {{ idNumberError }}
         </Message>
       </IftaLabel>
 
       <IftaLabel class="flex flex-column gap-2 flex-basics-w6-g3 w-6">
         <DatePicker
           input-id="idIssueDate"
-          :invalid="!!errors['ipIdentity.idIssueDate']"
-          :model-value="values.ipIdentity?.idIssueDate"
-          @update:model-value="(value) => setFieldValue('ipIdentity.idIssueDate', value)"
+          :invalid="!!idIssueDateError"
+          v-model="idIssueDateValue"
           dateFormat="yy-mm-dd"
         />
         <label for="idIssueDate">{{ $t('organization.fields.idIssueDate') }}</label>
-        <Message
-          v-if="errors['ipIdentity.idIssueDate']"
-          severity="error"
-          size="small"
-          variant="simple"
-        >
-          {{ errors['ipIdentity.idIssueDate'] }}
+        <Message v-if="idIssueDateError" severity="error" size="small" variant="simple">
+          {{ idIssueDateError }}
         </Message>
       </IftaLabel>
 
       <IftaLabel class="flex flex-column gap-2 w-full">
-        <InputText
-          id="idIssuer"
-          :invalid="!!errors['ipIdentity.idIssuer']"
-          :model-value="values.ipIdentity?.idIssuer"
-          @update:model-value="(value) => setFieldValue('ipIdentity.idIssuer', value)"
-        />
+        <InputText id="idIssuer" :invalid="!!idIssuerError" v-model="idIssuerValue" />
         <label for="idIssuer">{{ $t('organization.fields.idIssuer') }}</label>
-        <Message
-          v-if="errors['ipIdentity.idIssuer']"
-          severity="error"
-          size="small"
-          variant="simple"
-        >
-          {{ errors['ipIdentity.idIssuer'] }}
+        <Message v-if="idIssuerError" severity="error" size="small" variant="simple">
+          {{ idIssuerError }}
         </Message>
       </IftaLabel>
 
       <IftaLabel class="flex flex-column gap-2 w-full">
-        <InputText
-          id="idRegAddress"
-          :invalid="!!errors['ipIdentity.idRegAddress']"
-          :model-value="values.ipIdentity?.idRegAddress"
-          @update:model-value="(value) => setFieldValue('ipIdentity.idRegAddress', value)"
-        />
+        <InputText id="idRegAddress" :invalid="!!idRegAddressError" v-model="idRegAddressValue" />
         <label for="idRegAddress">{{ $t('organization.fields.idRegAddress') }}</label>
-        <Message
-          v-if="errors['ipIdentity.idRegAddress']"
-          severity="error"
-          size="small"
-          variant="simple"
-        >
-          {{ errors['ipIdentity.idRegAddress'] }}
+        <Message v-if="idRegAddressError" severity="error" size="small" variant="simple">
+          {{ idRegAddressError }}
         </Message>
       </IftaLabel>
 
       <IftaLabel class="flex flex-column gap-2 w-4">
         <DatePicker
           input-id="idBirthdate"
-          :invalid="!!errors['ipIdentity.idBirthdate']"
-          :model-value="values.ipIdentity?.idBirthdate"
-          @update:model-value="(value) => setFieldValue('ipIdentity.idBirthdate', value)"
+          :invalid="!!idBirthdateError"
+          v-model="idBirthdateValue"
           dateFormat="yy-mm-dd"
         />
         <label for="idBirthdate">{{ $t('organization.fields.idBirthdate') }}</label>
-        <Message
-          v-if="errors['ipIdentity.idBirthdate']"
-          severity="error"
-          size="small"
-          variant="simple"
-        >
-          {{ errors['ipIdentity.idBirthdate'] }}
+        <Message v-if="idBirthdateError" severity="error" size="small" variant="simple">
+          {{ idBirthdateError }}
         </Message>
       </IftaLabel>
     </fieldset>
@@ -192,28 +124,18 @@
       <legend class="h2-bold pb-3">{{ $t('organization.fieldset.address') }}</legend>
 
       <IftaLabel class="flex flex-column gap-2 w-full">
-        <InputText
-          id="postAddress"
-          :invalid="!!errors.postAddress"
-          :model-value="values.postAddress"
-          @update:model-value="(value) => setFieldValue('postAddress', value)"
-        />
+        <InputText id="postAddress" :invalid="!!postAddressError" v-model="postAddressValue" />
         <label for="postAddress">{{ $t('organization.fields.postAddress') }}</label>
-        <Message v-if="errors.postAddress" severity="error" size="small" variant="simple">
-          {{ errors.postAddress }}
+        <Message v-if="postAddressError" severity="error" size="small" variant="simple">
+          {{ postAddressError }}
         </Message>
       </IftaLabel>
 
       <IftaLabel class="flex flex-column gap-2 w-full">
-        <InputText
-          id="factAddress"
-          :invalid="!!errors.factAddress"
-          :model-value="values.factAddress"
-          @update:model-value="(value) => setFieldValue('factAddress', value)"
-        />
+        <InputText id="factAddress" :invalid="!!factAddressError" v-model="factAddressValue" />
         <label for="factAddress">{{ $t('organization.fields.factAddress') }}</label>
-        <Message v-if="errors.factAddress" severity="error" size="small" variant="simple">
-          {{ errors.factAddress }}
+        <Message v-if="factAddressError" severity="error" size="small" variant="simple">
+          {{ factAddressError }}
         </Message>
       </IftaLabel>
     </fieldset>
@@ -223,28 +145,18 @@
       <legend class="h2-bold pb-3">{{ $t('organization.fieldset.mainContact') }}</legend>
 
       <IftaLabel class="flex flex-column gap-2 flex-basics-w6-g3 w-6">
-        <InputText
-          id="phone"
-          :invalid="!!errors.phone"
-          :model-value="values.phone"
-          @update:model-value="(value) => setFieldValue('phone', value)"
-        />
+        <InputText id="phone" :invalid="!!phoneError" v-model="phoneValue" />
         <label for="phone">{{ $t('organization.fields.phone') }}</label>
-        <Message v-if="errors.phone" severity="error" size="small" variant="simple">
-          {{ errors.phone }}
+        <Message v-if="phoneError" severity="error" size="small" variant="simple">
+          {{ phoneError }}
         </Message>
       </IftaLabel>
 
       <IftaLabel class="flex flex-column gap-2 flex-basics-w6-g3 w-6">
-        <InputText
-          id="email"
-          :invalid="!!errors.email"
-          :model-value="values.email"
-          @update:model-value="(value) => setFieldValue('email', value)"
-        />
+        <InputText id="email" :invalid="!!emailError" v-model="emailValue" />
         <label for="email">{{ $t('organization.fields.email') }}</label>
-        <Message v-if="errors.email" severity="error" size="small" variant="simple">
-          {{ errors.email }}
+        <Message v-if="emailError" severity="error" size="small" variant="simple">
+          {{ emailError }}
         </Message>
       </IftaLabel>
     </fieldset>
@@ -254,38 +166,18 @@
       <legend class="h2-bold pb-3">{{ $t('organization.fieldset.rekvContacts') }}</legend>
 
       <IftaLabel class="flex flex-column gap-2 flex-basics-w6-g3 w-6">
-        <InputText
-          id="rekvPhone"
-          :invalid="!!errors['sendRekvContact.phone']"
-          :model-value="values.sendRekvContact?.phone"
-          @update:model-value="(value) => setFieldValue('sendRekvContact.phone', value)"
-        />
+        <InputText id="rekvPhone" :invalid="!!rekvPhoneError" v-model="rekvPhoneValue" />
         <label for="rekvPhone">{{ $t('organization.fields.rekvPhone') }}</label>
-        <Message
-          v-if="errors['sendRekvContact.phone']"
-          severity="error"
-          size="small"
-          variant="simple"
-        >
-          {{ errors['sendRekvContact.phone'] }}
+        <Message v-if="rekvPhoneError" severity="error" size="small" variant="simple">
+          {{ rekvPhoneError }}
         </Message>
       </IftaLabel>
 
       <IftaLabel class="flex flex-column gap-2 flex-basics-w6-g3 w-6">
-        <InputText
-          id="rekvEmail"
-          :invalid="!!errors['sendRekvContact.email']"
-          :model-value="values.sendRekvContact?.email"
-          @update:model-value="(value) => setFieldValue('sendRekvContact.email', value)"
-        />
+        <InputText id="rekvEmail" :invalid="!!rekvEmailError" v-model="rekvEmailValue" />
         <label for="rekvEmail">{{ $t('organization.fields.rekvEmail') }}</label>
-        <Message
-          v-if="errors['sendRekvContact.email']"
-          severity="error"
-          size="small"
-          variant="simple"
-        >
-          {{ errors['sendRekvContact.email'] }}
+        <Message v-if="rekvEmailError" severity="error" size="small" variant="simple">
+          {{ rekvEmailError }}
         </Message>
       </IftaLabel>
     </fieldset>
@@ -296,19 +188,12 @@
     <fieldset class="flex flex-wrap gap-3">
       <legend class="h2-bold pb-3">{{ $t('organization.fieldset.contacts') }}</legend>
 
-      <div
-        class="flex flex-wrap gap-3"
-        v-for="(orgCon, index) in values.organizationContacts"
-        :key="`contact-${index}`"
-      >
+      <div class="flex flex-wrap gap-3" v-for="(field, index) in contactFields" :key="field.key">
         <!-- ФИО -->
         <IftaLabel class="flex flex-column gap-2 flex-basics-w6-g3 w-6">
           <InputText
             :id="`contact-fio-${index}`"
-            :model-value="orgCon.fio"
-            @update:model-value="
-              (value) => setFieldValue(`organizationContacts[${index}].fio`, value)
-            "
+            v-model="field.value.fio"
             :invalid="!!errors[`organizationContacts[${index}].fio`]"
           />
           <label :for="`contact-fio-${index}`">{{ $t('organization.fields.contact.fio') }}</label>
@@ -326,10 +211,7 @@
         <IftaLabel class="flex flex-column gap-2 flex-basics-w6-g3 w-6">
           <InputText
             :id="`contact-title-${index}`"
-            :model-value="orgCon.title"
-            @update:model-value="
-              (value) => setFieldValue(`organizationContacts[${index}].title`, value)
-            "
+            v-model="field.value.title"
             :invalid="!!errors[`organizationContacts[${index}].title`]"
           />
           <label :for="`contact-title-${index}`">{{
@@ -349,10 +231,7 @@
         <IftaLabel class="flex flex-column gap-2 flex-basics-w6-g3 w-6">
           <InputText
             :id="`contact-phone-${index}`"
-            :model-value="orgCon.phone"
-            @update:model-value="
-              (value) => setFieldValue(`organizationContacts[${index}].phone`, value)
-            "
+            v-model="field.value.phone"
             :invalid="!!errors[`organizationContacts[${index}].phone`]"
           />
           <label :for="`contact-phone-${index}`">{{
@@ -372,10 +251,7 @@
         <IftaLabel class="flex flex-column gap-2 flex-basics-w6-g3 w-6">
           <InputText
             :id="`contact-email-${index}`"
-            :model-value="orgCon.email"
-            @update:model-value="
-              (value) => setFieldValue(`organizationContacts[${index}].email`, value)
-            "
+            v-model="field.value.email"
             :invalid="!!errors[`organizationContacts[${index}].email`]"
           />
           <label :for="`contact-email-${index}`">{{
@@ -421,12 +297,12 @@
     <div class="flex gap-3 w-full">
       <Button
         :label="$t('sendDocumentWidget.actions.send')"
-        type="submit"
         :disabled="!meta.valid"
+        @click="onSubmit"
       />
       <SignCheckbox v-model="isSigningEnabled" />
     </div>
-  </form>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -439,47 +315,84 @@ import IftaLabel from 'primevue/iftalabel';
 import InputText from 'primevue/inputtext';
 import Message from 'primevue/message';
 import RadioButton from 'primevue/radiobutton';
-import { useForm } from 'vee-validate';
-import type { OrganizationType } from '@/api/organization/organization.types.ts';
+import { useField, useFieldArray, useForm } from 'vee-validate';
+import type {
+  OrganizationContactType,
+  OrganizationType,
+} from '@/api/organization/organization.types.ts';
 import { organizationValidationSchema } from '@/model/organization/organization-validation-scheme.ts';
 import SignCheckbox from '@/view/feature/sign/SignCheckbox.vue';
 
+const emits = defineEmits(['submit']);
 const props = defineProps<{ organization: OrganizationType }>();
 const isSigningEnabled = ref(false);
-const { meta, values, errors, setFieldValue } = useForm({
+
+// Инициализация формы
+const { handleSubmit, meta, errors } = useForm({
+  validateOnMount: false,
   validationSchema: toTypedSchema(organizationValidationSchema),
   initialValues: {
     ...props.organization,
   },
 });
 
-//TODO get from backend
+// Основные поля
+const { value: fullNameValue, errorMessage: fullNameError } = useField<string>('fullName');
+const { value: innValue, errorMessage: innError } = useField<string>('inn');
+const { value: ogrnValue, errorMessage: ogrnError } = useField<string>('ogrn');
+const { value: taxationIdValue, errorMessage: taxationIdError } = useField<number>('taxation.id');
+
+// Поля документа
+const { value: idTypeNameValue, errorMessage: idTypeNameError } =
+  useField<string>('ipIdentity.idType.name');
+const { value: idNumberValue, errorMessage: idNumberError } =
+  useField<string>('ipIdentity.idNumber');
+const { value: idIssueDateValue, errorMessage: idIssueDateError } =
+  useField<string>('ipIdentity.idIssueDate');
+const { value: idIssuerValue, errorMessage: idIssuerError } =
+  useField<string>('ipIdentity.idIssuer');
+const { value: idRegAddressValue, errorMessage: idRegAddressError } =
+  useField<string>('ipIdentity.idRegAddress');
+const { value: idBirthdateValue, errorMessage: idBirthdateError } =
+  useField<string>('ipIdentity.idBirthdate');
+
+// Адреса
+const { value: postAddressValue, errorMessage: postAddressError } = useField<string>('postAddress');
+const { value: factAddressValue, errorMessage: factAddressError } = useField<string>('factAddress');
+
+// Контакты
+const { value: phoneValue, errorMessage: phoneError } = useField<string>('phone');
+const { value: emailValue, errorMessage: emailError } = useField<string>('email');
+const { value: rekvPhoneValue, errorMessage: rekvPhoneError } =
+  useField<string>('sendRekvContact.phone');
+const { value: rekvEmailValue, errorMessage: rekvEmailError } =
+  useField<string>('sendRekvContact.email');
+
+// Динамические контакты
+const {
+  fields: contactFields,
+  push: pushContact,
+  remove: removeContact,
+} = useFieldArray<OrganizationContactType>('organizationContacts');
+
+// Обработчик отправки формы
+const onSubmit = handleSubmit(() => {
+  emits('submit');
+});
+
+// Добавление нового контакта
+const addContact = () => {
+  pushContact({
+    fio: '',
+    email: '',
+    phone: '',
+    title: '',
+  });
+};
+
+// TODO: данные с бэкенда
 const taxationOptions = [
   { id: 1, label: 'Общая' },
   { id: 2, label: 'Упрощённая' },
 ];
-
-const addContact = () => {
-  let organizationContacts;
-
-  if (values.organizationContacts) {
-    organizationContacts = [
-      ...values.organizationContacts,
-      { fio: '', title: '', phone: '', email: '' },
-    ];
-  } else {
-    organizationContacts = [{ fio: '', title: '', phone: '', email: '' }];
-  }
-
-  setFieldValue('organizationContacts', organizationContacts);
-};
-
-const removeContact = (index: number) => {
-  if (values.organizationContacts) {
-    setFieldValue(
-      'organizationContacts',
-      values.organizationContacts.filter((_, idx) => idx !== index),
-    );
-  }
-};
 </script>

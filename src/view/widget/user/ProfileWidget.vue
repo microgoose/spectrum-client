@@ -66,6 +66,6 @@ const onEditClose = async () => {
 
 const onSubmit = () => {
   isEditMode.value = false;
-  dialog.open(dialogs.ORGANIZATION_SENT_NOTICE);
+  dialog.open(dialogs.CLAIM_SENT);
 };
 </script>
