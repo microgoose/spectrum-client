@@ -16,19 +16,19 @@
       <Button
         v-show="!isEditMode"
         :label="$t('organization.actions.edit')"
-        @click="isEditMode = true"
+        @click="onEditOpen"
       />
       <Button
         v-show="isEditMode"
         :label="$t('organization.actions.cancel')"
         severity="secondary"
-        @click="isEditMode = false"
+        @click="onEditClose"
       />
     </BlockTitle>
 
     <Card v-if="user" class="w-full">
       <template #content>
-        <ProfileForm v-if="isEditMode" :user="user" />
+        <ProfileForm v-if="isEditMode" :user="user" @submit="onSubmit"/>
         <UserView v-else :user="user" />
       </template>
     </Card>
@@ -45,7 +45,27 @@ import { getAuthUserQuery } from '@/service/user/user.service.ts';
 import BlockTitle from '@/shared/components/BlockTitle.vue';
 import UserView from '@/view/entity/user/UserView.vue';
 import ProfileForm from '@/view/feature/user/ProfileForm.vue';
+import { dialogs } from '@/config/dialog.ts';
+import { useDialogStore } from '@/store/app/dialog.store.ts';
 
+const dialog = useDialogStore();
 const { data: user } = getAuthUserQuery();
 const isEditMode = ref(false);
+
+const onEditOpen = () => {
+  isEditMode.value = true;
+};
+
+const onEditClose = async () => {
+  const result = await dialog.open(dialogs.CLAIM_CANCEL);
+
+  if (result) {
+    isEditMode.value = false;
+  }
+};
+
+const onSubmit = () => {
+  isEditMode.value = false;
+  dialog.open(dialogs.CLAIM_SENT);
+};
 </script>

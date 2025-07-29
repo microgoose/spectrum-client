@@ -23,16 +23,16 @@
 
 <template>
   <div class="dialog-container">
-    <h3 class="dialog-title">{{ $t('applicationSent.title') }}</h3>
+    <h3 class="dialog-title">{{ $t('claimSentDialog.text.title') }}</h3>
     <p class="dialog-message">
-      {{ $t('applicationSent.message.pre') }}
+      {{ $t('claimSentDialog.text.message.pre') }}
       <RouterLink @click="dialog.close()" :to="getRoutePath(Routes.APPLICATIONS)" class="link">
-        {{ $t('applicationSent.message.link') }}
+        {{ $t('claimSentDialog.text.message.link') }}
       </RouterLink>
     </p>
 
     <Button @click="dialog.close(true)" size="large">
-      {{ $t('applicationSent.ok') }}
+      {{ $t('claimSentDialog.actions.ok') }}
     </Button>
   </div>
 </template>

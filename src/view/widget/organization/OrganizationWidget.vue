@@ -52,7 +52,7 @@ const onEditOpen = () => {
 };
 
 const onEditClose = async () => {
-  const result = await dialog.open(dialogs.ORGANIZATION_CANCEL_CREATION_CONFIRMATION);
+  const result = await dialog.open(dialogs.CLAIM_CANCEL);
 
   if (result) {
     isEditMode.value = false;
@@ -61,6 +61,6 @@ const onEditClose = async () => {
 
 const onSubmit = () => {
   isEditMode.value = false;
-  dialog.open(dialogs.ORGANIZATION_SENT_NOTICE);
+  dialog.open(dialogs.CLAIM_SENT);
 };
 </script>

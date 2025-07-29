@@ -3,8 +3,8 @@ import ErrorView from '@/view/entity/error/ErrorView.vue';
 import CancelApplicationDialog from '@/view/feature/application/CancelApplicationDialog.vue';
 import ConfirmLogoutDialog from '@/view/feature/auth/ConfirmLogoutDialog.vue';
 import SendDocumentSuccessDialog from '@/view/feature/document/SendDocumentSuccessDialog.vue';
-import OrganizationFormCancelDialog from '@/view/feature/organization/OrganizationFormCancelDialog.vue';
-import OrganizationFormSentDialog from '@/view/feature/organization/OrganizationFormSentDialog.vue';
+import ClaimCancelDialog from '@/view/feature/claim/ClaimCancelDialog.vue';
+import ClaimSentDialog from '@/view/feature/claim/ClaimSentDialog.vue';
 import SelectSignCertificate from '@/view/feature/sign/SelectSignCertificate.vue';
 
 export interface DialogRoute {
@@ -17,6 +17,7 @@ export type DialogRoutes = Record<string, DialogRoute>;
 
 export const DEFAULT_TITLE = 'dialog.title';
 
+//TODO lazy loading
 export const dialogs: DialogRoutes = {
   ERROR_MESSAGE: {
     name: 'error-message',
@@ -33,15 +34,15 @@ export const dialogs: DialogRoutes = {
     titleKey: 'cancelApplication.dialogTitle',
     component: CancelApplicationDialog,
   },
-  ORGANIZATION_CANCEL_CREATION_CONFIRMATION: {
-    name: 'organization-cancel-creation-confirmation',
-    titleKey: 'cancelCreation.cancelCreationTitle',
-    component: OrganizationFormCancelDialog,
+  CLAIM_CANCEL: {
+    name: 'claim-cancel',
+    titleKey: 'claimCancelDialog.title',
+    component: ClaimCancelDialog,
   },
-  ORGANIZATION_SENT_NOTICE: {
-    name: 'organization-send-notice',
-    titleKey: 'applicationSent.title',
-    component: OrganizationFormSentDialog,
+  CLAIM_SENT: {
+    name: 'claim-sent',
+    titleKey: 'claimSentDialog.title',
+    component: ClaimSentDialog,
   },
   SEND_DOCUMENT_SUCCESS: {
     name: 'send-document-success',
