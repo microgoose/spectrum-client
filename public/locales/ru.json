@@ -1,4 +1,15 @@
 {
+  "errors": {
+    "internalServiceError": "Внутреняя ошибка сервера",
+    "unkownError": "Неизвестная ошибка"
+  },
+
+  "loginService": {
+      "errors": {
+        "incorrectLoginData": "Введён некорректный логин/пароль"
+      }
+  },
+
   "helloWorld": "Привет, мир",
   "notFoundPageTitle": "Страница не найдена",
   "notFoundPageDescription": "Страница, которую вы ищете, не найдена или произошла непредвиденная ошибка.",

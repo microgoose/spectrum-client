@@ -18,7 +18,7 @@
 
     <template #footer>
       <div class="logout-button">
-        <Button :label="$t('profile.action.logout')" @click="logout" />
+        <Button :label="$t('profile.action.logout')" @click="confirmLogout" />
       </div>
     </template>
   </DefaultContentLayout>
@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 import Button from 'primevue/button';
-import { logout } from '@/service/auth/logout.service.ts';
+import { confirmLogout } from '@/service/auth/logout.service.ts';
 import ProfilePanel from '@/view/entity/user/ProfilePanel.vue';
 import DefaultContentLayout from '@/view/layout/default/DefaultContentLayout.vue';
 import ProfileWidget from '@/view/widget/user/ProfileWidget.vue';

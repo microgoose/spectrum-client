@@ -7,5 +7,4 @@ export const openError = (error: Error) => {
   const errorStore = useErrorStore();
   dialogStore.open(dialogs.ERROR_MESSAGE);
   errorStore.setError(error);
-  console.error(error);
 };

@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia';
 import { dialogs } from '@/config/dialog';
 import { t } from '@/config/localization';
-import { logout } from '@/service/auth/logout.service.ts';
+import { confirmLogout } from '@/service/auth/logout.service.ts';
 import { useDialogStore } from '../app/dialog.store';
 
 const dialog = useDialogStore();
@@ -17,7 +17,7 @@ export const useProfilePopupStore = defineStore('profilePopup', {
       {
         label: t('profileMenu.actions.logout'),
         icon: 'pi pi-sign-out',
-        command: logout,
+        command: confirmLogout,
       },
     ],
   }),

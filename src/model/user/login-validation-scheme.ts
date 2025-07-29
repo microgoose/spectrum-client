@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { t } from '@/config/localization.ts';
 
 export const loginValidationScheme = z.object({
-  username: z
+  user: z
     .string({ message: t('login.error.usernameRequired') })
     .min(1, { message: t('login.error.usernameRequired') }),
 

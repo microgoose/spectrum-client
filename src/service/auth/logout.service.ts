@@ -5,12 +5,16 @@ import { useAuthStore } from '@/store/auth/auth.store.ts';
 import { pushPage } from '../app/route.service.ts';
 
 export const logout = async () => {
+  const auth = useAuthStore();
+  auth.logout();
+};
+
+export const confirmLogout = async () => {
   const dialogStore = useDialogStore();
   const result = await dialogStore.open(dialogs.CONFIRM_LOGOUT);
 
   if (result) {
-    const auth = useAuthStore();
-    auth.logout();
+    logout();
     pushPage(Routes.LOGIN);
   }
 };

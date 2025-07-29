@@ -1,5 +1,5 @@
 <template>
-  <div class="flex align-items-center flex-column gap-4 pb-3" @submit.prevent="onSubmit">
+  <div class="flex align-items-center flex-column gap-4 max-w-20rem">
     <InputField
       v-model="usernameValue"
       :error="usernameError"
@@ -16,38 +16,54 @@
       class="w-20rem"
     />
 
-    <Button
-      @click="onSubmit"
-      :disabled="!meta.valid"
-      :label="$t('login.action.enter')"
-      class="w-full"
-      type="submit"
-      severity="secondary"
-      size="large"
-    />
+    <div class="flex flex-column w-full gap-2">
+      <Button
+        :loading="isLoading"
+        @click="onSubmit"
+        :disabled="!meta.valid"
+        :label="$t('login.action.enter')"
+        class="w-full"
+        type="submit"
+        severity="secondary"
+        size="large"
+      />
+
+      <Message v-if="error" severity="error" size="small" variant="simple">
+        {{ error }}
+      </Message>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import { toTypedSchema } from '@vee-validate/zod';
 import Button from 'primevue/button';
+import Message from 'primevue/message';
 import { useField, useForm } from 'vee-validate';
 import { loginValidationScheme } from '@/model/user/login-validation-scheme.ts';
 import { login } from '@/service/auth/login.service.ts';
 import InputField from '@/shared/components/input-field/InputField.vue';
+import { toError } from '@/shared/lib/error-util';
 
+const isLoading = ref(false);
+const error = ref('');
 const { meta, handleSubmit } = useForm({
   validationSchema: toTypedSchema(loginValidationScheme),
 });
 
-const { value: usernameValue, errorMessage: usernameError } = useField<string>('username');
+const { value: usernameValue, errorMessage: usernameError } = useField<string>('user');
 const { value: passwordValue, errorMessage: passwordError } = useField<string>('password');
 
-const onSubmit = handleSubmit((data) => {
-  if (meta.value.valid) {
-    login();
-  }
+const onSubmit = handleSubmit(async (data) => {
+  isLoading.value = true;
 
-  console.log('✅ Submitted data:', data);
+  try {
+    if (meta.value.valid) await login(data);
+  } catch (err: Error | unknown) {
+    error.value = toError(err).message;
+  } finally {
+    isLoading.value = false;
+  }
 });
 </script>
