@@ -17,8 +17,8 @@ export interface ClaimSummary {
 }
 
 export interface ClaimRequestData {
-  document: string;   // base64 XML
-  signature: string;  // base64 signature
+  document: string; // base64 XML
+  signature: string; // base64 signature
 }
 
 export interface ClaimStatusResponse {

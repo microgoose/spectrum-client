@@ -31,14 +31,10 @@ export const updateClaim = async (claimId: number, payload: ClaimRequestData) =>
 
 // Получение списка заявлений
 export const getClaims = async () => {
-  return await api
-    .get('spectrum-core/claim.json')
-    .json<ClaimSummary[]>();
+  return await api.get('spectrum-core/claim.json').json<ClaimSummary[]>();
 };
 
 // Получение заявления по ID
 export const getClaimById = async (claimId: number) => {
-  return await api
-    .get(`spectrum-core/claim/${claimId}.json`)
-    .json<FullClaim>();
+  return await api.get(`spectrum-core/claim/${claimId}.json`).json<FullClaim>();
 };

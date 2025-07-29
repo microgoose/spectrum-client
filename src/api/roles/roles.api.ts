@@ -20,7 +20,9 @@ export const getUserRolesById = async (userId: number) => {
 
 export const updateUserRoles = async (data: UpdateUserRolesRequest) => {
   //TODO dont work
-  return await api.put('spectrum-core/userroles.json', {
-    json: data,
-  }).json<UpdateUserRolesResponse>();
+  return await api
+    .put('spectrum-core/userroles.json', {
+      json: data,
+    })
+    .json<UpdateUserRolesResponse>();
 };

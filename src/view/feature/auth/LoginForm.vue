@@ -1,34 +1,23 @@
 <template>
-  <form class="flex align-items-center flex-column gap-4 pb-3" @submit.prevent="onSubmit">
-    <IftaLabel class="flex flex-column gap-2 w-20rem">
-      <InputText
-        id="username"
-        name="username"
-        type="text"
-        :invalid="!!errors.username"
-        v-model="username"
-      />
-      <label for="username">{{ $t('login.placeholder.username') }}</label>
-      <Message v-if="errors.username" severity="error" size="small" variant="simple">
-        {{ errors.username }}
-      </Message>
-    </IftaLabel>
+  <div class="flex align-items-center flex-column gap-4 pb-3" @submit.prevent="onSubmit">
+    <InputField
+      v-model="usernameValue"
+      :error="usernameError"
+      :label="$t('login.placeholder.username')"
+      type="text"
+      class="w-20rem"
+    />
 
-    <IftaLabel class="flex flex-column gap-2 w-20rem">
-      <InputText
-        id="password"
-        name="password"
-        type="password"
-        :invalid="!!errors.password"
-        v-model="password"
-      />
-      <label for="password">{{ $t('login.placeholder.password') }}</label>
-      <Message v-if="errors.password" severity="error" size="small" variant="simple">
-        {{ errors.password }}
-      </Message>
-    </IftaLabel>
+    <InputField
+      v-model="passwordValue"
+      :error="passwordError"
+      :label="$t('login.placeholder.password')"
+      type="password"
+      class="w-20rem"
+    />
 
     <Button
+      @click="onSubmit"
       :disabled="!meta.valid"
       :label="$t('login.action.enter')"
       class="w-full"
@@ -36,25 +25,23 @@
       severity="secondary"
       size="large"
     />
-  </form>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { toTypedSchema } from '@vee-validate/zod';
 import Button from 'primevue/button';
-import IftaLabel from 'primevue/iftalabel';
-import InputText from 'primevue/inputtext';
-import Message from 'primevue/message';
-import { useForm } from 'vee-validate';
+import { useField, useForm } from 'vee-validate';
 import { loginValidationScheme } from '@/model/user/login-validation-scheme.ts';
 import { login } from '@/service/auth/login.service.ts';
+import InputField from '@/shared/components/input-field/InputField.vue';
 
-const { meta, errors, defineField, handleSubmit } = useForm({
+const { meta, handleSubmit } = useForm({
   validationSchema: toTypedSchema(loginValidationScheme),
 });
 
-const [username] = defineField('username');
-const [password] = defineField('password');
+const { value: usernameValue, errorMessage: usernameError } = useField<string>('username');
+const { value: passwordValue, errorMessage: passwordError } = useField<string>('password');
 
 const onSubmit = handleSubmit((data) => {
   if (meta.value.valid) {

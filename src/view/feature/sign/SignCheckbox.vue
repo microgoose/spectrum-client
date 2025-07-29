@@ -9,7 +9,7 @@
 
       <span v-if="internalShouldSign" class="mw-10rem">
         <template v-if="cert.selectedCert"> ({{ cert.selectedCert.label }}) </template>
-
+        <!-- TODO проработать перенос текста когда очень длинное название (стили) -->
         <button v-else @click="selectCertificate">
           (<u> {{ $t('signCheckbox.actions.selectCertificate') }} </u>)
         </button>

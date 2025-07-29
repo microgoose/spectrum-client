@@ -13,11 +13,7 @@
     <BlockTitle>
       {{ $t('profilePageTitle') }}
 
-      <Button
-        v-show="!isEditMode"
-        :label="$t('organization.actions.edit')"
-        @click="onEditOpen"
-      />
+      <Button v-show="!isEditMode" :label="$t('organization.actions.edit')" @click="onEditOpen" />
       <Button
         v-show="isEditMode"
         :label="$t('organization.actions.cancel')"
@@ -28,7 +24,7 @@
 
     <Card v-if="user" class="w-full">
       <template #content>
-        <ProfileForm v-if="isEditMode" :user="user" @submit="onSubmit"/>
+        <ProfileForm v-if="isEditMode" :user="user" @submit="onSubmit" />
         <UserView v-else :user="user" />
       </template>
     </Card>
@@ -41,12 +37,12 @@ import { ref } from 'vue';
 import Button from 'primevue/button';
 import Card from 'primevue/card';
 import Skeleton from 'primevue/skeleton';
+import { dialogs } from '@/config/dialog.ts';
 import { getAuthUserQuery } from '@/service/user/user.service.ts';
 import BlockTitle from '@/shared/components/BlockTitle.vue';
+import { useDialogStore } from '@/store/app/dialog.store.ts';
 import UserView from '@/view/entity/user/UserView.vue';
 import ProfileForm from '@/view/feature/user/ProfileForm.vue';
-import { dialogs } from '@/config/dialog.ts';
-import { useDialogStore } from '@/store/app/dialog.store.ts';
 
 const dialog = useDialogStore();
 const { data: user } = getAuthUserQuery();

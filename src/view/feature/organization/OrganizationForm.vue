@@ -5,51 +5,33 @@
       <legend class="h2-bold pb-3">{{ $t('organization.fieldset.main') }}</legend>
 
       <!-- Название -->
-      <IftaLabel class="flex flex-column gap-2 w-full">
-        <InputText id="fullName" :invalid="!!fullNameError" v-model="fullNameValue" />
-        <label for="fullName">{{ $t('organization.fields.fullName') }}</label>
-        <Message v-if="fullNameError" severity="error" size="small" variant="simple">
-          {{ fullNameError }}
-        </Message>
-      </IftaLabel>
+      <InputField
+        v-model="fullNameValue"
+        :error="fullNameError"
+        :label="$t('organization.fields.fullName')"
+      />
 
-      <!-- ИНН / ОГРН -->
-      <IftaLabel class="flex flex-column gap-2 flex-basics-w6-g3 w-6">
-        <InputText id="inn" :invalid="!!innError" v-model="innValue" />
-        <label for="inn">{{ $t('organization.fields.inn') }}</label>
-        <Message v-if="innError" severity="error" size="small" variant="simple">
-          {{ innError }}
-        </Message>
-      </IftaLabel>
-
-      <IftaLabel class="flex flex-column gap-2 flex-basics-w6-g3 w-6">
-        <InputText id="ogrn" :invalid="!!ogrnError" v-model="ogrnValue" />
-        <label for="ogrn">{{ $t('organization.fields.ogrn') }}</label>
-        <Message v-if="ogrnError" severity="error" size="small" variant="simple">
-          {{ ogrnError }}
-        </Message>
-      </IftaLabel>
+      <InputField
+        v-model="innValue"
+        :error="innError"
+        :label="$t('organization.fields.inn')"
+        class="flex-basics-w6-g3 w-6"
+      />
+      <InputField
+        v-model="ogrnValue"
+        :error="ogrnError"
+        :label="$t('organization.fields.ogrn')"
+        class="flex-basics-w6-g3 w-6"
+      />
 
       <!-- Система налогообложения -->
-      <div class="flex flex-column gap-3 mt-2">
-        <span class="text-400 subtext">{{ $t('organization.fields.taxation') }}</span>
-        <div class="flex gap-2">
-          <template v-for="option in taxationOptions" :key="option.id">
-            <RadioButton
-              name="taxation"
-              :input-id="`taxation-${option.id}`"
-              :invalid="!!taxationIdError"
-              :value="option.id"
-              v-model="taxationIdValue"
-            />
-            <label :for="`taxation-${option.id}`">{{ option.label }}</label>
-          </template>
-        </div>
-
-        <Message v-if="taxationIdError" severity="error" size="small" variant="simple">
-          {{ taxationIdError }}
-        </Message>
-      </div>
+      <RadioField
+        :options="taxationOptions"
+        v-model="taxationIdValue"
+        :error="taxationIdError"
+        :label="$t('organization.fields.taxation')"
+        class="mt-2"
+      />
     </fieldset>
 
     <Divider />
@@ -58,63 +40,49 @@
     <fieldset class="flex flex-wrap gap-3">
       <legend class="h2-bold pb-3">{{ $t('organization.fieldset.document') }}</legend>
 
-      <IftaLabel class="flex flex-column gap-2 w-full">
-        <InputText id="idType" :invalid="!!idTypeNameError" v-model="idTypeNameValue" />
-        <label for="idType">{{ $t('organization.fields.idType') }}</label>
-        <Message v-if="idTypeNameError" severity="error" size="small" variant="simple">
-          {{ idTypeNameError }}
-        </Message>
-      </IftaLabel>
+      <InputField
+        v-model="idTypeNameValue"
+        :error="idTypeNameError"
+        :label="$t('organization.fields.idType')"
+        class="w-full"
+      />
 
-      <IftaLabel class="flex flex-column gap-2 flex-basics-w6-g3 w-6">
-        <InputText id="idNumber" :invalid="!!idNumberError" v-model="idNumberValue" />
-        <label for="idNumber">{{ $t('organization.fields.idNumber') }}</label>
-        <Message v-if="idNumberError" severity="error" size="small" variant="simple">
-          {{ idNumberError }}
-        </Message>
-      </IftaLabel>
+      <InputField
+        v-model="idNumberValue"
+        :error="idNumberError"
+        :label="$t('organization.fields.idNumber')"
+        class="flex-basics-w6-g3 w-6"
+      />
 
-      <IftaLabel class="flex flex-column gap-2 flex-basics-w6-g3 w-6">
-        <DatePicker
-          input-id="idIssueDate"
-          :invalid="!!idIssueDateError"
-          v-model="idIssueDateValue"
-          dateFormat="yy-mm-dd"
-        />
-        <label for="idIssueDate">{{ $t('organization.fields.idIssueDate') }}</label>
-        <Message v-if="idIssueDateError" severity="error" size="small" variant="simple">
-          {{ idIssueDateError }}
-        </Message>
-      </IftaLabel>
+      <!-- TODO починить, либо дата, либо строка -->
+      <DateField
+        v-model="idIssueDateValue"
+        :error="idIssueDateError"
+        :label="$t('organization.fields.idIssueDate')"
+        class="w-4"
+      />
 
-      <IftaLabel class="flex flex-column gap-2 w-full">
-        <InputText id="idIssuer" :invalid="!!idIssuerError" v-model="idIssuerValue" />
-        <label for="idIssuer">{{ $t('organization.fields.idIssuer') }}</label>
-        <Message v-if="idIssuerError" severity="error" size="small" variant="simple">
-          {{ idIssuerError }}
-        </Message>
-      </IftaLabel>
+      <InputField
+        v-model="idIssuerValue"
+        :error="idIssuerError"
+        :label="$t('organization.fields.idIssuer')"
+        class="w-full"
+      />
 
-      <IftaLabel class="flex flex-column gap-2 w-full">
-        <InputText id="idRegAddress" :invalid="!!idRegAddressError" v-model="idRegAddressValue" />
-        <label for="idRegAddress">{{ $t('organization.fields.idRegAddress') }}</label>
-        <Message v-if="idRegAddressError" severity="error" size="small" variant="simple">
-          {{ idRegAddressError }}
-        </Message>
-      </IftaLabel>
+      <InputField
+        v-model="idRegAddressValue"
+        :error="idRegAddressError"
+        :label="$t('organization.fields.idRegAddress')"
+        class="w-full"
+      />
 
-      <IftaLabel class="flex flex-column gap-2 w-4">
-        <DatePicker
-          input-id="idBirthdate"
-          :invalid="!!idBirthdateError"
-          v-model="idBirthdateValue"
-          dateFormat="yy-mm-dd"
-        />
-        <label for="idBirthdate">{{ $t('organization.fields.idBirthdate') }}</label>
-        <Message v-if="idBirthdateError" severity="error" size="small" variant="simple">
-          {{ idBirthdateError }}
-        </Message>
-      </IftaLabel>
+      <!-- TODO починить, либо дата, либо строка -->
+      <DateField
+        v-model="idBirthdateValue"
+        :error="idBirthdateError"
+        :label="$t('organization.fields.idBirthdate')"
+        class="w-4"
+      />
     </fieldset>
 
     <Divider />
@@ -123,63 +91,57 @@
     <fieldset class="flex flex-wrap gap-3">
       <legend class="h2-bold pb-3">{{ $t('organization.fieldset.address') }}</legend>
 
-      <IftaLabel class="flex flex-column gap-2 w-full">
-        <InputText id="postAddress" :invalid="!!postAddressError" v-model="postAddressValue" />
-        <label for="postAddress">{{ $t('organization.fields.postAddress') }}</label>
-        <Message v-if="postAddressError" severity="error" size="small" variant="simple">
-          {{ postAddressError }}
-        </Message>
-      </IftaLabel>
+      <InputField
+        v-model="postAddressValue"
+        :error="postAddressError"
+        :label="$t('organization.fields.postAddress')"
+        class="w-full"
+      />
 
-      <IftaLabel class="flex flex-column gap-2 w-full">
-        <InputText id="factAddress" :invalid="!!factAddressError" v-model="factAddressValue" />
-        <label for="factAddress">{{ $t('organization.fields.factAddress') }}</label>
-        <Message v-if="factAddressError" severity="error" size="small" variant="simple">
-          {{ factAddressError }}
-        </Message>
-      </IftaLabel>
+      <InputField
+        v-model="factAddressValue"
+        :error="factAddressError"
+        :label="$t('organization.fields.factAddress')"
+        class="w-full"
+      />
     </fieldset>
 
     <!-- Контакты -->
     <fieldset class="flex flex-wrap gap-3">
       <legend class="h2-bold pb-3">{{ $t('organization.fieldset.mainContact') }}</legend>
 
-      <IftaLabel class="flex flex-column gap-2 flex-basics-w6-g3 w-6">
-        <InputText id="phone" :invalid="!!phoneError" v-model="phoneValue" />
-        <label for="phone">{{ $t('organization.fields.phone') }}</label>
-        <Message v-if="phoneError" severity="error" size="small" variant="simple">
-          {{ phoneError }}
-        </Message>
-      </IftaLabel>
+      <InputField
+        v-model="phoneValue"
+        :error="phoneError"
+        :label="$t('organization.fields.phone')"
+        class="flex-basics-w6-g3 w-6"
+      />
 
-      <IftaLabel class="flex flex-column gap-2 flex-basics-w6-g3 w-6">
-        <InputText id="email" :invalid="!!emailError" v-model="emailValue" />
-        <label for="email">{{ $t('organization.fields.email') }}</label>
-        <Message v-if="emailError" severity="error" size="small" variant="simple">
-          {{ emailError }}
-        </Message>
-      </IftaLabel>
+      <InputField
+        v-model="emailValue"
+        :error="emailError"
+        :label="$t('organization.fields.email')"
+        class="flex-basics-w6-g3 w-6"
+      />
     </fieldset>
 
     <!-- Контакты по реквизитам -->
     <fieldset class="flex flex-wrap gap-3">
       <legend class="h2-bold pb-3">{{ $t('organization.fieldset.rekvContacts') }}</legend>
 
-      <IftaLabel class="flex flex-column gap-2 flex-basics-w6-g3 w-6">
-        <InputText id="rekvPhone" :invalid="!!rekvPhoneError" v-model="rekvPhoneValue" />
-        <label for="rekvPhone">{{ $t('organization.fields.rekvPhone') }}</label>
-        <Message v-if="rekvPhoneError" severity="error" size="small" variant="simple">
-          {{ rekvPhoneError }}
-        </Message>
-      </IftaLabel>
+      <InputField
+        v-model="rekvPhoneValue"
+        :error="rekvPhoneError"
+        :label="$t('organization.fields.rekvPhone')"
+        class="flex-basics-w6-g3 w-6"
+      />
 
-      <IftaLabel class="flex flex-column gap-2 flex-basics-w6-g3 w-6">
-        <InputText id="rekvEmail" :invalid="!!rekvEmailError" v-model="rekvEmailValue" />
-        <label for="rekvEmail">{{ $t('organization.fields.rekvEmail') }}</label>
-        <Message v-if="rekvEmailError" severity="error" size="small" variant="simple">
-          {{ rekvEmailError }}
-        </Message>
-      </IftaLabel>
+      <InputField
+        v-model="rekvEmailValue"
+        :error="rekvEmailError"
+        :label="$t('organization.fields.rekvEmail')"
+        class="flex-basics-w6-g3 w-6"
+      />
     </fieldset>
 
     <Divider />
@@ -190,95 +152,47 @@
 
       <div class="flex flex-wrap gap-3" v-for="(field, index) in contactFields" :key="field.key">
         <!-- ФИО -->
-        <IftaLabel class="flex flex-column gap-2 flex-basics-w6-g3 w-6">
-          <InputText
-            :id="`contact-fio-${index}`"
-            v-model="field.value.fio"
-            :invalid="!!errors[`organizationContacts[${index}].fio`]"
-          />
-          <label :for="`contact-fio-${index}`">{{ $t('organization.fields.contact.fio') }}</label>
-          <Message
-            v-if="errors[`organizationContacts[${index}].fio`]"
-            severity="error"
-            size="small"
-            variant="simple"
-          >
-            {{ errors[`organizationContacts[${index}].fio`] }}
-          </Message>
-        </IftaLabel>
+        <InputField
+          v-model="field.value.fio"
+          :error="errors[`organizationContacts[${index}].fio`]"
+          :label="$t('organization.fields.contact.fio')"
+          class="flex-basics-w6-g3 w-6"
+        />
 
         <!-- Должность -->
-        <IftaLabel class="flex flex-column gap-2 flex-basics-w6-g3 w-6">
-          <InputText
-            :id="`contact-title-${index}`"
-            v-model="field.value.title"
-            :invalid="!!errors[`organizationContacts[${index}].title`]"
-          />
-          <label :for="`contact-title-${index}`">{{
-            $t('organization.fields.contact.title')
-          }}</label>
-          <Message
-            v-if="errors[`organizationContacts[${index}].title`]"
-            severity="error"
-            size="small"
-            variant="simple"
-          >
-            {{ errors[`organizationContacts[${index}].title`] }}
-          </Message>
-        </IftaLabel>
+        <InputField
+          v-model="field.value.title"
+          :error="errors[`organizationContacts[${index}].title`]"
+          :label="$t('organization.fields.contact.title')"
+          class="flex-basics-w6-g3 w-6"
+        />
 
         <!-- Телефон -->
-        <IftaLabel class="flex flex-column gap-2 flex-basics-w6-g3 w-6">
-          <InputText
-            :id="`contact-phone-${index}`"
-            v-model="field.value.phone"
-            :invalid="!!errors[`organizationContacts[${index}].phone`]"
-          />
-          <label :for="`contact-phone-${index}`">{{
-            $t('organization.fields.contact.phone')
-          }}</label>
-          <Message
-            v-if="errors[`organizationContacts[${index}].phone`]"
-            severity="error"
-            size="small"
-            variant="simple"
-          >
-            {{ errors[`organizationContacts[${index}].phone`] }}
-          </Message>
-        </IftaLabel>
+        <InputField
+          v-model="field.value.phone"
+          :error="errors[`organizationContacts[${index}].phone`]"
+          :label="$t('organization.fields.contact.phone')"
+          class="flex-basics-w6-g3 w-6"
+        />
 
         <!-- Email -->
-        <IftaLabel class="flex flex-column gap-2 flex-basics-w6-g3 w-6">
-          <InputText
-            :id="`contact-email-${index}`"
-            v-model="field.value.email"
-            :invalid="!!errors[`organizationContacts[${index}].email`]"
-          />
-          <label :for="`contact-email-${index}`">{{
-            $t('organization.fields.contact.email')
-          }}</label>
-          <Message
-            v-if="errors[`organizationContacts[${index}].email`]"
-            severity="error"
-            size="small"
-            variant="simple"
-          >
-            {{ errors[`organizationContacts[${index}].email`] }}
-          </Message>
-        </IftaLabel>
+        <InputField
+          v-model="field.value.email"
+          :error="errors[`organizationContacts[${index}].email`]"
+          :label="$t('organization.fields.contact.email')"
+          class="flex-basics-w6-g3 w-6"
+        />
 
         <!-- Кнопка удаления -->
-        <div>
-          <Button
-            icon="pi pi-minus"
-            :label="$t('organization.actions.removeContact')"
-            iconPos="left"
-            severity="secondary"
-            text
-            size="small"
-            @click="removeContact(index)"
-          />
-        </div>
+        <Button
+          icon="pi pi-minus"
+          :label="$t('organization.actions.removeContact')"
+          iconPos="left"
+          severity="secondary"
+          text
+          size="small"
+          @click="removeContact(index)"
+        />
       </div>
 
       <!-- Кнопка добавления -->
@@ -309,18 +223,16 @@
 import { ref } from 'vue';
 import { toTypedSchema } from '@vee-validate/zod';
 import Button from 'primevue/button';
-import DatePicker from 'primevue/datepicker';
 import Divider from 'primevue/divider';
-import IftaLabel from 'primevue/iftalabel';
-import InputText from 'primevue/inputtext';
-import Message from 'primevue/message';
-import RadioButton from 'primevue/radiobutton';
 import { useField, useFieldArray, useForm } from 'vee-validate';
 import type {
   OrganizationContactType,
   OrganizationType,
 } from '@/api/organization/organization.types.ts';
 import { organizationValidationSchema } from '@/model/organization/organization-validation-scheme.ts';
+import DateField from '@/shared/components/date-field/DateField.vue';
+import InputField from '@/shared/components/input-field/InputField.vue';
+import RadioField from '@/shared/components/radio-field/RadioField.vue';
 import SignCheckbox from '@/view/feature/sign/SignCheckbox.vue';
 
 const emits = defineEmits(['submit']);
@@ -392,7 +304,7 @@ const addContact = () => {
 
 // TODO: данные с бэкенда
 const taxationOptions = [
-  { id: 1, label: 'Общая' },
-  { id: 2, label: 'Упрощённая' },
+  { value: 1, label: 'Общая' },
+  { value: 2, label: 'Упрощённая' },
 ];
 </script>

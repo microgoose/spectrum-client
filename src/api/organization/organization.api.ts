@@ -6,5 +6,7 @@ export const getCurrentUserOrganization = async () => {
 };
 
 export const getOrganizationById = async (organizationId: number) => {
-  return await api.get(`spectrum-core/organization/${organizationId}.json`).json<OrganizationType>();
+  return await api
+    .get(`spectrum-core/organization/${organizationId}.json`)
+    .json<OrganizationType>();
 };
