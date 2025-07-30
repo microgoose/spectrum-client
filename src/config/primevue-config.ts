@@ -65,7 +65,10 @@ const SpimexPreset = definePreset(Aura, {
     card: {
       colorScheme: {
         light: {
-          shadow: '0 1px 3px 0 rgba(0,0,0,0.4),0 1px 0px -1px rgba(0,0,0,0.4)', //TODO это корреткно и работает, ts глючит
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          //TODO это корректно и работает, разобраться в схемах primevue
+          shadow: '0 1px 3px 0 rgba(0,0,0,0.4),0 1px 0px -1px rgba(0,0,0,0.4)',
           body: {
             gap: '1rem',
           },
