@@ -47,7 +47,7 @@
       />
     </div>
 
-    <div class="flex align-items-center gap-2">
+    <div class="flex items-center gap-2">
       <Button :label="$t('sendDocumentWidget.actions.send')" @click="handleSubmit" />
       <SignCheckbox v-model="isSigningEnabled" />
     </div>

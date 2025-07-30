@@ -1,7 +1,6 @@
 import { createApp } from 'vue';
 import { VueQueryPlugin } from '@tanstack/vue-query';
 import { createPinia } from 'pinia';
-import 'primeflex/primeflex.scss';
 import 'primeicons/primeicons.css';
 import PrimeVue from 'primevue/config';
 import ToastService from 'primevue/toastservice';
@@ -11,7 +10,12 @@ import { getPrimeVueConfig } from '@/config/primevue-config';
 import { openError } from '@/service/app/error.service.ts';
 import { changeLocale, detectUserLanguage } from '@/service/app/localization.service.ts';
 import { getRouter } from '@/service/app/route.service.ts';
-import '@/shared/styles/index.scss';
+import '@/shared/styles/fonts.css';
+import '@/shared/styles/index.css';
+import '@/shared/styles/primevue-normilize.css';
+import '@/shared/styles/reset.css';
+import '@/shared/styles/shortcuts.css';
+import '@/shared/styles/typography.css';
 
 // Загружаем локализацию
 await changeLocale(detectUserLanguage());

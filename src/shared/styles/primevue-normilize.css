@@ -1,0 +1,4 @@
+/* TODO вынести настройки в primevue-config.ts по возможности */
+.p-datepicker {
+  width: 100%;
+}

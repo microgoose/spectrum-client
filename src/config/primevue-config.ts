@@ -81,6 +81,10 @@ const SpimexPreset = definePreset(Aura, {
       },
     },
 
+    datepicker: {
+      width: '100%',
+    },
+
     divider: {
       horizontal: {
         margin: 'none',

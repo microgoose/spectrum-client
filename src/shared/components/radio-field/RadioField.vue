@@ -1,17 +1,18 @@
 <template>
-  <div class="flex flex-column gap-3">
+  <div class="flex flex-column gap-4">
     <span class="text-400 subtext">{{ label }}</span>
 
     <div class="flex gap-2">
-      <template v-for="option in options" :key="option.value">
+      <template v-for="(option, index) in options" :key="option.value">
         <RadioButton
+          :input-id="uuid + index"
           :invalid="!!error"
           :value="option.value"
           :modelValue="modelValue"
           @update:modelValue="(val) => $emit('update:modelValue', val)"
         />
 
-        <label>{{ option.label }}</label>
+        <label :for="uuid + index">{{ option.label }}</label>
       </template>
     </div>
 
@@ -24,6 +25,7 @@
 <script setup lang="ts">
 import Message from 'primevue/message';
 import RadioButton from 'primevue/radiobutton';
+import { v4 } from 'uuid';
 
 interface Option {
   label: string;
@@ -37,4 +39,6 @@ defineProps<{
   label: string;
   options: Option[];
 }>();
+
+const uuid = v4();
 </script>

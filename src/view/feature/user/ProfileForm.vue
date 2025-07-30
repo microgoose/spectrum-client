@@ -1,65 +1,65 @@
 <template>
-  <div class="flex flex-column gap-3">
-    <fieldset class="flex flex-wrap gap-3 w-full">
+  <div class="flex flex-column gap-5">
+    <fieldset class="grid grid-cols-2 gap-3">
       <legend class="h2-bold pb-3">{{ $t('userForm.fieldset.main') }}</legend>
 
       <InputField
         v-model="loginValue"
         :error="loginError"
         :label="$t('userForm.fields.login')"
-        class="flex-basics-w6-g3 w-6"
+        class="col-span-1"
       />
 
       <InputField
         v-model="surnameValue"
         :error="surnameError"
         :label="$t('userForm.fields.surname')"
-        class="flex-basics-w6-g3 w-6"
+        class="col-span-1"
       />
 
       <InputField
         v-model="nameValue"
         :error="nameError"
         :label="$t('userForm.fields.name')"
-        class="flex-basics-w6-g3 w-6"
+        class="col-span-1"
       />
 
       <InputField
         v-model="patronymicValue"
         :error="patronymicError"
         :label="$t('userForm.fields.patronymic')"
-        class="flex-basics-w6-g3 w-6"
+        class="col-span-1"
       />
     </fieldset>
 
     <Divider />
 
-    <fieldset class="flex flex-wrap gap-3 w-full">
+    <fieldset class="grid grid-cols-2 gap-3">
       <legend class="h2-bold pb-3">{{ $t('userForm.fieldset.contacts') }}</legend>
 
       <InputField
         v-model="emailValue"
         :error="emailError"
         :label="$t('userForm.fields.email')"
-        class="flex-basics-w6-g3 w-6"
+        class="col-span-1"
       />
 
       <InputField
         v-model="phoneValue"
         :error="phoneError"
         :label="$t('userForm.fields.phone')"
-        class="flex-basics-w6-g3 w-6"
+        class="col-span-1"
       />
 
       <InputField
         v-model="innValue"
         :error="innError"
         :label="$t('userForm.fields.inn')"
-        class="flex-basics-w6-g3 w-6"
+        class="col-span-1"
       />
     </fieldset>
 
-    <div class="flex gap-3 w-full">
+    <div class="flex gap-4 w-full">
       <Button
         :label="$t('sendDocumentWidget.actions.send')"
         :disabled="!meta.valid"

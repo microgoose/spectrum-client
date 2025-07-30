@@ -1,5 +1,5 @@
 <template>
-  <div class="flex align-items-center flex-column gap-4 max-w-20rem">
+  <div class="flex items-center flex-column gap-4 mw-20rem">
     <InputField
       v-model="usernameValue"
       :error="usernameError"

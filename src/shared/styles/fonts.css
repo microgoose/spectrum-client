@@ -1,7 +1,3 @@
-// fonts.scss
-
-$default-family: 'Roboto Variable', sans-serif;
-
 @font-face {
   font-family: 'Roboto Variable';
   src: url('/fonts/Roboto-VariableFont_wdth,wght.ttf') format('truetype');

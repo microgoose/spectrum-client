@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap gap-3">
+  <div class="flex flex-wrap gap-4">
     <!-- Основные поля -->
     <div class="flex flex-column gap-1 w-full">
       <span class="text-400 subtext">{{ $t('organization.fields.fullName') }}</span>

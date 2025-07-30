@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-column gap-3">
+  <div class="flex flex-column gap-4">
     <Skeleton v-if="loading" class="w-full md:w-30rem" height="3rem" />
 
     <div v-else class="flex flex-column gap-2">

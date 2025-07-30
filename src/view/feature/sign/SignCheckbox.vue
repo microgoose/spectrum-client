@@ -1,8 +1,8 @@
 <template>
-  <div class="flex align-items-center gap-2">
+  <div class="flex items-center gap-2">
     <Checkbox v-model="internalShouldSign" inputId="shouldSign" name="shouldSign" binary />
 
-    <div class="flex align-items-center gap-1">
+    <div class="flex items-center gap-1">
       <label for="shouldSign">
         {{ $t('signCheckbox.text.withSign') }}
       </label>
@@ -26,11 +26,11 @@ import { useDialogStore } from '@/store/app/dialog.store';
 import { useCertStore } from '@/store/sign/cert-store';
 
 const props = defineProps<{
-  modelValue: boolean; // Принимаем значение из v-model
+  modelValue: boolean;
 }>();
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: boolean): void; // Отправляем обновление
+  (e: 'update:modelValue', value: boolean): void;
 }>();
 
 const dialog = useDialogStore();
