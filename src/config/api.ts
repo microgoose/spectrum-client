@@ -1,15 +1,16 @@
+import ky, { HTTPError } from 'ky';
 import { logout } from '@/service/auth/logout.service';
 import { useAuthStore } from '@/store/auth/auth.store';
-import ky, { HTTPError } from 'ky';
 import { t } from './localization';
 
-export const BASE_API_URL = 'http://10.115.154.17:3100/spectrum-core';
+export const SPECTRUM_CORE_API = import.meta.env.VITE_SPECTRUM_CORE_API as string;
 
+//TODO русифицировать ошибки: TimeoutError, ERR_CONNECTION_TIMED_OUT
 export const api = ky.create({
-  prefixUrl: BASE_API_URL,
+  prefixUrl: SPECTRUM_CORE_API,
   hooks: {
     beforeError: [
-      async (error: HTTPError<unknown>) => {
+      async (error: HTTPError) => {
         if (error.response.status === 401) {
           logout();
         }
@@ -19,7 +20,7 @@ export const api = ky.create({
         }
 
         return error;
-      }
+      },
     ],
 
     beforeRequest: [
@@ -28,7 +29,7 @@ export const api = ky.create({
         if (authStore.token) {
           request.headers.set('Authorization', `Bearer ${authStore.token}`);
         }
-      }
+      },
     ],
 
     afterResponse: [
@@ -41,7 +42,7 @@ export const api = ky.create({
         }
 
         return response;
-      }
-    ]
-  }
+      },
+    ],
+  },
 });

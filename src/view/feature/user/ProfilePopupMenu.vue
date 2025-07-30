@@ -19,12 +19,12 @@
 }
 
 .profileMenuInfo {
-  padding: 0.5rem 12px 0 12px;
+  padding: 0.25rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
 
-  & > span {
+  .shortInfoItem {
+    padding: 0.5rem 0.75rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -49,14 +49,14 @@
   <Menu :id="menuId" :class="$style.menu" ref="menu" :model="menuItems" :popup="true">
     <template #start>
       <div :class="$style.profileMenuInfo">
-        <span>
+        <div :class="$style.shortInfoItem">
           <i class="pi pi-envelope" />
-          {{ profile.email }}
-        </span>
-        <span>
+          <span>{{ profile.email }}</span>
+        </div>
+        <div :class="$style.shortInfoItem">
           <i class="pi pi-phone" />
-          {{ profile.phone }}
-        </span>
+          <span>{{ profile.phone }}</span>
+        </div>
       </div>
     </template>
   </Menu>

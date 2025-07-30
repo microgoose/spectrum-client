@@ -6,7 +6,8 @@
   "sideEffects": false,
   "scripts": {
     "dev": "vite",
-    "build": "run-p type-check \"build-only {@}\" --",
+    "dev:mock": "vite --mode mock",
+    "build": "run-p type-check \"build-only {@}\"",
     "build-only": "vite build",
     "build-analyze": "vite build --mode analyze",
     "preview": "vite preview",

@@ -1,9 +1,19 @@
 <template>
-  <ApplicationsTable v-if="applications" :applications="applications" @remove="removeApplication" />
+  <ApplicationsTable v-if="applications" :applications="applications">
+    <template #action="{ application }">
+      <Button
+        icon="pi pi-minus-circle"
+        text
+        severity="danger"
+        @click="removeApplication(application.id)"
+      />
+    </template>
+  </ApplicationsTable>
   <Skeleton v-else width="100%" height="250px" />
 </template>
 
 <script setup lang="ts">
+import Button from 'primevue/button';
 import Skeleton from 'primevue/skeleton';
 import {
   getApplicationsQuery,

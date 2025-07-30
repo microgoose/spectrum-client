@@ -20,14 +20,13 @@
 
     <Column :header="$t('applicationsTable.columns.actions')">
       <template #body="{ data }">
-        <Button icon="pi pi-minus-circle" text severity="danger" @click="remove(data)" />
+        <slot name="action" :application="data" />
       </template>
     </Column>
   </DataTable>
 </template>
 
 <script setup lang="ts">
-import Button from 'primevue/button';
 import Column from 'primevue/column';
 import DataTable from 'primevue/datatable';
 import type { ApplicationType } from '@/api/application/application.types.ts';

@@ -1,10 +1,10 @@
 import { auth } from '@/api/auth/auth.api.ts';
 import type { LoginData } from '@/api/auth/auth.types.ts';
+import { t } from '@/config/localization.ts';
 import { Routes } from '@/config/router.ts';
+import { getHTTPErrorCode } from '@/shared/lib/error-util.ts';
 import { useAuthStore } from '@/store/auth/auth.store.ts';
 import { pushPage } from '../app/route.service.ts';
-import { t } from '@/config/localization.ts';
-import { getHTTPErrorCode } from '@/shared/lib/error-util.ts';
 
 export const login = async (data: LoginData) => {
   try {

@@ -1,5 +1,5 @@
-import { t } from "@/config/localization";
-import { HTTPError } from "ky";
+import { HTTPError } from 'ky';
+import { t } from '@/config/localization';
 
 export function toError(err: unknown): Error {
   if (err instanceof Error) {

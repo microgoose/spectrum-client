@@ -1,45 +1,47 @@
-# vue-project
+# АРМ Спектрум — Руководство разработчика
 
-This template should help get you started developing with Vue 3 in Vite.
+## Рекомендуемая среда разработки
 
-## Recommended IDE Setup
+- **Редактор**: [Visual Studio Code](https://code.visualstudio.com/)
+- **Рекомендуемые плагины и настройки размещены в папке .vscode**
+- **Плагин**: [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+  - ❗️ **Важно**: отключите [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) (если есть), чтобы избежать конфликтов типов.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Поддержка типов `.vue` в TypeScript
 
-## Type Support for `.vue` Imports in TS
+TypeScript по умолчанию не поддерживает типизацию `.vue` файлов. Чтобы это работало корректно:
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- Используйте `vue-tsc` вместо `tsc` для проверки типов.
+- Убедитесь, что установлен Volar — он обеспечивает корректную работу TypeScript в `.vue` файлах.
 
-## Customize configuration
+## Начало работы
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+1. Установите зависимости:
+   ```bash
+   npm install
+   ```
 
-## Project Setup
+2. Создайте или используйте существующий `.env.development` файл в корне проекта со следующим содержимым:
+   ```env
+   VITE_SPECTRUM_CORE_API=http://some-address
+   ```
 
-```sh
-npm install
-```
+## Режимы запуска Vite
 
-### Compile and Hot-Reload for Development
+- По умолчанию используются `.env` и `.env.development`.
+- Для запуска с mock-сервером используйте `.env.mock`. 
+  Не забудьте запустить сам [mock-server](mock-server/README.md)
 
-```sh
-npm run dev
-```
+## Основные команды
 
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+| Команда                         | Назначение |
+|----------------------------------|------------|
+| `npm run dev:mock`               | Запуск разработки с локальным mock-сервером |
+| `npm run dev`                    | Запуск разработки с dev-контуром |
+| `npm run build`                  | Сборка с проверкой типов и минификацией |
+| `npm run build-only`             | Сборка без проверки типов, с минификацией |
+| `npm run build-analyze`          | Сборка с анализом размера бандла |
+| `npm run test:unit`              | Запуск модульных тестов через Vitest |
+| `npm run lint`                   | Проверка кода с помощью ESLint |
+| `npm run type-check`             | Поиск ошибок типизации (vue-tsc) |
+| `npm run format`                 | Применение форматирования (Prettier) |
