@@ -21,7 +21,7 @@
         :loading="isLoading"
         @click="onSubmit"
         :disabled="!meta.valid"
-        :label="$t('login.action.enter')"
+        :label="$t('actions.enter')"
         class="w-full"
         type="submit"
         severity="secondary"

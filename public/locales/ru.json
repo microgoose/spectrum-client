@@ -1,34 +1,26 @@
 {
-  "errors": {
-    "internalServiceError": "Внутреняя ошибка сервера",
-    "unkownError": "Неизвестная ошибка"
-  },
-
-  "loginService": {
-      "errors": {
-        "incorrectLoginData": "Введён некорректный логин/пароль"
-      }
-  },
-
   "helloWorld": "Привет, мир",
-  "notFoundPageTitle": "Страница не найдена",
-  "notFoundPageDescription": "Страница, которую вы ищете, не найдена или произошла непредвиденная ошибка.",
-  "backToHome": "Вернуться на главную",
-  "homePageTitle": "Главная страница",
-  "homePageContent": "Это главная страница вашего приложения.",
-  "errorPageTitle": "Ошибка",
-  "errorPageDefaultMessage": "Произошла непредвиденная ошибка. Пожалуйста, попробуйте позже.",
-  "notificationsPageTitle": "Уведомления",
-  "notificationPageTitle": "Уведомление",
-  "contactsPageTitle": "Контакты",
-  "documentsPageTitle": "Документы",
-  "clearingAccountsPageTitle": "Клиринговые счета",
-  "reportsPageTitle": "Отчёты",
-  "profilePageTitle": "Профиль",
-  "loginPageTitle": "Вход",
-  "sendDocumentPageTitle": "Отправить документ на Биржу",
-  "applicationsPageTitle": "Заявления",
-  "organizationPageTitle": "Организация",
+  "actions": {
+    "enter": "Войти",
+    "logout": "Выйти",
+    "send": "Отправить",
+    "cancel": "Отмена",
+    "edit": "Редактировать",
+    "save": "Сохранить",
+    "ok": "Ок",
+    "confirm": "Подтвердить",
+    "actions.backToHome": "Вернуться на главную"
+  },
+  "text": {
+    "error": "Ошибка",
+    "attention": "Внимание!",
+    "understood": "Понятно",
+    "dearColleagues": "Уважаемые коллеги!"
+  },
+  "errors": {
+    "internalServiceError": "Внутренняя ошибка сервера",
+    "unknownError": "Неизвестная ошибка"
+  },
   "primevue": {
     "accept": "Да",
     "addRule": "Добавить правило",
@@ -221,6 +213,57 @@
       "zoomOut": "Уменьшить"
     }
   },
+  "notFoundPage": {
+    "title": "Страница не найдена",
+    "text": {
+      "description": "Страница, которую вы ищете, не найдена или произошла непредвиденная ошибка."
+    }
+  },
+  "homePage": {
+    "title": "Главная страница",
+    "text": {
+      "content": "Это главная страница вашего приложения."
+    }
+  },
+  "errorPage": {
+    "title": "Ошибка",
+    "text": {
+      "message": "Произошла непредвиденная ошибка. Пожалуйста, попробуйте позже."
+    }
+  },
+  "notificationsPage": {
+    "title": "Уведомления"
+  },
+  "notificationPage": {
+    "title": "Уведомление"
+  },
+  "contactsPage": {
+    "title": "Контакты"
+  },
+  "documentsPage": {
+    "title": "Документы"
+  },
+  "clearingAccountsPage": {
+    "title": "Клиринговые счета"
+  },
+  "reportsPage": {
+    "title": "Отчёты"
+  },
+  "profilePage": {
+    "title": "Профиль"
+  },
+  "loginPage": {
+    "title": "Вход"
+  },
+  "sendDocumentPage": {
+    "title": "Отправить документ на Биржу"
+  },
+  "applicationsPage": {
+    "title": "Заявления"
+  },
+  "organizationPage": {
+    "title": "Организация"
+  },
   "sidebar": {
     "main": "Главное",
     "notifications": "Уведомления",
@@ -229,9 +272,6 @@
     "organization": "Организация",
     "sendDocument": "Отправить документ",
     "profile": "Пользователь"
-  },
-  "dialog": {
-    "title": "Внимание!"
   },
   "app": {
     "name": "АРМ \"Спектр\"",
@@ -245,17 +285,11 @@
       "logoutConfirm": "Вы уверены, что хотите выйти?",
       "logoutTitle": "Выход"
     },
-    "action": {
-      "logout": "Выйти"
-    },
     "error": {
       "loadProfile": "Не удалось загрузить профиль, обновите страницу."
     }
   },
   "login": {
-    "action": {
-      "enter": "Войти"
-    },
     "error": {
       "usernameRequired": "Имя пользователя обязательно.",
       "passwordRequired": "Пароль обязателен."
@@ -263,16 +297,6 @@
     "placeholder": {
       "username": "Имя пользователя",
       "password": "Пароль"
-    }
-  },
-  "error": {
-    "text": {
-      "errorTitle": "Ошибка"
-    }
-  },
-  "notification": {
-    "action": {
-      "understood": "Понятно"
     }
   },
   "documentTable": {
@@ -295,9 +319,7 @@
   },
   "cancelApplication": {
     "dialogTitle": "Отмена заявления",
-    "title": "Уважаемые коллеги!",
-    "message": "Вы уверены, что хотите отменить отправленное заявление?",
-    "confirmButton": "Да"
+    "message": "Вы уверены, что хотите отменить отправленное заявление?"
   },
   "organization": {
     "title": "Организация",
@@ -363,9 +385,6 @@
       "contactEmailRequired": "Укажите эл. почту контактного лица"
     },
     "actions": {
-      "send": "Отправить",
-      "cancel": "Отмена",
-      "edit": "Редактировать",
       "addContact": "Добавить контакт",
       "removeContact": "Удалить контакт"
     }
@@ -374,24 +393,16 @@
     "title": "Отмена изменений",
     "text": {
       "cancelCreationTitle": "Отмена изменений",
-      "title": "Уважаемые коллеги!",
       "message": "Вы уверены, что хотите отменить создание заявления?"
-    },
-    "actions": {
-      "confirmButton": "Да"
     }
   },
   "claimSentDialog": {
     "title": "Заявление отправлено",
     "text": {
-      "title": "Уважаемые коллеги!",
       "message": {
         "pre": "Заявление направлено на Биржу, статус его обработки доступен в разделе",
         "link": "Заявления"
       }
-    },
-    "actions": {
-      "ok": "Ок"
     }
   },
   "userView": {
@@ -420,9 +431,6 @@
       "phone": "Введите номер телефона",
       "inn": "Введите ИНН"
     },
-    "actions": {
-      "save": "Сохранить"
-    },
     "errors": {
       "loginRequired": "Логин обязателен",
       "nameRequired": "Имя обязательно",
@@ -431,7 +439,7 @@
       "emailInvalid": "Неверный формат электронной почты"
     }
   },
-  "sendDocument": {
+  "sendDocumentForm": {
     "text": {
       "500symbols": "500 символов"
     },
@@ -443,7 +451,6 @@
   "sendDocumentSuccessDialog": {
     "title": "Отправка документа",
     "text": {
-      "title": "Уважаемые коллеги!",
       "message": {
         "pre": "Информация направлена на биржу, статус обработки доступен в разделе",
         "link": "Заявления"
@@ -456,23 +463,20 @@
   "selectSignCertificateDialog": {
     "title": "Выберите сертификат",
     "actions": {
-      "selectCertificate": "Выберите сертификат",
-      "confirm": "Подвердить"
+      "selectCertificate": "Выберите сертификат"
     },
     "error": {
-      "notFoundActiveCert": "Не найденно активных сертификатов",
-      "unkownError": "Неизвестная ошибка при загрузке сертификатов"
+      "notFoundActiveCert": "Не найдено активных сертификатов",
+      "unknownError": "Неизвестная ошибка при загрузке сертификатов"
     }
   },
   "sendDocumentWidget": {
     "actions": {
-      "send": "Отправить",
       "choseCert": "Выбрать сертификат"
     }
   },
   "profileMenu": {
     "actions": {
-      "logout": "Выйти",
       "choseCert": "Выбрать сертификат"
     }
   },
@@ -487,6 +491,11 @@
   "certificateService": {
     "text": {
       "selectedCert": "{name} (действует до {validTo})"
+    }
+  },
+  "loginService": {
+    "errors": {
+      "incorrectLoginData": "Введён некорректный логин/пароль"
     }
   }
 }

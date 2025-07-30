@@ -7,7 +7,7 @@ export function toError(err: unknown): Error {
   } else if (err) {
     return new Error(String(err));
   } else {
-    return new Error(t('errors.unkownError'));
+    return new Error(t('errors.unknownError'));
   }
 }
 

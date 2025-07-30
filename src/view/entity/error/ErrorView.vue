@@ -10,7 +10,7 @@
 
 <template>
   <div class="message-container">
-    <p>{{ errorStore.error?.message || $t('errorPageDefaultMessage') }}</p>
+    <p>{{ errorStore.error?.message || $t('errorPage.text.message') }}</p>
   </div>
 </template>
 

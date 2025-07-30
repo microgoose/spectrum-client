@@ -23,10 +23,10 @@
 
 <template>
   <div class="dialog-container">
-    <h3 class="dialog-title">{{ $t('cancelApplication.title') }}</h3>
+    <h3 class="dialog-title">{{ $t('text.dearColleagues') }}</h3>
     <p class="dialog-message">{{ $t('cancelApplication.message') }}</p>
     <Button @click="dialog.close(true)" class="confirm-button">
-      {{ $t('cancelApplication.confirmButton') }}
+      {{ $t('action.confirm') }}
     </Button>
   </div>
 </template>

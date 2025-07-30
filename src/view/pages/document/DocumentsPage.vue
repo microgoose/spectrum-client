@@ -6,7 +6,7 @@
 
     <template #content>
       <BlockTitle>
-        {{ $t('documentsPageTitle') }}
+        {{ $t('documentsPage.title') }}
       </BlockTitle>
       <ProfileDocuments />
     </template>

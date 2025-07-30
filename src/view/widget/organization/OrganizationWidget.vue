@@ -11,11 +11,11 @@
 <template>
   <div class="organization-widget">
     <BlockTitle>
-      {{ $t('organizationPageTitle') }}
-      <Button v-show="!isEditMode" :label="$t('organization.actions.edit')" @click="onEditOpen" />
+      {{ $t('organizationPage.title') }}
+      <Button v-show="!isEditMode" :label="$t('actions.edit')" @click="onEditOpen" />
       <Button
         v-show="isEditMode"
-        :label="$t('organization.actions.cancel')"
+        :label="$t('actions.cancel')"
         severity="secondary"
         @click="onEditClose"
       />

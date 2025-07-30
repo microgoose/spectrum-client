@@ -15,7 +15,7 @@
     <template #content>
       <div class="notification-page">
         <BlockTitle>
-          {{ $t('notificationPageTitle') }}
+          {{ $t('notificationPage.title') }}
         </BlockTitle>
 
         <Notification :id="notificationId" />

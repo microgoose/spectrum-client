@@ -6,7 +6,7 @@
 
     <template #content>
       <BlockTitle>
-        {{ $t('applicationsPageTitle') }}
+        {{ $t('applicationsPage.title') }}
       </BlockTitle>
       <ApplicationsWidget />
     </template>

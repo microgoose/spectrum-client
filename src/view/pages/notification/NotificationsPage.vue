@@ -6,7 +6,7 @@
 
     <template #content>
       <BlockTitle>
-        {{ $t('notificationsPageTitle') }}
+        {{ $t('notificationsPage.title') }}
       </BlockTitle>
       <NotificationList />
     </template>

@@ -14,8 +14,8 @@
   <DefaultContentLayout>
     <template #content>
       <div class="error-message">
-        <p>{{ $t('notFoundPageDescription') }}</p>
-        <Button @click="pushPage(Routes.HOME)" :label="$t('backToHome')" />
+        <p>{{ $t('notFoundPage.text.description') }}</p>
+        <Button @click="pushPage(Routes.HOME)" :label="$t('actions.backToHome')" />
       </div>
     </template>
   </DefaultContentLayout>

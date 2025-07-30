@@ -32,7 +32,7 @@
     </p>
 
     <Button @click="dialog.close(true)" size="large">
-      {{ $t('claimSentDialog.actions.ok') }}
+      {{ $t('actions.ok') }}
     </Button>
   </div>
 </template>

@@ -15,18 +15,18 @@ export interface DialogRoute {
 
 export type DialogRoutes = Record<string, DialogRoute>;
 
-export const DEFAULT_TITLE = 'dialog.title';
+export const DEFAULT_TITLE = 'text.attention';
 
 //TODO lazy loading
 export const dialogs: DialogRoutes = {
   ERROR_MESSAGE: {
     name: 'error-message',
-    titleKey: 'error.text.errorTitle',
+    titleKey: 'text.error',
     component: ErrorView,
   },
   CONFIRM_LOGOUT: {
     name: 'confirm-logout',
-    titleKey: 'profile.text.logoutTitle',
+    titleKey: 'actions.logout',
     component: ConfirmLogoutDialog,
   },
   CANCEL_APPLICATION: {
@@ -36,7 +36,7 @@ export const dialogs: DialogRoutes = {
   },
   CLAIM_CANCEL: {
     name: 'claim-cancel',
-    titleKey: 'claimCancelDialog.title',
+    titleKey: 'text.dearColleagues',
     component: ClaimCancelDialog,
   },
   CLAIM_SENT: {

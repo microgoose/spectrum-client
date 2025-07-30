@@ -15,7 +15,7 @@ export const useProfilePopupStore = defineStore('profilePopup', {
         command: () => dialog.open(dialogs.SELECT_SIGN_CERTIFICATE),
       },
       {
-        label: t('profileMenu.actions.logout'),
+        label: t('actions.logout'),
         icon: 'pi pi-sign-out',
         command: confirmLogout,
       },

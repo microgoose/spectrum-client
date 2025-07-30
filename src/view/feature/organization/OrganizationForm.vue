@@ -211,7 +211,7 @@
 
     <div class="flex gap-3 w-full">
       <Button
-        :label="$t('sendDocumentWidget.actions.send')"
+        :label="$t('actions.send')"
         :disabled="!meta.valid"
         @click="onSubmit"
       />

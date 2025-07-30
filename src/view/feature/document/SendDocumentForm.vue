@@ -5,12 +5,12 @@
         v-model="comment"
         autoResize
         rows="10"
-        :placeholder="$t('sendDocument.actions.enterDocumentText')"
+        :placeholder="$t('sendDocumentForm.actions.enterDocumentText')"
         :maxlength="500"
         class="w-full"
       />
       <small class="text-400 subtext">
-        {{ comment.length }}/{{ $t('sendDocument.text.500symbols') }}
+        {{ comment.length }}/{{ $t('sendDocumentForm.text.500symbols') }}
       </small>
     </div>
 
@@ -39,7 +39,7 @@
         mode="basic"
         name="files"
         customUpload
-        :chooseLabel="$t('sendDocument.actions.attachFiles')"
+        :chooseLabel="$t('sendDocumentForm.actions.attachFiles')"
         multiple
         :auto="true"
         @select="onFileSelect"

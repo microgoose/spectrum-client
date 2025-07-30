@@ -27,7 +27,7 @@
     <p class="dialog-message">{{ $t('claimCancelDialog.text.message') }}</p>
 
     <Button @click="dialog.close(true)" class="confirm-button">
-      {{ $t('claimCancelDialog.actions.confirmButton') }}
+      {{ $t('action.confirm') }}
     </Button>
   </div>
 </template>

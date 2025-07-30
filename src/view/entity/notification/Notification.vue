@@ -44,7 +44,7 @@
     </template>
 
     <template #footer>
-      <Button :label="$t('notification.action.understood')" @click="onAcknowledge" />
+      <Button :label="$t('text.understood')" @click="onAcknowledge" />
     </template>
   </Card>
 </template>

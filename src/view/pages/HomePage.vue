@@ -10,7 +10,7 @@
           {{ $t('helloWorld') }}
         </template>
         <template #content>
-          <p>{{ $t('homePageContent') }}</p>
+          <p>{{ $t('homePage.text.content') }}</p>
         </template>
       </Card>
     </template>

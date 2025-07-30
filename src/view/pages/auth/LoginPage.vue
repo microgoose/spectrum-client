@@ -1,7 +1,7 @@
 <template>
   <Card>
     <template #title>
-      {{ $t('loginPageTitle') }}
+      {{ $t('loginPage.title') }}
     </template>
 
     <template #content>

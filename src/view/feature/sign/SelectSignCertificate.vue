@@ -18,7 +18,7 @@
     </div>
 
     <Button @click="dialog.close()">
-      {{ $t('selectSignCertificateDialog.actions.confirm') }}
+      {{ $t('actions.confirm') }}
     </Button>
   </div>
 </template>
@@ -49,7 +49,7 @@ const getCertificates = async () => {
     if (err instanceof Error) {
       error.value = err.message;
     } else {
-      error.value = t('selectSignCertificateDialog.error.unkownError');
+      error.value = t('selectSignCertificateDialog.error.unknownError');
     }
   } finally {
     loading.value = false;

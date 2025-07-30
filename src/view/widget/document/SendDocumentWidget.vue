@@ -11,7 +11,7 @@
 <template>
   <div class="send-doc-widget">
     <BlockTitle>
-      {{ $t('sendDocumentPageTitle') }}
+      {{ $t('sendDocumentPage.title') }}
     </BlockTitle>
 
     <Card class="w-full">
