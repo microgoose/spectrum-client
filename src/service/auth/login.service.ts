@@ -1,7 +1,7 @@
-import { auth } from '@/api/auth/auth.api.ts';
-import type { LoginData } from '@/api/auth/auth.types.ts';
+import { auth } from '@/api/auth.api.ts';
 import { t } from '@/config/localization.ts';
 import { Routes } from '@/config/router.ts';
+import type { LoginData } from '@/model/auth/auth.types.ts';
 import { getHTTPErrorCode } from '@/shared/lib/error-util.ts';
 import { useAuthStore } from '@/store/auth/auth.store.ts';
 import { pushPage } from '../app/route.service.ts';

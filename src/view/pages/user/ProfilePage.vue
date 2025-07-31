@@ -18,7 +18,7 @@
 
     <template #footer>
       <div class="logout-button">
-        <Button :label="$t('profile.action.logout')" @click="confirmLogout" />
+        <Button :label="$t('actions.logout')" @click="confirmLogout" />
       </div>
     </template>
   </DefaultContentLayout>

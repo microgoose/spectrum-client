@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/vue-query';
-import { getApplications } from '@/api/application/application.api.ts';
-import type { ApplicationType } from '@/api/application/application.types.ts';
+import { getApplications } from '@/api/application.api.ts';
 import { dialogs } from '@/config/dialog.ts';
+import type { ApplicationType } from '@/model/application/application.types.ts';
 import { useDialogStore } from '@/store/app/dialog.store.ts';
 
 export const getApplicationsQuery = () => {

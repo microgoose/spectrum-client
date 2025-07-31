@@ -29,7 +29,7 @@
 <script setup lang="ts">
 import Column from 'primevue/column';
 import DataTable from 'primevue/datatable';
-import type { ApplicationType } from '@/api/application/application.types.ts';
+import type { ApplicationType } from '@/model/application/application.types.ts';
 
 defineProps<{
   applications: ApplicationType[];

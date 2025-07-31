@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/vue-query';
-import { getCurrentUserOrganization } from '@/api/organization/organization.api.ts';
-import type { OrganizationType } from '@/api/organization/organization.types.ts';
+import { getAuthUserOrganization } from '@/api/organization.api.ts';
+import type { OrganizationType } from '@/model/organization/organization.types.ts';
 
 export const getAuthOrganizationQuery = () => {
   return useQuery<OrganizationType>({
     queryKey: ['user-organization'],
-    queryFn: getCurrentUserOrganization,
+    queryFn: getAuthUserOrganization,
     throwOnError: true,
   });
 };

@@ -46,7 +46,7 @@
 
 <script setup lang="ts">
 import Divider from 'primevue/divider';
-import type { UserType } from '@/api/user/user.types.ts';
+import type { UserType } from '@/model/user/user.types.ts';
 
 defineProps<{ user: UserType }>();
 </script>

@@ -26,7 +26,7 @@
     <h3 class="dialog-title">{{ $t('text.dearColleagues') }}</h3>
     <p class="dialog-message">{{ $t('cancelApplication.message') }}</p>
     <Button @click="dialog.close(true)" class="confirm-button">
-      {{ $t('action.confirm') }}
+      {{ $t('actions.confirm') }}
     </Button>
   </div>
 </template>

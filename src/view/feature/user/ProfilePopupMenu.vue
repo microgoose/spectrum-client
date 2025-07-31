@@ -66,8 +66,8 @@
 import { ref } from 'vue';
 import Button from 'primevue/button';
 import Menu from 'primevue/menu';
-import type { UserType } from '@/api/user/user.types.ts';
 import { Routes } from '@/config/router.ts';
+import type { UserType } from '@/model/user/user.types.ts';
 import { getRoutePath } from '@/service/app/route.service.ts';
 import { useProfilePopupStore } from '@/store/profile/profile-popup.store.ts';
 import UserAvatar from '@/view/entity/user/UserAvatar.vue';

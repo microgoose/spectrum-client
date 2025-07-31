@@ -9,8 +9,8 @@
 
 <template>
   <div :class="$style.container">
-    <h2>{{ $t('profile.text.logoutConfirm') }}</h2>
-    <Button :label="$t('profile.action.logout')" @click="dialog.close(true)" />
+    <h2>{{ $t('confirmLogoutDialog.text.logoutConfirm') }}</h2>
+    <Button :label="$t('actions.logout')" @click="dialog.close(true)" />
   </div>
 </template>
 

@@ -16,7 +16,7 @@
 
     <Card class="w-full">
       <template #content>
-        <SendDocumentForm />
+        <SendDocumentClaim />
       </template>
     </Card>
   </div>
@@ -25,5 +25,5 @@
 <script setup lang="ts">
 import Card from 'primevue/card';
 import BlockTitle from '@/shared/components/BlockTitle.vue';
-import SendDocumentForm from '@/view/feature/document/SendDocumentForm.vue';
+import SendDocumentClaim from '@/view/feature/document/SendDocumentClaim.vue';
 </script>

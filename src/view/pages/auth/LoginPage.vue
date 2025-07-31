@@ -5,12 +5,12 @@
     </template>
 
     <template #content>
-      <LoginForm />
+      <Login />
     </template>
   </Card>
 </template>
 
 <script setup lang="ts">
 import Card from 'primevue/card';
-import LoginForm from '@/view/feature/auth/LoginForm.vue';
+import Login from '@/view/feature/auth/Login.vue';
 </script>

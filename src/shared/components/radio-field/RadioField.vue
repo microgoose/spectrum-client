@@ -27,7 +27,7 @@ import Message from 'primevue/message';
 import RadioButton from 'primevue/radiobutton';
 import { v4 } from 'uuid';
 
-interface Option {
+export interface RadioFieldOption {
   label: string;
   value: string | number;
 }
@@ -37,7 +37,7 @@ defineProps<{
   error?: string;
   modelValue?: string | number;
   label: string;
-  options: Option[];
+  options: RadioFieldOption[];
 }>();
 
 const uuid = v4();

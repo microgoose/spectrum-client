@@ -17,7 +17,7 @@
 <template>
   <div :class="$style.appLayout">
     <div :class="$style.appLayoutSidebar">
-      <Sidebar />
+      <AppSidebar />
     </div>
 
     <div :class="$style.appLayoutContent">
@@ -27,5 +27,5 @@
 </template>
 
 <script setup lang="ts">
-import Sidebar from '@/view/widget/app/AppSidebar.vue';
+import AppSidebar from '@/view/widget/app/AppSidebar.vue';
 </script>

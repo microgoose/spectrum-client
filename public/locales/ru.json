@@ -1,5 +1,12 @@
 {
   "helloWorld": "Привет, мир",
+  "app": {
+    "name": "АРМ \"Спектр\"",
+    "shortDescription": "Автоматизированное рабочее место \"Спектр\""
+  },
+  "company": {
+    "name": "Петербургская биржа"
+  },
   "actions": {
     "enter": "Войти",
     "logout": "Выйти",
@@ -264,7 +271,7 @@
   "organizationPage": {
     "title": "Организация"
   },
-  "sidebar": {
+  "appSidebar": {
     "main": "Главное",
     "notifications": "Уведомления",
     "documents": "Документы",
@@ -273,23 +280,12 @@
     "sendDocument": "Отправить документ",
     "profile": "Пользователь"
   },
-  "app": {
-    "name": "АРМ \"Спектр\"",
-    "shortDescription": "Автоматизированное рабочее место \"Спектр\""
-  },
-  "company": {
-    "name": "Петербургская биржа"
-  },
-  "profile": {
+  "confirmLogoutDialog": {
     "text": {
-      "logoutConfirm": "Вы уверены, что хотите выйти?",
-      "logoutTitle": "Выход"
-    },
-    "error": {
-      "loadProfile": "Не удалось загрузить профиль, обновите страницу."
+      "logoutConfirm": "Вы уверены, что хотите выйти?"
     }
   },
-  "login": {
+  "loginForm": {
     "error": {
       "usernameRequired": "Имя пользователя обязательно.",
       "passwordRequired": "Пароль обязателен."
@@ -321,7 +317,7 @@
     "dialogTitle": "Отмена заявления",
     "message": "Вы уверены, что хотите отменить отправленное заявление?"
   },
-  "organization": {
+  "organizationForm": {
     "title": "Организация",
     "fieldset": {
       "main": "Основное",
@@ -491,6 +487,10 @@
   "certificateService": {
     "text": {
       "selectedCert": "{name} (действует до {validTo})"
+    },
+    "error": {
+      "noCertificate": "Не выбран сертификат",
+      "signFailed": "Не удалось подписать данные"
     }
   },
   "loginService": {

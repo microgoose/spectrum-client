@@ -17,29 +17,29 @@ export interface SidebarStoreType {
 export const useSidebarStore = defineStore('sidebar', {
   state: (): SidebarStoreType => ({
     items: [
-      { label: t('sidebar.main'), to: getRoutePath(Routes.HOME), icon: 'pi pi-home' },
+      { label: t('appSidebar.main'), to: getRoutePath(Routes.HOME), icon: 'pi pi-home' },
       {
-        label: t('sidebar.notifications'),
+        label: t('appSidebar.notifications'),
         to: getRoutePath(Routes.NOTIFICATIONS),
         icon: 'pi pi-bell',
       },
-      { label: t('sidebar.documents'), to: getRoutePath(Routes.DOCUMENTS), icon: 'pi pi-book' },
+      { label: t('appSidebar.documents'), to: getRoutePath(Routes.DOCUMENTS), icon: 'pi pi-book' },
       {
-        label: t('sidebar.applications'),
+        label: t('appSidebar.applications'),
         to: getRoutePath(Routes.APPLICATIONS),
         icon: 'pi pi-inbox',
       },
       {
-        label: t('sidebar.organization'),
+        label: t('appSidebar.organization'),
         to: getRoutePath(Routes.ORGANIZATION),
         icon: 'pi pi-sitemap',
       },
       {
-        label: t('sidebar.sendDocument'),
+        label: t('appSidebar.sendDocument'),
         to: getRoutePath(Routes.SEND_DOCUMENT),
         icon: 'pi pi-send',
       },
-      { label: t('sidebar.profile'), to: getRoutePath(Routes.PROFILE), icon: 'pi pi-user' },
+      { label: t('appSidebar.profile'), to: getRoutePath(Routes.PROFILE), icon: 'pi pi-user' },
     ],
   }),
   getters: {

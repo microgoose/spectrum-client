@@ -24,7 +24,7 @@
 
     <Card v-if="user" class="w-full">
       <template #content>
-        <ProfileForm v-if="isEditMode" :user="user" @submit="onSubmit" />
+        <SendProfileClaim v-if="isEditMode" :initial-values="user" @submit="onSubmit" />
         <UserView v-else :user="user" />
       </template>
     </Card>
@@ -42,7 +42,7 @@ import { getAuthUserQuery } from '@/service/user/user.service.ts';
 import BlockTitle from '@/shared/components/BlockTitle.vue';
 import { useDialogStore } from '@/store/app/dialog.store.ts';
 import UserView from '@/view/entity/user/UserView.vue';
-import ProfileForm from '@/view/feature/user/ProfileForm.vue';
+import SendProfileClaim from '@/view/feature/user/SendProfileClaim.vue';
 
 const dialog = useDialogStore();
 const { data: user } = getAuthUserQuery();
@@ -62,6 +62,5 @@ const onEditClose = async () => {
 
 const onSubmit = () => {
   isEditMode.value = false;
-  dialog.open(dialogs.CLAIM_SENT);
 };
 </script>

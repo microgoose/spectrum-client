@@ -24,7 +24,7 @@ export const routes = [
   {
     path: '/organization',
     name: Routes.ORGANIZATION,
-    component: () => import('@/view/pages/organization/OrganizationPage.vue'),
+    component: () => import('@/view/pages/organization/AuthOrganizationPage.vue'),
     meta: { titleKey: 'organizationPage.title' },
   },
   {

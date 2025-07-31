@@ -610,15 +610,15 @@
 }
 
 .w-20rem {
-  width: 20rem;
+  width: 20rem; /*320px*/
 }
 .w-50rem {
-  width: 50rem;
+  width: 50rem; /*800px*/
 }
 
 /* Max Width */
 .mw-20rem {
-  width: 20rem;
+  width: 20rem; /*320px*/
 }
 
 /*
