@@ -2,7 +2,7 @@ import NotFoundPage from '@/view/pages/error/NotFoundPage.vue';
 
 // Перечисление маршрутов, используется для программного перехода на страницу
 export enum Routes {
-  HOME = 'home ',
+  HOME = 'home',
   LOGIN = 'login',
   NOTIFICATIONS = 'notifications',
   NOTIFICATION = 'notification',

@@ -50,7 +50,7 @@ export const dialogs: DialogRoutes = {
     component: SendDocumentSuccessDialog,
   },
   SELECT_SIGN_CERTIFICATE: {
-    name: 'send-document-success',
+    name: 'select-sign-certificate',
     titleKey: 'selectSignCertificateDialog.title',
     component: SelectSignCertificate,
   },
