@@ -3,33 +3,13 @@
     <fieldset class="grid grid-cols-2 gap-3">
       <legend class="h2-bold pb-3">{{ $t('userForm.fieldset.main') }}</legend>
 
-      <InputField
-        v-model="loginValue"
-        :error="loginError"
-        :label="$t('userForm.fields.login')"
-        class="col-span-1"
-      />
+      <InputField name="login" :label="$t('userForm.fields.login')" class="col-span-1" />
 
-      <InputField
-        v-model="surnameValue"
-        :error="surnameError"
-        :label="$t('userForm.fields.surname')"
-        class="col-span-1"
-      />
+      <InputField name="surname" :label="$t('userForm.fields.surname')" class="col-span-1" />
 
-      <InputField
-        v-model="nameValue"
-        :error="nameError"
-        :label="$t('userForm.fields.name')"
-        class="col-span-1"
-      />
+      <InputField name="name" :label="$t('userForm.fields.name')" class="col-span-1" />
 
-      <InputField
-        v-model="patronymicValue"
-        :error="patronymicError"
-        :label="$t('userForm.fields.patronymic')"
-        class="col-span-1"
-      />
+      <InputField name="patronymic" :label="$t('userForm.fields.patronymic')" class="col-span-1" />
     </fieldset>
 
     <Divider />
@@ -37,26 +17,11 @@
     <fieldset class="grid grid-cols-2 gap-3">
       <legend class="h2-bold pb-3">{{ $t('userForm.fieldset.contacts') }}</legend>
 
-      <InputField
-        v-model="emailValue"
-        :error="emailError"
-        :label="$t('userForm.fields.email')"
-        class="col-span-1"
-      />
+      <InputField name="email" :label="$t('userForm.fields.email')" class="col-span-1" />
 
-      <InputField
-        v-model="phoneValue"
-        :error="phoneError"
-        :label="$t('userForm.fields.phone')"
-        class="col-span-1"
-      />
+      <InputField name="phone" :label="$t('userForm.fields.phone')" class="col-span-1" />
 
-      <InputField
-        v-model="innValue"
-        :error="innError"
-        :label="$t('userForm.fields.inn')"
-        class="col-span-1"
-      />
+      <InputField name="inn" :label="$t('userForm.fields.inn')" class="col-span-1" />
     </fieldset>
 
     <div class="flex gap-4 w-full">
@@ -71,8 +36,8 @@ import { ref } from 'vue';
 import { toTypedSchema } from '@vee-validate/zod';
 import Button from 'primevue/button';
 import Divider from 'primevue/divider';
-import { useField, useForm } from 'vee-validate';
-import { profileValidationScheme } from '@/model/user/profile.validation-scheme.ts';
+import { useForm } from 'vee-validate';
+import { profileZod } from '@/model/user/profile.zod.ts';
 import type { UserType } from '@/model/user/user.types.ts';
 import InputField from '@/shared/components/input-field/InputField.vue';
 import SignCheckbox from '@/view/feature/sign/SignCheckbox.vue';
@@ -82,18 +47,9 @@ const props = defineProps<{ initialValues: UserType }>();
 
 const isSigningEnabled = ref(false);
 const { meta } = useForm({
-  validationSchema: toTypedSchema(profileValidationScheme),
+  validationSchema: toTypedSchema(profileZod),
   initialValues: {
     ...props.initialValues,
   },
 });
-
-// Определяем поля формы с useField
-const { value: loginValue, errorMessage: loginError } = useField<string>('login');
-const { value: surnameValue, errorMessage: surnameError } = useField<string>('surname');
-const { value: nameValue, errorMessage: nameError } = useField<string>('name');
-const { value: patronymicValue, errorMessage: patronymicError } = useField<string>('patronymic');
-const { value: emailValue, errorMessage: emailError } = useField<string>('email');
-const { value: phoneValue, errorMessage: phoneError } = useField<string>('phone');
-const { value: innValue, errorMessage: innError } = useField<string>('inn');
 </script>

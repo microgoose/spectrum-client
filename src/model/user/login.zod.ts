@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { t } from '@/config/localization.ts';
 
-export const loginValidationScheme = z.object({
+export const loginZod = z.object({
   username: z
     .string({ message: t('loginForm.error.usernameRequired') })
     .min(1, { message: t('loginForm.error.usernameRequired') }),

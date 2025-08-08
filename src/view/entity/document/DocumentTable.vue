@@ -20,10 +20,10 @@
 </template>
 
 <script setup lang="ts">
-import type { ClaimSummary } from '@/model/claim/claim.types';
-import { formatDateTime } from '@/shared/lib/date-util';
 import Column from 'primevue/column';
 import DataTable from 'primevue/datatable';
+import type { ClaimSummary } from '@/model/claim/claim.types';
+import { formatDateTime } from '@/shared/lib/date-util';
 
 defineProps<{
   //TOOD temporary design

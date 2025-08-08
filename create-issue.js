@@ -1,7 +1,7 @@
-import fs from 'node:fs/promises';
-import fetch from 'node-fetch';
-import https from 'https';
 import dotenv from 'dotenv';
+import https from 'https';
+import fetch from 'node-fetch';
+import fs from 'node:fs/promises';
 
 dotenv.config();
 
@@ -11,7 +11,7 @@ async function createIssue(title, description, projectId) {
 
   try {
     const agent = new https.Agent({
-      rejectUnauthorized: false // временно для тестирования
+      rejectUnauthorized: false, // временно для тестирования
       // ca: fs.readFileSync('/path/to/certificate.crt') // укажите путь к сертификату
     });
 
@@ -20,13 +20,13 @@ async function createIssue(title, description, projectId) {
       agent,
       headers: {
         'Private-Token': token,
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         title: title,
         description: description,
-        labels: ['dependencies']
-      })
+        labels: ['dependencies'],
+      }),
     });
 
     const result = await response.json();
@@ -49,10 +49,10 @@ async function main() {
     let description = `Обнаружены устаревшие зависимости:\n\n`;
     let i = 0;
 
-    for(const item in outdatedPackages) {
+    for (const item in outdatedPackages) {
       description += `- ${item}: текущая версия ${outdatedPackages[item].current}, доступна ${outdatedPackages[item].wanted}\n`;
       i++;
-    };
+    }
 
     if (i > 0) {
       createIssue(title, description, process.env.PROJECT_ID);

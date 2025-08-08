@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/vue-query';
 import { getClaims, saveClaim } from '@/api/claim.api';
 import { dialogs } from '@/config/dialog';
 import type { ClaimRequestData, ClaimSummary } from '@/model/claim/claim.types';
@@ -5,7 +6,6 @@ import type { OrganizationType } from '@/model/organization/organization.types';
 import { signData } from '@/service/sign/certificate.service';
 import { encodeToBase64 } from '@/shared/lib/base64-util.ts';
 import { useDialogStore } from '@/store/app/dialog.store';
-import { useQuery } from '@tanstack/vue-query';
 
 export const sendOrganizationClaim = async (
   newData: OrganizationType,

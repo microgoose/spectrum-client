@@ -16,7 +16,8 @@ export interface RawOrganizationIpIdentityType {
 }
 
 //Так как полей немного, просто берём существущий тип и перезаписываем часть его свойств
-export interface OrganizationIpIdentityType extends Omit<RawOrganizationIpIdentityType, 'idIssueDate' | 'idBirthdate'> {
+export interface OrganizationIpIdentityType
+  extends Omit<RawOrganizationIpIdentityType, 'idIssueDate' | 'idBirthdate'> {
   idIssueDate: Date;
   idBirthdate: Date;
 }

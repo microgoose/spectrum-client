@@ -1,7 +1,7 @@
 import type { Component } from 'vue';
 import ErrorView from '@/view/entity/error/ErrorView.vue';
-import CancelClaimDialog from '@/view/feature/claim/CancelClaimDialog.vue';
 import ConfirmLogoutDialog from '@/view/feature/auth/ConfirmLogoutDialog.vue';
+import CancelClaimDialog from '@/view/feature/claim/CancelClaimDialog.vue';
 import ClaimCancelDialog from '@/view/feature/claim/ClaimCancelDialog.vue';
 import ClaimSentDialog from '@/view/feature/claim/ClaimSentDialog.vue';
 import SendDocumentSuccessDialog from '@/view/feature/document/SendDocumentSuccessDialog.vue';

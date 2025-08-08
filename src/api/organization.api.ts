@@ -1,5 +1,9 @@
 import { api } from '@/config/api';
-import type {OrganizationType, RawOrganizationType} from '@/model/organization/organization.types.ts';
+import type {
+  OrganizationType,
+  RawOrganizationType,
+} from '@/model/organization/organization.types.ts';
+
 // import { getJsDate } from '@/shared/lib/date-util';
 
 export const getAuthUserOrganization = async () => {
