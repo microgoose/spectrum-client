@@ -23,12 +23,12 @@
   <RouterLink :to="getRoutePath(Routes.NOTIFICATION, { id })">
     <Panel>
       <template #header>
-        <span class="notification-item__date">{{ date }}</span>
+        <span class="notification-item__title">{{ title }}</span>
       </template>
 
       <template #default>
         <div class="notification-body">
-          <span class="notification-item__title">{{ title }}</span>
+          <span class="notification-item__date">{{ formatDate(date) }}</span>
           <span class="notification-item__description">{{ description }}</span>
         </div>
       </template>
@@ -40,6 +40,7 @@
 import { Panel } from 'primevue';
 import { Routes } from '@/config/router.ts';
 import { getRoutePath } from '@/service/app/route.service.ts';
+import { formatDate } from '@/shared/lib/date-util';
 
 defineProps<{
   id: string;

@@ -5,7 +5,7 @@ import { t } from './localization';
 
 export const SPECTRUM_CORE_API = import.meta.env.VITE_SPECTRUM_CORE_API as string;
 
-//TODO русифицировать ошибки: TimeoutError, ERR_CONNECTION_TIMED_OUT
+//TODO русифицировать ошибки: TimeoutError, ERR_CONNECTION_TIMED_OUT, 404
 export const api = ky.create({
   prefixUrl: SPECTRUM_CORE_API,
   hooks: {

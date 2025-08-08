@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-column gap-5">
+  <form class="flex flex-column gap-5" @submit.prevent="onSubmit">
     <!-- Основное -->
     <fieldset class="grid grid-cols-2 gap-3">
       <legend class="h2-bold pb-3">{{ $t('organizationForm.fieldset.main') }}</legend>
@@ -55,7 +55,6 @@
         class="col-span-1"
       />
 
-      <!-- TODO починить, либо дата, либо строка -->
       <DateField
         v-model="idIssueDateValue"
         :error="idIssueDateError"
@@ -77,7 +76,6 @@
         class="col-span-2"
       />
 
-      <!-- TODO починить, либо дата, либо строка -->
       <DateField
         v-model="idBirthdateValue"
         :error="idBirthdateError"
@@ -210,10 +208,10 @@
     </fieldset>
 
     <div class="flex gap-3 w-full">
-      <Button :label="$t('actions.send')" :disabled="!meta.valid" @click="onSubmit" />
+      <Button type="submit" :label="$t('actions.send')" :disabled="!meta.valid" />
       <SignCheckbox v-model="isSigningEnabled" />
     </div>
-  </div>
+  </form>
 </template>
 
 <script setup lang="ts">
@@ -260,13 +258,13 @@ const { value: idTypeNameValue, errorMessage: idTypeNameError } =
 const { value: idNumberValue, errorMessage: idNumberError } =
   useField<string>('ipIdentity.idNumber');
 const { value: idIssueDateValue, errorMessage: idIssueDateError } =
-  useField<string>('ipIdentity.idIssueDate');
+  useField<Date>('ipIdentity.idIssueDate');
 const { value: idIssuerValue, errorMessage: idIssuerError } =
   useField<string>('ipIdentity.idIssuer');
 const { value: idRegAddressValue, errorMessage: idRegAddressError } =
   useField<string>('ipIdentity.idRegAddress');
 const { value: idBirthdateValue, errorMessage: idBirthdateError } =
-  useField<string>('ipIdentity.idBirthdate');
+  useField<Date>('ipIdentity.idBirthdate');
 
 // Адреса
 const { value: postAddressValue, errorMessage: postAddressError } = useField<string>('postAddress');
@@ -298,6 +296,7 @@ const addContact = () => {
 };
 
 // Обработчик отправки формы
+//TODO проработать схему для совпадения типов
 const onSubmit = handleSubmit((data: OrganizationType) => {
   emits('submit', data, isSigningEnabled.value);
 });

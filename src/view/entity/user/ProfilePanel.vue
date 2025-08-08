@@ -1,4 +1,4 @@
-<style module lang="scss">
+<style module lang="css">
 .userPanel {
   padding-left: 1rem;
   height: 40px;

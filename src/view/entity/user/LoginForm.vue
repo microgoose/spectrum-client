@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center flex-column gap-4 mw-20rem">
+  <form class="flex items-center flex-column gap-4 mw-20rem" @submit.prevent="onSubmit">
     <InputField
       v-model="usernameValue"
       :error="usernameError"
@@ -19,7 +19,6 @@
     <div class="flex flex-column w-full gap-2">
       <Button
         :loading="isLoading"
-        @click="onSubmit"
         :disabled="!meta.valid"
         :label="$t('actions.enter')"
         class="w-full"
@@ -32,7 +31,7 @@
         {{ error }}
       </Message>
     </div>
-  </div>
+  </form>
 </template>
 
 <script setup lang="ts">
@@ -54,7 +53,7 @@ const { meta, handleSubmit } = useForm({
   validationSchema: toTypedSchema(loginValidationScheme),
 });
 
-const { value: usernameValue, errorMessage: usernameError } = useField<string>('user');
+const { value: usernameValue, errorMessage: usernameError } = useField<string>('username');
 const { value: passwordValue, errorMessage: passwordError } = useField<string>('password');
 
 const onSubmit = handleSubmit((data: LoginData) => {

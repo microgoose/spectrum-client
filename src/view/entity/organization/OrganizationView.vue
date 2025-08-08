@@ -31,7 +31,7 @@
     </div>
     <div class="flex flex-column gap-1 w-5">
       <span class="text-400 subtext">{{ $t('organizationForm.fields.idIssueDate') }}</span>
-      <span class="text">{{ organization.ipIdentity?.idIssueDate || '-' }}</span>
+      <span class="text">{{ organization.ipIdentity?.idIssueDate ? formatDate(organization.ipIdentity?.idIssueDate) : '-' }}</span>
     </div>
     <div class="flex flex-column gap-1 w-full">
       <span class="text-400 subtext">{{ $t('organizationForm.fields.idIssuer') }}</span>
@@ -43,7 +43,7 @@
     </div>
     <div class="flex flex-column gap-1 w-full">
       <span class="text-400 subtext">{{ $t('organizationForm.fields.idBirthdate') }}</span>
-      <span class="text">{{ organization.ipIdentity?.idBirthdate || '-' }}</span>
+      <span class="text">{{ organization.ipIdentity?.idBirthdate ? formatDate(organization.ipIdentity?.idBirthdate) : '-' }}</span>
     </div>
 
     <Divider />
@@ -107,6 +107,7 @@
 <script setup lang="ts">
 import Divider from 'primevue/divider';
 import type { OrganizationType } from '@/model/organization/organization.types.ts';
+import { formatDate } from '@/shared/lib/date-util';
 
 defineProps<{ organization: OrganizationType }>();
 </script>

@@ -34,12 +34,10 @@ export const organizationValidationSchema = z.object({
       .min(1, { message: t('organizationForm.error.idIssuerRequired') }),
 
     idIssueDate: z
-      .string({ message: t('organizationForm.error.idIssueDateRequired') })
-      .regex(/^\d{4}-\d{2}-\d{2}$/, { message: t('organizationForm.error.dateFormat') }),
+      .date({ message: t('organizationForm.error.idIssueDateRequired') }),
 
     idBirthdate: z
-      .string({ message: t('organizationForm.error.birthdateRequired') })
-      .regex(/^\d{4}-\d{2}-\d{2}$/, { message: t('organizationForm.error.dateFormat') }),
+      .date({ message: t('organizationForm.error.birthdateRequired') }),
 
     idRegAddress: z
       .string({ message: t('organizationForm.error.regAddressRequired') })

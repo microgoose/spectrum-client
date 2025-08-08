@@ -1,18 +1,24 @@
-// Типы для ответа  организаций
 export interface OrganizationIdType {
   id: number;
   name: string;
   sdcoCode: string;
 }
 
-export interface OrganizationIpIdentityType {
+//Ответ API
+export interface RawOrganizationIpIdentityType {
   idType: OrganizationIdType;
   idNumber: string;
   idFio: string;
   idIssuer: string;
-  idIssueDate: string; // ISO строка
-  idBirthdate: string; // ISO строка
+  idIssueDate: string; // Приходит как строка
+  idBirthdate: string; // Приходит как строка
   idRegAddress: string;
+}
+
+//Так как полей немного, просто берём существущий тип и перезаписываем часть его свойств
+export interface OrganizationIpIdentityType extends Omit<RawOrganizationIpIdentityType, 'idIssueDate' | 'idBirthdate'> {
+  idIssueDate: Date;
+  idBirthdate: Date;
 }
 
 export interface OrganizationTaxationType {
@@ -32,10 +38,10 @@ export interface OrganizationContactType {
   email: string;
 }
 
-export interface OrganizationType {
+export interface RawOrganizationType {
   id: number;
   crmOrganizationId: number;
-  ipIdentity: OrganizationIpIdentityType;
+  ipIdentity: RawOrganizationIpIdentityType;
   taxation: OrganizationTaxationType;
   shortName: string;
   fullName: string;
@@ -49,4 +55,8 @@ export interface OrganizationType {
   factAddress: string;
   sendRekvContact: OrganizationSendRekvContactType;
   organizationContacts: OrganizationContactType[];
+}
+
+export interface OrganizationType extends Omit<RawOrganizationType, 'ipIdentity'> {
+  ipIdentity: OrganizationIpIdentityType;
 }

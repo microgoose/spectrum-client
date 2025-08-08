@@ -26,7 +26,7 @@ export const useSidebarStore = defineStore('sidebar', {
       { label: t('appSidebar.documents'), to: getRoutePath(Routes.DOCUMENTS), icon: 'pi pi-book' },
       {
         label: t('appSidebar.applications'),
-        to: getRoutePath(Routes.APPLICATIONS),
+        to: getRoutePath(Routes.CLAIMS),
         icon: 'pi pi-inbox',
       },
       {

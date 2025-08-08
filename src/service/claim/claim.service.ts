@@ -1,8 +1,11 @@
-import { saveClaim } from '@/api/claim.api';
-import type { ClaimRequestData } from '@/model/claim/claim.types';
+import { getClaims, saveClaim } from '@/api/claim.api';
+import { dialogs } from '@/config/dialog';
+import type { ClaimRequestData, ClaimSummary } from '@/model/claim/claim.types';
 import type { OrganizationType } from '@/model/organization/organization.types';
 import { signData } from '@/service/sign/certificate.service';
 import { encodeToBase64 } from '@/shared/lib/base64-util.ts';
+import { useDialogStore } from '@/store/app/dialog.store';
+import { useQuery } from '@tanstack/vue-query';
 
 export const sendOrganizationClaim = async (
   newData: OrganizationType,
@@ -22,4 +25,22 @@ export const sendOrganizationClaim = async (
   };
 
   await saveClaim(payload);
+};
+
+export const getClaimsQuery = () => {
+  return useQuery<ClaimSummary[]>({
+    queryKey: ['auth-org-claims'],
+    queryFn: getClaims,
+    throwOnError: true,
+  });
+};
+
+export const removeClaim = async (id: string) => {
+  const dialog = useDialogStore();
+  const result = await dialog.open(dialogs.CANCEL_CLAIM);
+
+  if (result) {
+    //TODO
+    alert('Removing claim id ' + id);
+  }
 };

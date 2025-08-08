@@ -1,4 +1,4 @@
-<style module lang="scss">
+<style module lang="css">
 .profileButton {
   --p-button-border-radius: none;
 

@@ -7,7 +7,7 @@ export enum Routes {
   NOTIFICATIONS = 'notifications',
   NOTIFICATION = 'notification',
   DOCUMENTS = 'documents',
-  APPLICATIONS = 'applications',
+  CLAIMS = 'claims',
   ORGANIZATION = 'organization',
   SEND_DOCUMENT = 'send-document',
   PROFILE = 'profile',
@@ -16,9 +16,9 @@ export enum Routes {
 
 export const routes = [
   {
-    path: '/applications',
-    name: Routes.APPLICATIONS,
-    component: () => import('@/view/pages/application/ApplicationsPage.vue'),
+    path: '/claims',
+    name: Routes.CLAIMS,
+    component: () => import('@/view/pages/claim/ClaimsPage.vue'),
     meta: { titleKey: 'applicationsPage.title' },
   },
   {

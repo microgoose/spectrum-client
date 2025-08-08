@@ -17,25 +17,29 @@ import '@/shared/styles/reset.css';
 import '@/shared/styles/shortcuts.css';
 import '@/shared/styles/typography.css';
 
-// Загружаем локализацию
-await changeLocale(detectUserLanguage());
+const setup = async () => {
+  // Загружаем локализацию
+  await changeLocale(detectUserLanguage());
 
-// Создаем приложение
-const app = createApp(App);
+  // Создаем приложение
+  const app = createApp(App);
 
-app.use(createPinia());
-app.use(i18n);
-app.use(getRouter());
-app.use(PrimeVue, getPrimeVueConfig());
-app.use(ToastService);
-app.use(VueQueryPlugin);
+  app.use(createPinia());
+  app.use(i18n);
+  app.use(getRouter());
+  app.use(PrimeVue, getPrimeVueConfig());
+  app.use(ToastService);
+  app.use(VueQueryPlugin);
 
-// Добавляем глобальные свойства для доступа к i18n в компонентах
-app.config.globalProperties.$t = i18n.global.t.bind(i18n.global);
-app.config.globalProperties.$n = i18n.global.n.bind(i18n.global);
+  // Добавляем глобальные свойства для доступа к i18n в компонентах
+  app.config.globalProperties.$t = i18n.global.t.bind(i18n.global);
+  app.config.globalProperties.$n = i18n.global.n.bind(i18n.global);
 
-app.config.errorHandler = (err) => {
-  openError(err as Error);
+  app.config.errorHandler = (err) => {
+    openError(err as Error);
+  };
+
+  app.mount('#app');
 };
 
-app.mount('#app');
+setup();

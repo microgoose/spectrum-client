@@ -26,7 +26,7 @@
     <h3 class="dialog-title">{{ $t('sendDocumentSuccessDialog.title') }}</h3>
     <p class="dialog-message">
       {{ $t('sendDocumentSuccessDialog.text.message.pre') }}
-      <RouterLink @click="dialog.close()" :to="getRoutePath(Routes.APPLICATIONS)" class="link">
+      <RouterLink @click="dialog.close()" :to="getRoutePath(Routes.CLAIMS)" class="link">
         {{ $t('sendDocumentSuccessDialog.text.message.link') }}
       </RouterLink>
     </p>

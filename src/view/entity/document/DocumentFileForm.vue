@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-column gap-4">
+  <form class="flex flex-column gap-4" @submit.prevent="handleSubmit">
     <div>
       <Textarea
         v-model="comment"
@@ -48,10 +48,10 @@
     </div>
 
     <div class="flex items-center gap-2">
-      <Button :label="$t('actions.send')" @click="handleSubmit" />
+      <Button type="submit" :label="$t('actions.send')" />
       <SignCheckbox v-model="isSigningEnabled" />
     </div>
-  </div>
+  </form>
 </template>
 
 <script setup lang="ts">

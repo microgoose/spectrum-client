@@ -1,0 +1,19 @@
+.base-deploy: &base-deploy
+  stage: deploy
+  needs: ['build']
+  before_script:
+    - export https_proxy=$PROXY
+  only:
+    - ci-cd-test
+
+
+deploy:
+  tags:
+    - spectrum-client-51
+  <<: *base-deploy
+
+  script:
+    - echo 'Deploy...'
+    # - npm ci
+    # - npm run build-only
+    - echo 'Deploy complete.'

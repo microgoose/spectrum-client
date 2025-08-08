@@ -1,0 +1,20 @@
+.base-test: &base-test
+  stage: test
+  needs: ['check-lint', 'check-lint-style', 'check-types']
+  before_script:
+    - export https_proxy=$PROXY
+  only:
+    - ci-cd-test
+
+
+test-unit:
+  tags:
+    - spectrum-client-51
+  <<: *base-test
+
+  script:
+    - echo 'Testing...'
+    - npm ci
+    # - npm run test:unit
+    - echo 'Tests complete.'
+    

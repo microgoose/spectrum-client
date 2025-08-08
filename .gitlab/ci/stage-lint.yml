@@ -1,0 +1,42 @@
+.base-lint: &base-lint
+  stage: lint
+  needs: ['check-dependencies', 'check-audit']
+  before_script:
+    - export https_proxy=$PROXY
+  only:
+    - ci-cd-test
+
+
+check-lint:
+  tags:
+    - spectrum-client-51
+  <<: *base-lint
+
+  script:
+    - echo 'Lint...'
+    - npm ci
+    - npm run lint
+    - echo 'Lint complete.'
+
+
+check-lint-style:
+  tags:
+    - spectrum-client-51
+  <<: *base-lint
+
+  script:
+    - echo 'Lint style...'
+    - npm ci
+    - npm run style-lint
+    - echo 'Lint style complete.'
+
+
+check-types:
+  tags:
+    - spectrum-client-51
+  <<: *base-lint
+
+  script:
+    - echo 'Checking types...'
+    # - npm run type-check
+    - echo 'Checking types complete.'

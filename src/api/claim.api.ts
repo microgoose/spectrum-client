@@ -1,12 +1,7 @@
 // Генерация XML анкеты
 import { api } from '@/config/api.ts';
-import type {
-  ClaimRequestData,
-  ClaimStatusResponse,
-  ClaimSummary,
-  ClaimXmlGenerationRequest,
-  FullClaim,
-} from '@/model/claim/claim.types.ts';
+import type { ClaimXmlGenerationRequest, ClaimRequestData, ClaimStatusResponse, ClaimSummary, RawClaimSummary, FullClaim } from '@/model/claim/claim.types';
+import { getJsDate } from '@/shared/lib/date-util';
 
 export const generateClaimXml = async (payload: ClaimXmlGenerationRequest) => {
   // XML приходит в виде строки
@@ -26,8 +21,12 @@ export const updateClaim = async (claimId: number, payload: ClaimRequestData) =>
 };
 
 // Получение списка заявлений
-export const getClaims = async () => {
-  return api.get('claim').json<ClaimSummary[]>();
+export const getClaims = async (): Promise<ClaimSummary[]> => {
+  const claims = await api.get('claim').json<RawClaimSummary[]>();
+  return claims.map(claim => ({
+    ...claim,
+    date: claim.date ? getJsDate(claim.date) : undefined,
+  }));
 };
 
 // Получение заявления по ID

@@ -9,18 +9,13 @@
 import { ref } from 'vue';
 import TabMenu from 'primevue/tabmenu';
 import DocumentTable from '@/view/entity/document/DocumentTable.vue';
+import { getClaims } from '@/api/claim.api';
+import type { ClaimSummary } from '@/model/claim/claim.types';
 
-//TODO
-const docs = [
-  {
-    type: 'Анкета участника',
-    status: 'Утвержден',
-    date: '15.03.2025',
-    endDate: null,
-  },
-];
-
+const docs = ref<ClaimSummary[]>([]);
 const activeIndex = ref(0);
-
+//TODO
 const tabs = [{ label: 'Все' }, { label: 'Договоры' }, { label: 'Документы организации' }];
+
+getClaims().then(claims => docs.value = claims);
 </script>

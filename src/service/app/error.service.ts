@@ -8,4 +8,5 @@ export const openError = (error: Error | unknown) => {
   const errorStore = useErrorStore();
   dialogStore.open(dialogs.ERROR_MESSAGE);
   errorStore.setError(toError(error));
+  console.error(error);
 };

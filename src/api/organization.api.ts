@@ -1,8 +1,18 @@
-import { api } from '@/config/api.ts';
-import type { OrganizationType } from '@/model/organization/organization.types.ts';
+import { api } from '@/config/api';
+import type {OrganizationType, RawOrganizationType} from '@/model/organization/organization.types.ts';
+// import { getJsDate } from '@/shared/lib/date-util';
 
 export const getAuthUserOrganization = async () => {
-  return api.get('organization').json<OrganizationType>();
+  const organization = await api.get('organization').json<RawOrganizationType>();
+
+  return {
+    ...organization,
+    // ipIdentity: {
+    //   ...organization.ipIdentity,
+    //   idIssueDate: getJsDate(organization.ipIdentity.idIssueDate),
+    //   idBirthdate: getJsDate(organization.ipIdentity.idBirthdate),
+    // },
+  };
 };
 
 export const getOrganizationById = async (organizationId: number) => {

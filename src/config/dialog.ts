@@ -1,6 +1,6 @@
 import type { Component } from 'vue';
 import ErrorView from '@/view/entity/error/ErrorView.vue';
-import CancelApplicationDialog from '@/view/feature/application/CancelApplicationDialog.vue';
+import CancelClaimDialog from '@/view/feature/claim/CancelClaimDialog.vue';
 import ConfirmLogoutDialog from '@/view/feature/auth/ConfirmLogoutDialog.vue';
 import ClaimCancelDialog from '@/view/feature/claim/ClaimCancelDialog.vue';
 import ClaimSentDialog from '@/view/feature/claim/ClaimSentDialog.vue';
@@ -29,10 +29,10 @@ export const dialogs: DialogRoutes = {
     titleKey: 'actions.logout',
     component: ConfirmLogoutDialog,
   },
-  CANCEL_APPLICATION: {
-    name: 'cancel-application',
+  CANCEL_CLAIM: {
+    name: 'cancel-claim',
     titleKey: 'cancelApplication.dialogTitle',
-    component: CancelApplicationDialog,
+    component: CancelClaimDialog,
   },
   CLAIM_CANCEL: {
     name: 'claim-cancel',

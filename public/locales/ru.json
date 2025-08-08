@@ -2,6 +2,8 @@
   "helloWorld": "Привет, мир",
   "app": {
     "name": "АРМ \"Спектр\"",
+    "dateFormat": "dd.MM.yyyy",
+    "dateTimeFormat": "dd.MM.yyyy, HH:mm",
     "shortDescription": "Автоматизированное рабочее место \"Спектр\""
   },
   "company": {
@@ -26,7 +28,8 @@
   },
   "errors": {
     "internalServiceError": "Внутренняя ошибка сервера",
-    "unknownError": "Неизвестная ошибка"
+    "unknownError": "Неизвестная ошибка",
+    "unknownDateValue": "Неизвестный формат даты"
   },
   "primevue": {
     "accept": "Да",
@@ -44,7 +47,7 @@
     "custom": "Пользовательский",
     "dateAfter": "Дата после",
     "dateBefore": "Дата до",
-    "dateFormat": "dd.mm.yy",
+    "dateFormat": "dd.MM.yyyy",
     "dateIs": "Дата равна",
     "dateIsNot": "Дата не равна",
     "dayNames": [

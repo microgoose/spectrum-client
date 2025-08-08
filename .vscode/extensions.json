@@ -4,6 +4,8 @@
     "vitest.explorer",
     "dbaeumer.vscode-eslint",
     "EditorConfig.EditorConfig",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "shd101wyy.markdown-preview-enhanced",
+    "yzhang.markdown-all-in-one"
   ]
 }

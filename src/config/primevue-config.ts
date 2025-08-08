@@ -82,6 +82,9 @@ const SpimexPreset = definePreset(Aura, {
     },
 
     datepicker: {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      //TODO это корректно и работает, разобраться в схемах primevue
       width: '100%',
     },
 

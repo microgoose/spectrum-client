@@ -22,37 +22,21 @@
         "PATCH_ANKETA_XML": "/claim/anketa/{claim_id}"
       }
     },
-    "applications": [
+    "claim": [
       {
-        "id": "1",
-        "type": "Заявление на изменение анкеты участника",
-        "status": "В работе",
-        "comment": null,
-        "date": "14.03.2025",
-        "sender": "Иванов И.И."
-      },
-      {
-        "id": "2",
-        "type": "Произвольный документ",
-        "status": "В работе",
-        "comment": null,
-        "date": "20.05.2025",
-        "sender": "Иванов И.И."
+        "id": 1,
+        "claimType": {
+          "name": "claim_anketa",
+          "description": "Заявление на изменение анкетных данных"
+        },
+        "user": {
+          "id": 10,
+          "fio": "Сидоров Петр Иванович"
+        },
+        "status": "REGISTERED",
+        "date": "2025-06-04T13:24:35.527+00:00"
       }
     ],
-    "claim": {
-      "id": 1,
-      "claimType": {
-        "name": "claim_anketa",
-        "description": "Заявление на изменение анкетных данных"
-      },
-      "user": {
-        "id": 10,
-        "fio": "Сидоров Петр Иванович"
-      },
-      "status": "REGISTERED",
-      "date": "2025-06-04T13:24:35.527+00:00"
-    },
     "claim/1": {
       "type": "claim_anketa",
       "ogrn": "1027739606247",

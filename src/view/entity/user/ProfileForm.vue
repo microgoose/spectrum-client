@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-column gap-5">
+  <form class="flex flex-column gap-5" @submit.prevent="$emit('submit')">
     <fieldset class="grid grid-cols-2 gap-3">
       <legend class="h2-bold pb-3">{{ $t('userForm.fieldset.main') }}</legend>
 
@@ -60,10 +60,10 @@
     </fieldset>
 
     <div class="flex gap-4 w-full">
-      <Button :label="$t('actions.send')" :disabled="!meta.valid" @click="$emit('submit')" />
+      <Button type="submit" :label="$t('actions.send')" :disabled="!meta.valid" />
       <SignCheckbox v-model="isSigningEnabled" />
     </div>
-  </div>
+  </form>
 </template>
 
 <script setup lang="ts">

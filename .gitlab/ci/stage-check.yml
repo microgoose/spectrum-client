@@ -1,0 +1,50 @@
+.base-check: &base-check
+  stage: check
+  before_script:
+    - export https_proxy=$PROXY
+    - |
+      cat << EOF > .env
+      GITLAB_TOKEN=$GITLAB_TOKEN
+      PROJECT_ID=$PROJECT_ID
+      EOF
+    # - cat .env
+  only:
+    - ci-cd-test
+
+
+check-audit:
+  tags:
+    - spectrum-client-51
+  <<: *base-check
+
+  script:
+    - echo 'Audit...'
+    - npm audit
+    - echo 'Audit complete.'
+
+
+check-dependencies:
+  tags:
+    - spectrum-client-51
+  <<: *base-check
+
+  script:
+    - echo 'Generate outdated report...'
+    - npm ci
+    - npm run generate-report
+    - ls -la outdated-report.json
+
+    - echo 'Create issue on outdated...'
+    - npm install node-fetch
+    - npm install dotenv
+
+    - cat outdated-report.json
+    - node create-issue.js "$(cat outdated-report.json)"
+    
+    - echo 'Create issue on complete.'
+    - echo 'Report complete.'
+
+  artifacts:
+    paths:
+      - $CI_PROJECT_DIR/outdated-report.json
+    expire_in: 1 week

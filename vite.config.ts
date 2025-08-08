@@ -42,7 +42,11 @@ export default defineConfig(({ mode }) => {
               if (id.includes('@tanstack')) return 'vue-query';
               if (id.includes('vue-i18n')) return 'vue-i18n';
               if (id.includes('vue-router')) return 'vue-router';
-              if (id.includes('@zod')) return 'zod';
+              if (id.includes('zod')) return 'zod';
+              if (id.includes('vee-validate')) return 'vee-validate';
+              if (id.includes('@vee-validate/zod')) return 'vee-zod';
+              if (id.includes('luxon')) return 'luxon';
+              if (id.includes('crypto-pro')) return 'crypto-pro';
               return 'vendor';
             }
           },

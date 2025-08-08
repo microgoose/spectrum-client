@@ -36,7 +36,7 @@
       </template>
 
       <div class="notification-container" v-else-if="notification">
-        <div class="date">{{ notification.date }}</div>
+        <div class="date">{{ formatDate(notification.date) }}</div>
         <h3 class="title">{{ notification.title }}</h3>
         <p class="description">{{ notification.description }}</p>
         <pre class="message">{{ notification.message }}</pre>
@@ -54,6 +54,7 @@ import Button from 'primevue/button';
 import Card from 'primevue/card';
 import Skeleton from 'primevue/skeleton';
 import { getNotificationQuery } from '@/service/notification/notification.service.ts';
+import { formatDate } from '@/shared/lib/date-util';
 
 const props = defineProps<{ id: string }>();
 const { isPending, data: notification } = getNotificationQuery(props.id);

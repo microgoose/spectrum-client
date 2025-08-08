@@ -1,15 +1,11 @@
 :root {
   --font-h1: normal 400 1rem / 1.2rem 'Roboto Variable', sans-serif;
   --font-h1-bold: normal 600 1rem / 1.2rem 'Roboto Variable', sans-serif;
-
   --font-h2: normal 400 1rem / 1.1rem 'Roboto Variable', sans-serif;
   --font-h2-bold: normal 600 1rem / 1.1rem 'Roboto Variable', sans-serif;
-
   --font-text: normal 400 0.875rem / 1rem 'Roboto Variable', sans-serif;
   --font-text-bold: normal 600 0.875rem / 1rem 'Roboto Variable', sans-serif;
-
   --font-subtext: normal 400 0.875rem / 1rem 'Roboto Variable', sans-serif;
   --font-subtext-bold: normal 600 0.875rem / 1rem 'Roboto Variable', sans-serif;
-
   --font-subtitle: normal 400 0.75rem / 1rem 'Roboto Variable', sans-serif;
 }

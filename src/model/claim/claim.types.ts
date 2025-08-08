@@ -8,12 +8,16 @@ export interface ClaimUser {
   fio: string;
 }
 
-export interface ClaimSummary {
+export interface RawClaimSummary {
   id: number;
   claimType: ClaimType;
   user: ClaimUser;
   status: string;
-  date: string;
+  date?: string;
+}
+
+export interface ClaimSummary extends Omit<RawClaimSummary, 'date'> {
+  date?: Date;
 }
 
 export interface ClaimRequestData {
@@ -31,7 +35,7 @@ export interface ClaimXmlGenerationRequest {
   claim: {
     type: string;
     ogrn: string;
-    data: any; // структура анкеты (можно типизировать отдельно при необходимости)
+    data: unknown; // структура анкеты (можно типизировать отдельно при необходимости)
   };
 }
 
@@ -44,5 +48,5 @@ export interface FullClaim {
   ogrn: string;
   author: string;
   date: string;
-  data: any; // можно типизировать при необходимости
+  data: unknown; // можно типизировать при необходимости
 }

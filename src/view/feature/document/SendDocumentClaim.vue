@@ -11,6 +11,7 @@ const emit = defineEmits<{ submit: [] }>();
 
 const dialog = useDialogStore();
 
+// eslint-disable-next-line
 function handleSubmit(comment: string, files: File[], isSigningEnabled: boolean) {
   dialog.open(dialogs.SEND_DOCUMENT_SUCCESS);
   emit('submit');

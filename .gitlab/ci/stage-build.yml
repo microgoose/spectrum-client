@@ -1,0 +1,19 @@
+.base-test: &base-build
+  stage: build
+  needs: ['test-unit']
+  before_script:
+    - export https_proxy=$PROXY
+  only:
+    - ci-cd-test
+
+
+build:
+  tags:
+    - spectrum-client-51
+  <<: *base-build
+
+  script:
+    - echo 'Building...'
+    - npm ci
+    - npm run build-only
+    - echo 'Build complete.'

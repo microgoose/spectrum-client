@@ -1,0 +1,30 @@
+include:
+  - local: /.gitlab/ci/stage-check.yml
+  - local: /.gitlab/ci/stage-lint.yml
+  - local: /.gitlab/ci/stage-test.yml
+  - local: /.gitlab/ci/stage-build.yml
+  - local: /.gitlab/ci/stage-deploy.yml
+
+# Настройка стратегии работы с Git репозиторием
+variables:
+  # Определяет метод получения исходного кода проекта
+  GIT_STRATEGY: clone
+
+  # Возможные значения и их особенности:
+  # clone - полная клонирование репозитория
+  # fetch - получение только изменений (по умолчанию)
+  # none - не извлекать код (для заданий без доступа к коду)
+
+# Настройка кэширования для ускорения сборки
+cache:
+# Указание путей к кэшируемым директориям
+  paths:
+    # Кэширование директории с модулями Node.js
+    - $CI_PROJECT_DIR/node_modules/ # need --prefer-offline to avoid npm re-install
+
+stages:
+  - check
+  - lint
+  - test
+  - build
+  - deploy

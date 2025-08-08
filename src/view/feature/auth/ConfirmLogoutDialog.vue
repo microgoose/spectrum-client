@@ -1,4 +1,4 @@
-<style lang="scss" module>
+<style lang="css" module>
 .container {
   display: flex;
   flex-direction: column;

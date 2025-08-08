@@ -8,7 +8,7 @@
       <BlockTitle>
         {{ $t('applicationsPage.title') }}
       </BlockTitle>
-      <ApplicationsWidget />
+      <ClaimsWidget/>
     </template>
   </DefaultContentLayout>
 </template>
@@ -17,5 +17,5 @@
 import BlockTitle from '@/shared/components/BlockTitle.vue';
 import ProfilePanel from '@/view/entity/user/ProfilePanel.vue';
 import DefaultContentLayout from '@/view/layout/default/DefaultContentLayout.vue';
-import ApplicationsWidget from '@/view/widget/application/ApplicationsWidget.vue';
+import ClaimsWidget from '@/view/widget/claim/ClaimsWidget.vue';
 </script>

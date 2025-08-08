@@ -26,7 +26,7 @@
     <h3 class="dialog-title">{{ $t('claimSentDialog.title') }}</h3>
     <p class="dialog-message">
       {{ $t('claimSentDialog.text.message.pre') }}
-      <RouterLink @click="dialog.close()" :to="getRoutePath(Routes.APPLICATIONS)" class="link">
+      <RouterLink @click="dialog.close()" :to="getRoutePath(Routes.CLAIMS)" class="link">
         {{ $t('claimSentDialog.text.message.link') }}
       </RouterLink>
     </p>

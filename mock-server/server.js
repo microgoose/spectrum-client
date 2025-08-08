@@ -1,6 +1,8 @@
-const express = require('express');
-const fs = require('fs');
-const cors = require('cors');
+import express from 'express';
+import fs from 'fs';
+import cors from 'cors';
+import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
 
 const app = express();
 app.use(express.json());
@@ -29,8 +31,15 @@ app.use(cors());
   });
 });
 
-// Старт сервера
-const PORT = 3001;
+const argv = yargs(hideBin(process.argv))
+  .option('port', {
+    alias: 'p',
+    type: 'number',
+    default: 3100
+  })
+  .parse();
+
+const PORT = argv.port;
 app.listen(PORT, () => {
   console.log(`Mock server running at http://localhost:${PORT}`);
 });

@@ -28,7 +28,7 @@
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import BlockTitle from '@/shared/components/BlockTitle.vue';
-import Notification from '@/view/entity/notification/Notification.vue';
+import Notification from '@/view/entity/notification/NotificationView.vue';
 import ProfilePanel from '@/view/entity/user/ProfilePanel.vue';
 import DefaultContentLayout from '@/view/layout/default/DefaultContentLayout.vue';
 
