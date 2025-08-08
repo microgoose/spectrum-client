@@ -8,7 +8,7 @@
       <BlockTitle>
         {{ $t('applicationsPage.title') }}
       </BlockTitle>
-      <ClaimsWidget/>
+      <ClaimsWidget />
     </template>
   </DefaultContentLayout>
 </template>

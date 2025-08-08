@@ -1,17 +1,25 @@
 import { api } from '@/config/api';
-import type {OrganizationType, RawOrganizationType} from '@/model/organization/organization.types.ts';
-// import { getJsDate } from '@/shared/lib/date-util';
+import type {
+  OrganizationType,
+  RawOrganizationType,
+} from '@/model/organization/organization.types.ts';
+import { getJsDate } from '@/shared/lib/date-util';
 
-export const getAuthUserOrganization = async () => {
+export const getAuthUserOrganization = async (): Promise<OrganizationType> => {
   const organization = await api.get('organization').json<RawOrganizationType>();
+  let ipIdentity;
+
+  if (organization.ipIdentity) {
+    ipIdentity = {
+        ...organization.ipIdentity,
+        idIssueDate: getJsDate(organization.ipIdentity.idIssueDate),
+        idBirthdate: getJsDate(organization.ipIdentity.idBirthdate),
+    };
+  }
 
   return {
     ...organization,
-    // ipIdentity: {
-    //   ...organization.ipIdentity,
-    //   idIssueDate: getJsDate(organization.ipIdentity.idIssueDate),
-    //   idBirthdate: getJsDate(organization.ipIdentity.idBirthdate),
-    // },
+    ipIdentity,
   };
 };
 

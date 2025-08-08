@@ -1,5 +1,5 @@
-import { t } from "@/config/localization";
-import { DateTime } from "luxon";
+import { DateTime } from 'luxon';
+import { t } from '@/config/localization';
 
 // Регулярное выражение для проверки ISO 8601 формата
 const ISO_8601_REGEX = /^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2})?)?$/;

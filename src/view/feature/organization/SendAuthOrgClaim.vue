@@ -13,12 +13,13 @@ import { openError } from '@/service/app/error.service.ts';
 import { sendOrganizationClaim } from '@/service/claim/claim.service.ts';
 import { useDialogStore } from '@/store/app/dialog.store.ts';
 import OrganizationForm from '@/view/entity/organization/OrganizationForm.vue';
+import type { OrganizationZodType } from '@/model/organization/organization.zod.ts';
 
 const emits = defineEmits(['submit']);
 defineProps<{ initialValues: OrganizationType }>();
 const dialog = useDialogStore();
 
-const onSubmit = async (organization: OrganizationType, withSign: boolean) => {
+const onSubmit = async (organization: OrganizationZodType, withSign: boolean) => {
   try {
     await sendOrganizationClaim(organization, withSign);
     emits('submit');

@@ -63,7 +63,8 @@ const beforeEach = (
 
   if (!to.meta.unauthorized && !auth.isAuthenticated) {
     next({ name: Routes.LOGIN });
-  } if (to.meta.unauthorized && auth.isAuthenticated) {
+  }
+  if (to.meta.unauthorized && auth.isAuthenticated) {
     next({ name: Routes.HOME });
   } else {
     next();

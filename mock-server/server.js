@@ -1,6 +1,6 @@
+import cors from 'cors';
 import express from 'express';
 import fs from 'fs';
-import cors from 'cors';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 
@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cors());
 
 // Автоматическая маршрутизация по методам и путям
-['GET', 'POST', 'PUT', 'PATCH'].forEach(method => {
+['GET', 'POST', 'PUT', 'PATCH'].forEach((method) => {
   const data = JSON.parse(fs.readFileSync('./routes.json', 'utf-8'));
   const entries = data[method];
   if (!entries) return;
@@ -35,7 +35,7 @@ const argv = yargs(hideBin(process.argv))
   .option('port', {
     alias: 'p',
     type: 'number',
-    default: 3100
+    default: 3100,
   })
   .parse();
 

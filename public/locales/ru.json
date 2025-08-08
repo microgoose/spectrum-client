@@ -47,7 +47,7 @@
     "custom": "Пользовательский",
     "dateAfter": "Дата после",
     "dateBefore": "Дата до",
-    "dateFormat": "dd.MM.yyyy",
+    "dateFormat": "dd.mm.yy",
     "dateIs": "Дата равна",
     "dateIsNot": "Дата не равна",
     "dayNames": [

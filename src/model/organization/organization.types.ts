@@ -16,7 +16,8 @@ export interface RawOrganizationIpIdentityType {
 }
 
 //Так как полей немного, просто берём существущий тип и перезаписываем часть его свойств
-export interface OrganizationIpIdentityType extends Omit<RawOrganizationIpIdentityType, 'idIssueDate' | 'idBirthdate'> {
+export interface OrganizationIpIdentityType
+  extends Omit<RawOrganizationIpIdentityType, 'idIssueDate' | 'idBirthdate'> {
   idIssueDate: Date;
   idBirthdate: Date;
 }
@@ -41,7 +42,7 @@ export interface OrganizationContactType {
 export interface RawOrganizationType {
   id: number;
   crmOrganizationId: number;
-  ipIdentity: RawOrganizationIpIdentityType;
+  ipIdentity?: RawOrganizationIpIdentityType;
   taxation: OrganizationTaxationType;
   shortName: string;
   fullName: string;
@@ -58,5 +59,5 @@ export interface RawOrganizationType {
 }
 
 export interface OrganizationType extends Omit<RawOrganizationType, 'ipIdentity'> {
-  ipIdentity: OrganizationIpIdentityType;
+  ipIdentity?: OrganizationIpIdentityType;
 }

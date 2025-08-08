@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { t } from '@/config/localization.ts';
 
-export const profileValidationScheme = z.object({
+export const profileZod = z.object({
   login: z
     .string({ message: t('userForm.errors.loginRequired') })
     .min(1, { message: t('userForm.errors.loginRequired') }),
@@ -18,9 +18,7 @@ export const profileValidationScheme = z.object({
 
   email: z
     .string({ message: t('userForm.errors.emailRequired') })
-    .regex(/^[\w-.]+@[\w-]+\.[\w-.]+$/, {
-      message: t('userForm.errors.emailInvalid'),
-    }),
+    .email({ message: t('userForm.errors.emailInvalid') }),
 
   phone: z.string().optional().nullable(),
 

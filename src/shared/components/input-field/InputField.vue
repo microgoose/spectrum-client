@@ -1,18 +1,13 @@
 <template>
   <div class="flex flex-column gap-2">
     <IftaLabel>
-      <InputText
-        :id="uuid"
-        :type="type"
-        :invalid="!!error"
-        :modelValue="modelValue"
-        @update:modelValue="(val) => $emit('update:modelValue', val)"
-      />
+      <InputText :id="uuid" :type="type" :invalid="!!errorMessage" v-model="value" />
+
       <label :for="uuid">{{ label }}</label>
     </IftaLabel>
 
-    <Message v-if="error" severity="error" size="small" variant="simple">
-      {{ error }}
+    <Message v-if="errorMessage" severity="error" size="small" variant="simple">
+      {{ errorMessage }}
     </Message>
   </div>
 </template>
@@ -23,14 +18,14 @@ import IftaLabel from 'primevue/iftalabel';
 import InputText from 'primevue/inputtext';
 import Message from 'primevue/message';
 import { v4 } from 'uuid';
+import { useField } from 'vee-validate';
 
-defineEmits(['update:modelValue']);
-defineProps<{
-  error?: string;
-  type?: InputTypeHTMLAttribute;
-  modelValue?: string | null;
+const props = defineProps<{
+  name: string;
   label: string;
+  type?: InputTypeHTMLAttribute;
 }>();
 
 const uuid = v4();
+const { value, errorMessage } = useField<string | null | undefined>(props.name);
 </script>

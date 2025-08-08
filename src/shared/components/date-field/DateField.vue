@@ -1,16 +1,11 @@
 <template>
   <div class="flex flex-column gap-2">
     <IftaLabel>
-      <DatePicker
-        :input-id="uuid"
-        :invalid="!!error"
-        :modelValue="modelValue"
-        @update:modelValue="(val) => $emit('update:modelValue', val)"
-      />
+      <DatePicker :input-id="uuid" :invalid="!!errorMessage" v-model="value" />
       <label :for="uuid">{{ label }}</label>
     </IftaLabel>
-    <Message v-if="error" severity="error" size="small" variant="simple">
-      {{ error }}
+    <Message v-if="errorMessage" severity="error" size="small" variant="simple">
+      {{ errorMessage }}
     </Message>
   </div>
 </template>
@@ -20,13 +15,16 @@ import DatePicker from 'primevue/datepicker';
 import IftaLabel from 'primevue/iftalabel';
 import Message from 'primevue/message';
 import { v4 } from 'uuid';
+import { useField } from 'vee-validate';
 
 defineEmits(['update:modelValue']);
-defineProps<{
-  modelValue: Date | Date[] | (Date | null)[] | null | undefined;
-  error?: string;
+const props = defineProps<{
+  name: string;
   label: string;
 }>();
 
 const uuid = v4();
+const { value, errorMessage } = useField<Date | Date[] | (Date | null)[] | null | undefined>(
+  props.name,
+);
 </script>
